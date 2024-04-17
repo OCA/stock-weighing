@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_secondary_unit_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 09:50+0000\n"
+"PO-Revision-Date: 2024-07-17 11:51+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. module: stock_secondary_unit_weighing
+#: model_terms:ir.ui.view,arch_db:stock_secondary_unit_weighing.view_move_weight_kanban_view
+msgid "&amp;#10005;"
+msgstr "&amp;#10005;"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
+msgid "Has Recorded Weight"
+msgstr "Tiene peso registrado"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model,name:stock_secondary_unit_weighing.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de Producto (Stock Move Line)"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__recorded_weight
+msgid "Recorded Weight"
+msgstr "Peso registrado"
+
+#. module: stock_secondary_unit_weighing
+#: model_terms:ir.ui.view,arch_db:stock_secondary_unit_weighing.view_move_weight_kanban_view
+msgid "Secondary unit info"
+msgstr "Información de unidad secundaria"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model,name:stock_secondary_unit_weighing.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model.fields,help:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
+msgid "The weight was set from the wizard"
+msgstr "El peso fue registrado desde el asistente"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_date
+msgid "Weighing Date"
+msgstr "Fecha de pesaje"
+
+#. module: stock_secondary_unit_weighing
+#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_user_id
+msgid "Weighing User"
+msgstr "Usuario de pesaje"
