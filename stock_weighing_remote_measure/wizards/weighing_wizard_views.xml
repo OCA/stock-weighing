@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_wizard_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="stock_weighing.weighing_wizard_form_view" />
+        <field name="model">weighing.wizard</field>
+        <field name="arch" type="xml">
+            <field name="weight" position="before">
+                <field name="measure_device_id" invisible="1" />
+                <field name="uom_id" invisible="1" />
+                <div
+                    class="alert alert-info"
+                    attrs="{'invisible': ['|', ('measure_device_id', '!=', False), ('has_weight', '=', False)]}"
+                >
+                    <span><i
+                            class="fa fa-info-circle"
+                            role="image"
+                        /> You need to configure a default remote device in your user preferences to be able to start measuring remotely</span>
+                </div>
+            </field>
+            <field name="weight" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('has_weight', '!=', False), ('measure_device_id', '!=', False)]}</attribute>
+            </field>
+            <field name="weight" position="after">
+                <field
+                    name="weight_with_widget"
+                    class="form-control-lg text-center text-info o_input_weight"
+                    nolabel="1"
+                    attrs="{'invisible': ['|', ('measure_device_id', '=', False), ('has_weight', '=', False)]}"
+                    widget="remote_measure_form"
+                    options="{'remote_device_field': 'measure_device_id', 'uom_field': 'uom_id', 'tares': [{'tare':'0.05', 'name': '50 gr.'}, {'tare': '0.1', 'name': '100 gr.'}, {'tare': '0.2', 'name': '200 gr.'}, {'tare': '0.5', 'name': '500 gr.'}]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
