@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_batch_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_batch_weighing
+#: code:addons/stock_picking_batch_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Batch Pickings"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model,name:stock_picking_batch_weighing.model_stock_picking_batch
+msgid "Batch Transfer"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model.fields,field_description:stock_picking_batch_weighing.field_stock_picking_batch__has_weighing_operations
+msgid "Has Weighing Operations"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model,name:stock_picking_batch_weighing.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_weighing.stock_picking_batch_form
+msgid "Weigh"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model.fields,help:stock_picking_batch_weighing.field_stock_picking_batch__weighing_operations
+msgid "Weighed products are done from weighing operations"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model.fields,field_description:stock_picking_batch_weighing.field_stock_picking_batch__weighing_operations
+msgid "Weighing Operations"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: code:addons/stock_picking_batch_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Weighing batch pickings"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: code:addons/stock_picking_batch_weighing/models/stock_picking_batch.py:0
+#, python-format
+msgid "Weighing operations for %(name)s"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_weighing.stock_picking_batch_kanban
+msgid "Weighings"
+msgstr ""
+
+#. module: stock_picking_batch_weighing
+#: model:ir.model,name:stock_picking_batch_weighing.model_weigh_operation_selection
+msgid "weigh operation selection screen"
+msgstr ""
