@@ -14,6 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__read_interval
+msgid ""
+"(0 for no sleep between reads) Miliseconds to wait between device reads"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__active
 msgid "Active"
 msgstr ""
@@ -62,13 +68,24 @@ msgstr ""
 
 #. module: web_widget_remote_measure
 #: model:ir.ui.menu,name:web_widget_remote_measure.menu_device_config
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
 msgid "Devices"
 msgstr ""
 
 #. module: web_widget_remote_measure
+#: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__tcp
+msgid "Direct connection"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__non_stop_read
+msgid "Don't stop reading until the widget is disposed"
 msgstr ""
 
 #. module: web_widget_remote_measure
@@ -96,6 +113,11 @@ msgid "ID"
 msgstr ""
 
 #. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__instant_read
+msgid "Instant Read"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -116,11 +138,17 @@ msgid "Name"
 msgstr ""
 
 #. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__non_stop_read
+msgid "Non Stop Read"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__protocol
 msgid "Operating protocol"
 msgstr ""
 
 #. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
 msgid "Preferred remote device"
 msgstr ""
@@ -133,6 +161,21 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_factor
 msgid "Ratio"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__read_interval
+msgid "Read Interval"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+msgid "Read behavior"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__instant_read
+msgid "Read right on as the widget gets rendered"
 msgstr ""
 
 #. module: web_widget_remote_measure
