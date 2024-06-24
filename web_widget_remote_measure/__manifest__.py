@@ -5,7 +5,7 @@
     "summary": "Allows to connect to remote devices to record measures",
     "version": "15.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/web",
+    "website": "https://github.com/OCA/stock-weighing",
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "category": "Stock",
