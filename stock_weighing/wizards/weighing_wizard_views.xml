@@ -10,18 +10,33 @@
                 <field name="product_id" invisible="1" />
                 <field name="product_tracking" invisible="1" />
                 <field name="available_lot_ids" invisible="1" />
+                <field name="available_result_package_ids" invisible="1" />
                 <sheet>
-                    <field
-                        name="lot_id"
-                        class="form-control-lg"
-                        widget="selection"
-                        placeholder="Select lot..."
-                        attrs="{'invisible': ['|', ('wizard_state', '=', 'weight'), ('product_tracking', '=', 'none')]}"
-                    />
+                    <group groups="stock.group_production_lot">
+                        <field
+                            name="lot_id"
+                            class="form-control-lg"
+                            placeholder="Select lot..."
+                            attrs="{'invisible': ['|', ('wizard_state', '=', 'weight'), ('product_tracking', '=', 'none')]}"
+                            options="{'no_open': True, 'no_create': True}"
+                            nolabel="1"
+                        />
+                    </group>
                     <field
                         name="weight"
                         class="form-control-lg text-center text-info o_input_weight"
+                        nolabel="1"
                     />
+                    <group groups="stock.group_tracking_lot">
+                        <field
+                            name="result_package_id"
+                            class="form-control-lg"
+                            placeholder="Select destination package..."
+                            attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
+                            options="{'no_open': True, 'no_create': True}"
+                            nolabel="1"
+                        />
+                    </group>
                     <footer>
                         <button
                             name="record_weight"
