@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_wizard_form_view" model="ir.ui.view">
+        <field name="model">weighing.wizard</field>
+        <field name="inherit_id" ref="stock_weighing.weighing_wizard_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//footer">
+                <field name="stock_weighing_auto_package" widget="boolean_toggle" />
+                <label for="stock_weighing_auto_package" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
