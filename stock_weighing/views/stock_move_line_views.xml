@@ -13,7 +13,6 @@
                 <field name="has_recorded_weight" />
                 <field name="recorded_weight" />
                 <field name="state" />
-                <field name="lot_id" />
                 <field name="reference" />
                 <field name="tracking" />
                 <templates>
@@ -42,10 +41,23 @@
                                     <t t-if="record.tracking.raw_value">
                                         <small>LOT</small>
                                         <span
-                                            class="h4 text-muted"
-                                            t-out="record.lot_id.value"
                                             t-if="record.lot_id.raw_value"
-                                        />
+                                            class="h4 text-muted"
+                                        >
+                                            <field name="lot_id" />
+                                        </span>
+                                        <span t-else="" class="h4 text-muted">
+                                            <field name="lot_name" />
+                                        </span>
+                                    </t>
+                                    <t
+                                        groups="stock.group_tracking_lot"
+                                        t-if="record.result_package_id.raw_value"
+                                    >
+                                        <small>Dest. Package</small>
+                                        <span class="h4 text-muted">
+                                            <field name="result_package_id" />
+                                        </span>
                                     </t>
                                 </div>
                                 <!-- Weight -->

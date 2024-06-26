@@ -26,6 +26,17 @@ class StockMoveWeightWizard(models.TransientModel):
     lot_id = fields.Many2one(
         comodel_name="stock.production.lot", domain="[('id', 'in', available_lot_ids)]"
     )
+    available_result_package_ids = fields.Many2many(
+        comodel_name="stock.quant.package",
+        compute="_compute_available_result_package_ids",
+    )
+    result_package_id = fields.Many2one(
+        "stock.quant.package",
+        "Destination Package",
+        domain="[('id', 'in', available_result_package_ids)]",
+        help="If set, the operations are packed into this package",
+    )
+
     product_tracking = fields.Selection(related="product_id.tracking")
     selected_move_line_id = fields.Many2one(comodel_name="stock.move.line")
     move_line_ids = fields.Many2many(comodel_name="stock.move.line")
@@ -41,6 +52,20 @@ class StockMoveWeightWizard(models.TransientModel):
                 [("product_id", "=", wiz.product_id.id)],
                 order="create_date desc",
                 limit=5,
+            )
+            # Add to available lots any lot coming in context as default key
+            default_lot_id = self.env.context.get("default_lot_id", False)
+            if default_lot_id:
+                wiz.available_lot_ids = [(4, default_lot_id)]
+
+    @api.depends("product_id")
+    def _compute_available_result_package_ids(self):
+        self.available_result_package_ids = False
+        for wiz in self:
+            wiz.available_result_package_ids = self.env["stock.quant.package"].search(
+                [],
+                order="create_date desc",
+                limit=10,
             )
 
     def _lot_creation_constraints(self):
