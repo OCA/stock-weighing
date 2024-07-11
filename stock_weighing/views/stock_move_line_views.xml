@@ -64,7 +64,7 @@
                                 <!-- Recording button -->
                                 <div class="col-2">
                                     <div
-                                        t-if="record.has_weight.raw_value &amp;&amp; record.state.raw_value !== 'done'"
+                                        t-if="record.state.raw_value !== 'done'"
                                         class="row"
                                     >
                                         <button
@@ -79,24 +79,22 @@
                                 </div>
                                 <!-- Weight value -->
                                 <div class="col-3">
-                                    <t t-if="record.has_weight.raw_value">
-                                        <div>
-                                            <t t-if="record.recorded_weight.raw_value">
-                                                <span class="h1 text-success">
-                                                    <field name="recorded_weight" />
-                                                </span>
-                                                <sup class="initialism">
-                                                    <field name="product_uom_id" />
-                                                </sup>
-                                            </t>
-                                            <t t-else="">
-                                                <span
-                                                    class="h1 text-warning"
-                                                    t-out="'--.--'"
-                                                />
-                                            </t>
-                                        </div>
-                                    </t>
+                                    <div>
+                                        <t t-if="record.recorded_weight.raw_value">
+                                            <span class="h1 text-success">
+                                                <field name="recorded_weight" />
+                                            </span>
+                                            <sup class="initialism">
+                                                <field name="product_uom_id" />
+                                            </sup>
+                                        </t>
+                                        <t t-else="">
+                                            <span
+                                                class="h1 text-warning"
+                                                t-out="'--.--'"
+                                            />
+                                        </t>
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="row">
