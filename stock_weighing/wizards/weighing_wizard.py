@@ -43,6 +43,7 @@ class StockMoveWeightWizard(models.TransientModel):
     weight = fields.Float(digits="Product Unit of Measure")
     print_label = fields.Boolean(help="Print label after the weight record")
     label_report_id = fields.Many2one(comodel_name="ir.actions.report")
+    has_weight = fields.Boolean(compute="_compute_has_weight", readonly=False)
 
     @api.depends("product_id")
     def _compute_available_lot_ids(self):
@@ -66,6 +67,14 @@ class StockMoveWeightWizard(models.TransientModel):
                 [],
                 order="create_date desc",
                 limit=10,
+            )
+
+    @api.depends("move_id", "selected_move_line_id")
+    def _compute_has_weight(self):
+        self.has_weight = False
+        for wiz in self:
+            wiz.has_weight = (
+                wiz.move_id.has_weight or wiz.selected_move_line_id.has_weight
             )
 
     def _lot_creation_constraints(self):

@@ -536,7 +536,7 @@ msgstr "Los productos pesado están realizados desde operaciones de pesaje"
 #: model:ir.ui.menu,name:stock_weighing.menu_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Weighing"
-msgstr "Peso"
+msgstr "Pesaje"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_date

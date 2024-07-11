@@ -116,7 +116,7 @@
                                 <!-- Recording button -->
                                 <div class="col-1">
                                     <div
-                                        t-if="record.has_weight.raw_value &amp;&amp; !['done', 'cancel', 'draft'].includes(record.state.raw_value)"
+                                        t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
                                         class="row"
                                     >
                                         <button
@@ -150,36 +150,38 @@
                                 </div>
                                 <!-- Weight -->
                                 <div class="col-2">
-                                    <t t-if="record.has_weight.raw_value">
-                                        <span
-                                            t-if="record.weighing_state.raw_value == 'weighed'"
-                                            class="badge badge-success w-100"
-                                        >Weighed</span>
-                                        <span
-                                            t-elif="record.weighing_state.raw_value == 'weighing'"
-                                            class="badge badge-warning w-100"
-                                        >Weighing</span>
-                                        <span
-                                            t-elif="record.weighing_state.raw_value == 'to_weigh'"
-                                            class="badge badge-danger w-100"
-                                        >To weigh</span>
-                                        <div class="text-center">
-                                            <t t-if="record.recorded_weight.raw_value">
-                                                <span class="h1 text-success">
-                                                    <field name="recorded_weight" />
-                                                </span>
-                                                <sup class="initialism">
-                                                    <field name="product_uom" />
-                                                </sup>
-                                            </t>
-                                            <t t-else="">
-                                                <span
-                                                    class="h1 text-warning"
-                                                    t-out="'--.--'"
-                                                />
-                                            </t>
-                                        </div>
-                                    </t>
+                                    <span
+                                        t-if="record.weighing_state.raw_value === 'weighed'"
+                                        class="badge badge-success w-100"
+                                    >Weighed</span>
+                                    <span
+                                        t-elif="record.weighing_state.raw_value === 'weighing'"
+                                        class="badge badge-warning w-100"
+                                    >Weighing</span>
+                                    <span
+                                        t-elif="record.weighing_state.raw_value === 'to_weigh'"
+                                        class="badge badge-danger w-100"
+                                    >To weigh</span>
+                                    <span
+                                        t-else=""
+                                        t-attf-class="badge badge-{{record.recorded_weight.raw_value ? 'success' : 'light'}} w-100"
+                                    >Qty. done</span>
+                                    <div class="text-center">
+                                        <t t-if="record.recorded_weight.raw_value">
+                                            <span class="h1 text-success">
+                                                <field name="recorded_weight" />
+                                            </span>
+                                            <sup class="initialism">
+                                                <field name="product_uom" />
+                                            </sup>
+                                        </t>
+                                        <t t-else="">
+                                            <span
+                                                class="h1 text-warning"
+                                                t-out="'--.--'"
+                                            />
+                                        </t>
+                                    </div>
                                 </div>
                                 <!-- Extra buttons -->
                                 <div class="col-3">
@@ -226,7 +228,7 @@
                                 <!-- Details -->
                                 <div class="col-1">
                                     <button
-                                        t-if="record.move_lines_count.raw_value &amp;&amp; !single_move_line &amp;&amp; !context.hide_weight_detail_buttons"
+                                        t-if="(!single_move_line &amp;&amp; !context.hide_weight_detail_buttons) || context.show_weight_detail_buttons"
                                         type="object"
                                         name="action_weight_detailed_operations"
                                         t-attf-class="btn btn-lg {{single_move_line ? 'btn-secondary' : 'btn-primary'}}"
@@ -338,7 +340,7 @@
         <field name="view_mode">kanban,form</field>
         <field
             name="context"
-        >{'search_default_ready': 1, 'search_default_date_today': 1, 'search_default_to_weigh': 1, 'outgoing_weighing_order': 1}</field>
+        >{'search_default_ready': 1, 'search_default_date_today': 1, 'outgoing_weighing_order': 1}</field>
         <field name="domain">[('has_weight', '=', True)]</field>
         <field
             name="view_ids"

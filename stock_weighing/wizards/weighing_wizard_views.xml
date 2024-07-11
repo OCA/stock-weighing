@@ -11,11 +11,12 @@
                 <field name="product_tracking" invisible="1" />
                 <field name="available_lot_ids" invisible="1" />
                 <field name="available_result_package_ids" invisible="1" />
+                <field name="has_weight" invisible="1" />
                 <sheet>
-                    <group groups="stock.group_production_lot">
+                    <group groups="stock.group_production_lot" col="1">
                         <field
                             name="lot_id"
-                            class="form-control-lg"
+                            class="form-control-lg pl-0"
                             placeholder="Select lot..."
                             attrs="{'invisible': ['|', ('wizard_state', '=', 'weight'), ('product_tracking', '=', 'none')]}"
                             options="{'no_open': True, 'no_create': True}"
@@ -24,13 +25,15 @@
                     </group>
                     <field
                         name="weight"
-                        class="form-control-lg text-center text-info o_input_weight"
+                        class="input-group-lg"
                         nolabel="1"
+                        widget="numeric_step"
+                        options="{'auto_select': True, 'min': 0, 'add_class': 'form-control-lg text-center text-info o_input_weight', 'remove_class': 'form-control'}"
                     />
-                    <group groups="stock.group_tracking_lot">
+                    <group groups="stock.group_production_lot">
                         <field
                             name="result_package_id"
-                            class="form-control-lg"
+                            class="form-control-lg pl-0"
                             placeholder="Select destination package..."
                             attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
                             options="{'no_open': True, 'no_create': True}"

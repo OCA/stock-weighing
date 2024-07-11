@@ -67,6 +67,10 @@ category, you'll have to add some.
    (kilograms, grams, etc.).
 -  Place some pending operations for those products.
 
+If you want to use the weighing system for other operations you can set
+the configuration parameter ``stock_weighing.any_operation_actions`` to
+a true value. You'll be a able to record other values.
+
 Usage
 =====
 
