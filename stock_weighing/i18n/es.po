@@ -115,7 +115,9 @@ msgstr "Cancelar"
 #: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_label_report_id
 #: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__weighing_label_report_id
 msgid "Choose a custom label template for this operation type"
-msgstr "Seleccione una plantilla de etiqueta personalizada para este tipo de operación"
+msgstr ""
+"Seleccione una plantilla de etiqueta personalizada para este tipo de "
+"operación"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_uid
@@ -227,6 +229,11 @@ msgid "Is Weighing Operation Locked"
 msgstr "Operación de pesaje bloqueada"
 
 #. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.report_weight_record_label
+msgid "LOT:"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__label_report_id
 msgid "Label Report"
 msgstr "Informe de etiqueta"
@@ -282,8 +289,11 @@ msgstr "Operaciones detalladas pesadas"
 #. module: stock_weighing
 #: code:addons/stock_weighing/models/stock_move.py:0
 #, python-format
-msgid "New operation for %(product)s (%(operation)s) %(remain).2f %(uom)s remaining"
-msgstr "Nueva operación para %(product)s (%(operation)s) %(remain).2f %(uom)s restantes"
+msgid ""
+"New operation for %(product)s (%(operation)s) %(remain).2f %(uom)s remaining"
+msgstr ""
+"Nueva operación para %(product)s (%(operation)s) %(remain).2f %(uom)s "
+"restantes"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__origin_names
@@ -441,7 +451,8 @@ msgstr "El peso fue registrado desde el asistente"
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_user_id
 msgid "This user is weighing the record, so it's locked by him"
-msgstr "Este usuario está pesando este registro, de modo que está bloqueado por él"
+msgstr ""
+"Este usuario está pesando este registro, de modo que está bloqueado por él"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
@@ -593,6 +604,11 @@ msgstr "Peso"
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weight_move_ids
 msgid "Weight Move"
 msgstr "Operación de pesaje"
+
+#. module: stock_weighing
+#: model:ir.actions.report,name:stock_weighing.label_weight_record
+msgid "Weight Record Label"
+msgstr ""
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__wizard_state
