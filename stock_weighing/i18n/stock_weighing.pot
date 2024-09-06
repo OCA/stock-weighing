@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 09:16+0000\n"
-"PO-Revision-Date: 2024-07-17 09:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -223,6 +221,11 @@ msgstr ""
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
 msgid "Is Weighing Operation Locked"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.report_weight_record_label
+msgid "LOT:"
 msgstr ""
 
 #. module: stock_weighing
@@ -594,6 +597,11 @@ msgstr ""
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weight_move_ids
 msgid "Weight Move"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.actions.report,name:stock_weighing.label_weight_record
+msgid "Weight Record Label"
 msgstr ""
 
 #. module: stock_weighing
