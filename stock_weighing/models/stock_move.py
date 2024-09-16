@@ -223,6 +223,8 @@ class StockMove(models.Model):
             **ast.literal_eval(action["context"]),
             weight_operation_details=True
         )
+        # Clean context key show_weight_detail_buttons if any module add it
+        action["context"].pop("show_weight_detail_buttons", None)
         return action
 
     def action_print_weight_record_label(self):
