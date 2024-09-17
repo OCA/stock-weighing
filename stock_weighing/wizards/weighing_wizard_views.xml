@@ -56,6 +56,14 @@
                             data-hotkey="r"
                         >Add detailed operation</button>
                         <button
+                            name="add_operation_and_record"
+                            type="object"
+                            class="btn btn-secondary"
+                            attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
+                            data-hotkey="s"
+                            context="{'reload_wizard_action': True}"
+                        >Add detailed operation and new weighing</button>
+                        <button
                             string="Cancel"
                             class="btn-secondary"
                             type="object"

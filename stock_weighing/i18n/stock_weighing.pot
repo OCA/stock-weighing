@@ -76,6 +76,11 @@ msgid "Add detailed operation"
 msgstr ""
 
 #. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Add detailed operation and new weighing"
+msgstr ""
+
+#. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Add operation"
 msgstr ""

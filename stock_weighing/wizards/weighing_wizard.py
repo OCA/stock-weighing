@@ -126,10 +126,16 @@ class StockMoveWeightWizard(models.TransientModel):
             selected_line.weighing_date = False
         # Unlock the operation
         selected_line.move_id.action_unlock_weigh_operation()
+        self.weight = 0.0
         if self.print_label:
             action = selected_line.action_print_weight_record_label()
-            action["close_on_report_download"] = True
+            if not self.env.context.get("reload_wizard_action", False):
+                # If we want to keep the wizard open for multiple weighing, we do not
+                # need to close the wizard after printing a label.
+                action["close_on_report_download"] = True
             return action
+        if self.env.context.get("reload_wizard_action", False):
+            return self.reload_action_wizard()
 
     def action_close(self):
         """Close but unlock the operation"""
@@ -141,3 +147,13 @@ class StockMoveWeightWizard(models.TransientModel):
         """Ensure that the wizard cleanup releases the weighing operations"""
         (self.move_id | self.selected_move_line_id.move_id).weighing_user_id = False
         return super().unlink()
+
+    def reload_action_wizard(self):
+        """Helper method to be called by buttons in weighing wizard"""
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": self._name,
+            "view_mode": "form",
+            "res_id": self.id,
+            "target": "new",
+        }

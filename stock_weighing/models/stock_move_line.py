@@ -42,7 +42,7 @@ class StockMoveLine(models.Model):
 
     def action_print_weight_record_label(self):
         """Get detailed operations weighing labels"""
-        return self.picking_type_id.weighing_label_report_id.report_action(self)
+        return self.move_id.picking_type_id.weighing_label_report_id.report_action(self)
 
     def action_reset_weights(self):
         """Restore stock move lines weights"""
