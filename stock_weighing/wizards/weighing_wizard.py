@@ -156,4 +156,5 @@ class StockMoveWeightWizard(models.TransientModel):
             "view_mode": "form",
             "res_id": self.id,
             "target": "new",
+            "context": dict(self.env.context, reload_wizard_action=False),
         }
