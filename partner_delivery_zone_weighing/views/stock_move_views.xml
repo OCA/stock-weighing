@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_move_weight_kanban_view" model="ir.ui.view">
+        <field name="inherit_id" ref="stock_weighing.view_move_weight_kanban_view" />
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <div name="weight_card_header" position="inside">
+                <span
+                    title="Delivery zone info"
+                    t-if="record.delivery_zone_id.raw_value"
+                    class="badge badge-info"
+                >
+                    <i class="fa fa-map-marker" role="image" />
+                    <field name="delivery_zone_id" />
+                </span>
+            </div>
+        </field>
+    </record>
+</odoo>
