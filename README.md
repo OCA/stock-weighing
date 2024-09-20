@@ -24,7 +24,7 @@ addon | version | maintainers | summary
 [partner_delivery_zone_weighing](partner_delivery_zone_weighing/) | 15.0.1.0.0 |  | Show delivery zones info in weighings
 [stock_picking_batch_weighing](stock_picking_batch_weighing/) | 15.0.1.0.0 |  | Launch the weighing assistant from batch pickings
 [stock_secondary_unit_weighing](stock_secondary_unit_weighing/) | 15.0.1.0.0 |  | Show secondary unit info in the weighing assistant
-[stock_weighing](stock_weighing/) | 15.0.1.1.0 |  | Weighing assistant for stock operations
+[stock_weighing](stock_weighing/) | 15.0.1.2.0 |  | Weighing assistant for stock operations
 [stock_weighing_remote_measure](stock_weighing_remote_measure/) | 15.0.1.0.0 |  | Gather the operations weights remotely
 [web_widget_remote_measure](web_widget_remote_measure/) | 15.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to connect to remote devices to record measures
 
