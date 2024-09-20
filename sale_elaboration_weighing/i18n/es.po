@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_elaboration_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 10:58+0000\n"
+"PO-Revision-Date: 2024-07-17 12:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. module: sale_elaboration_weighing
+#: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_weight_kanban_view
+msgid "<i class=\"fa fa-cutlery mr-1\" title=\"Elaboration note\"/>"
+msgstr "<i class=\"fa fa-cutlery mr-1\" title=\"Nota de elaboración\"/>"
+
+#. module: sale_elaboration_weighing
+#: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_search
+msgid "Elaborated"
+msgstr "Elaborado"
+
+#. module: sale_elaboration_weighing
+#: code:addons/sale_elaboration_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Elaborations"
+msgstr "Elaboraciones"
+
+#. module: sale_elaboration_weighing
+#: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_search
+msgid "Not elaborated"
+msgstr "No elaborado"
+
+#. module: sale_elaboration_weighing
+#: code:addons/sale_elaboration_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Outgoing elaborations"
+msgstr "Elaboraciones salientes"
+
+#. module: sale_elaboration_weighing
+#: model:ir.model,name:sale_elaboration_weighing.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: sale_elaboration_weighing
+#: code:addons/sale_elaboration_weighing/models/stock_move.py:0
+#, python-format
+msgid "Weigh elaborations"
+msgstr "Pesar elaboraciones"
+
+#. module: sale_elaboration_weighing
+#: model:ir.model,name:sale_elaboration_weighing.model_weigh_operation_selection
+msgid "weigh operation selection screen"
+msgstr "pantalla de selección de operación de pesaje"
