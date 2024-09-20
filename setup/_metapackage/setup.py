@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-partner_delivery_zone_weighing>=15.0dev,<15.1dev',
+        'odoo-addon-sale_stock_weighing>=15.0dev,<15.1dev',
         'odoo-addon-stock_picking_batch_weighing>=15.0dev,<15.1dev',
         'odoo-addon-stock_secondary_unit_weighing>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing>=15.0dev,<15.1dev',
