@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 09:49+0000\n"
-"PO-Revision-Date: 2024-07-17 09:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,18 +19,8 @@ msgid "&amp;#10005;"
 msgstr ""
 
 #. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
-msgid "Has Recorded Weight"
-msgstr ""
-
-#. module: stock_secondary_unit_weighing
 #: model:ir.model,name:stock_secondary_unit_weighing.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr ""
-
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__recorded_weight
-msgid "Recorded Weight"
 msgstr ""
 
 #. module: stock_secondary_unit_weighing
@@ -43,19 +31,4 @@ msgstr ""
 #. module: stock_secondary_unit_weighing
 #: model:ir.model,name:stock_secondary_unit_weighing.model_stock_move
 msgid "Stock Move"
-msgstr ""
-
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,help:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
-msgid "The weight was set from the wizard"
-msgstr ""
-
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_date
-msgid "Weighing Date"
-msgstr ""
-
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_user_id
-msgid "Weighing User"
 msgstr ""
