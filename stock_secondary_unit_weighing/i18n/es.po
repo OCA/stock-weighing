@@ -23,19 +23,9 @@ msgid "&amp;#10005;"
 msgstr "&amp;#10005;"
 
 #. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
-msgid "Has Recorded Weight"
-msgstr "Tiene peso registrado"
-
-#. module: stock_secondary_unit_weighing
 #: model:ir.model,name:stock_secondary_unit_weighing.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
 msgstr "Movimientos de Producto (Stock Move Line)"
-
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__recorded_weight
-msgid "Recorded Weight"
-msgstr "Peso registrado"
 
 #. module: stock_secondary_unit_weighing
 #: model_terms:ir.ui.view,arch_db:stock_secondary_unit_weighing.view_move_weight_kanban_view
@@ -47,17 +37,17 @@ msgstr "Información de unidad secundaria"
 msgid "Stock Move"
 msgstr "Movimiento de stock"
 
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,help:stock_secondary_unit_weighing.field_stock_move_line__has_recorded_weight
-msgid "The weight was set from the wizard"
-msgstr "El peso fue registrado desde el asistente"
+#~ msgid "Has Recorded Weight"
+#~ msgstr "Tiene peso registrado"
 
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_date
-msgid "Weighing Date"
-msgstr "Fecha de pesaje"
+#~ msgid "Recorded Weight"
+#~ msgstr "Peso registrado"
 
-#. module: stock_secondary_unit_weighing
-#: model:ir.model.fields,field_description:stock_secondary_unit_weighing.field_stock_move_line__weighing_user_id
-msgid "Weighing User"
-msgstr "Usuario de pesaje"
+#~ msgid "The weight was set from the wizard"
+#~ msgstr "El peso fue registrado desde el asistente"
+
+#~ msgid "Weighing Date"
+#~ msgstr "Fecha de pesaje"
+
+#~ msgid "Weighing User"
+#~ msgstr "Usuario de pesaje"
