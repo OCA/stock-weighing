@@ -24,8 +24,8 @@ msgid ""
 "a default remote device in your user preferences to be able to start "
 "measuring remotely</span>"
 msgstr ""
-"<span><i class=\"fa fa-info-circle\" role=\"image\"/> Necesita configurar "
-"un dispositivo remoto por defecto en sus preferencias de usuario para poder "
+"<span><i class=\"fa fa-info-circle\" role=\"image\"/> Necesita configurar un "
+"dispositivo remoto por defecto en sus preferencias de usuario para poder "
 "comenzar a pesar de forma remota</span>"
 
 #. module: stock_weighing_remote_measure
