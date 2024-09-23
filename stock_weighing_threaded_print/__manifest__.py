@@ -3,7 +3,7 @@
 {
     "name": "Weighing deferred label printing",
     "summary": "Print labels on a different thread",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "development_status": "Beta",
     "category": "Warehouse",
     "website": "https://github.com/OCA/stock-weighing",

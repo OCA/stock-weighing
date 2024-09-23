@@ -29,6 +29,7 @@ addon | version | maintainers | summary
 [stock_weighing](stock_weighing/) | 15.0.1.2.0 |  | Weighing assistant for stock operations
 [stock_weighing_auto_create_lot](stock_weighing_auto_create_lot/) | 15.0.1.0.0 |  | Allow to create lots from the weighing kanban cards
 [stock_weighing_remote_measure](stock_weighing_remote_measure/) | 15.0.1.0.0 |  | Gather the operations weights remotely
+[stock_weighing_threaded_print](stock_weighing_threaded_print/) | 15.0.1.0.1 |  | Print labels on a different thread
 [web_widget_remote_measure](web_widget_remote_measure/) | 15.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to connect to remote devices to record measures
 
 [//]: # (end addons)
