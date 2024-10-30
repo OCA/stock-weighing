@@ -3,12 +3,17 @@
 {
     "name": "Weighing assistant",
     "summary": "Weighing assistant for stock operations",
-    "version": "15.0.1.2.1",
+    "version": "15.0.2.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
     "category": "Inventory",
-    "depends": ["stock", "web_filter_header_button", "web_widget_numeric_step"],
+    "depends": [
+        "stock",
+        "web_filter_header_button",
+        "web_widget_numeric_step",
+        "web_ir_actions_act_multi",
+    ],
     "data": [
         "security/ir.model.access.csv",
         "views/start_screen_banner.xml",

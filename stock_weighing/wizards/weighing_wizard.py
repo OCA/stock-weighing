@@ -1,8 +1,11 @@
 # Copyright 2024 Tecnativa - David Vidal
+# Copyright 2024 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools.misc import clean_context
+
+from odoo.addons.web.controllers.main import clean_action
 
 
 class StockMoveWeightWizard(models.TransientModel):
@@ -127,15 +130,33 @@ class StockMoveWeightWizard(models.TransientModel):
         # Unlock the operation
         selected_line.move_id.action_unlock_weigh_operation()
         self.weight = 0.0
+        action_list = []
+        other_action = False
         if self.print_label:
             action = selected_line.action_print_weight_record_label()
             if not self.env.context.get("reload_wizard_action", False):
                 # If we want to keep the wizard open for multiple weighing, we do not
                 # need to close the wizard after printing a label.
                 action["close_on_report_download"] = True
-            return action
+            clean_action(action, self.env)
+            action_list.append(action)
         if self.env.context.get("reload_wizard_action", False):
-            return self.reload_action_wizard()
+            other_action = self.reload_action_wizard()
+            clean_action(other_action, self.env)
+        return self._actions_after_record_weight(action_list, other_action=other_action)
+
+    @api.model
+    def _actions_after_record_weight(self, actions, other_action=False):
+        """Print and return action window and no break workflow allowing print with
+        multi-thread option"""
+        action_list = []
+        if other_action:
+            action_list = actions + [other_action]
+        else:
+            action_list = actions + [
+                {"type": "ir.actions.act_window_close"},
+            ]
+        return {"type": "ir.actions.act_multi", "actions": action_list}
 
     def action_close(self):
         """Close but unlock the operation"""
