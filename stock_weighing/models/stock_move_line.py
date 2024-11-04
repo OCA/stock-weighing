@@ -37,6 +37,7 @@ class StockMoveLine(models.Model):
             default_weight=self[0].recorded_weight or self[0].qty_done,
             default_move_line_ids=self.ids,
             default_print_label=self.picking_type_id.print_weighing_label,
+            default_move_id=self.move_id.id,
         )
         return action
 
