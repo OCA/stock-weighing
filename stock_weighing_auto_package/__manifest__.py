@@ -3,7 +3,7 @@
 {
     "name": "Weighing auto package",
     "summary": "Auto create package for every weighing operation",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.1.0",
     "development_status": "Beta",
     "category": "Warehouse",
     "website": "https://github.com/OCA/stock-weighing",
