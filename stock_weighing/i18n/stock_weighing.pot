@@ -86,18 +86,6 @@ msgid "Add operation"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Any incoming operation"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Any outgoing operation"
-msgstr ""
-
-#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_lot_ids
 msgid "Available Lot"
 msgstr ""
@@ -208,12 +196,6 @@ msgstr ""
 #. module: stock_weighing
 #: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
 #, python-format
-msgid "Incoming (any)"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
 msgid "Incoming (weighing)"
 msgstr ""
 
@@ -296,12 +278,6 @@ msgstr ""
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__origin_names
 msgid "Origin Names"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Outgoing (any)"
 msgstr ""
 
 #. module: stock_weighing

@@ -90,18 +90,6 @@ msgid "Add operation"
 msgstr "Añadir operación"
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Any incoming operation"
-msgstr "Cualquier operación entrante"
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Any outgoing operation"
-msgstr "Cualquier operación saliente"
-
-#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_lot_ids
 msgid "Available Lot"
 msgstr "Lot disponible"
@@ -213,12 +201,6 @@ msgstr "Si está establecido, las operaciones se empaquetan en este paquete"
 #. module: stock_weighing
 #: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
 #, python-format
-msgid "Incoming (any)"
-msgstr "Entrante (cualquiera)"
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
 msgid "Incoming (weighing)"
 msgstr "Entrante (pesaje)"
 
@@ -304,12 +286,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__origin_names
 msgid "Origin Names"
 msgstr "Nombres de origen"
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
-msgid "Outgoing (any)"
-msgstr "Saliente (cualquiera)"
 
 #. module: stock_weighing
 #: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
@@ -630,3 +606,19 @@ msgstr "Necesita proporcionar un número de serie/lote"
 #: model:ir.model,name:stock_weighing.model_weigh_operation_selection
 msgid "weigh operation selection screen"
 msgstr "pantalla de selección de operación de pesaje"
+
+#, python-format
+#~ msgid "Any incoming operation"
+#~ msgstr "Cualquier operación entrante"
+
+#, python-format
+#~ msgid "Any outgoing operation"
+#~ msgstr "Cualquier operación saliente"
+
+#, python-format
+#~ msgid "Incoming (any)"
+#~ msgstr "Entrante (cualquiera)"
+
+#, python-format
+#~ msgid "Outgoing (any)"
+#~ msgstr "Saliente (cualquiera)"

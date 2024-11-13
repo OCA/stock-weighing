@@ -3,6 +3,7 @@
 import ast
 
 from odoo import _, api, fields, models
+from odoo.osv import expression
 
 
 class StockPickingType(models.Model):
@@ -25,13 +26,17 @@ class StockPickingType(models.Model):
     to_do_weights = fields.Integer(compute="_compute_to_do_weights")
 
     def _compute_weight_move_ids(self):
+        any_operation_actions = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("stock_weighing.any_operation_actions")
+        )
+        domain = [("state", "in", ("assigned", "confirmed", "waiting"))]
+        if any_operation_actions:
+            domain = expression.AND([domain, [("has_weight", "=", True)]])
         for picking_type in self:
             picking_type.weight_move_ids = self.env["stock.move"].search(
-                [
-                    ("picking_type_id", "=", picking_type.id),
-                    ("state", "in", ("assigned", "confirmed", "waiting")),
-                    ("has_weight", "=", True),
-                ]
+                expression.AND([[("picking_type_id", "=", picking_type.id)], domain])
             )
 
     @api.depends("weight_move_ids")
