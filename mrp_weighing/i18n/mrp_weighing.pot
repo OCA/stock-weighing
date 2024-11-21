@@ -19,6 +19,11 @@ msgid "Has Weighing Operations"
 msgstr ""
 
 #. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: mrp_weighing
 #: model:ir.model,name:mrp_weighing.model_mrp_production
 msgid "Production Order"
 msgstr ""
