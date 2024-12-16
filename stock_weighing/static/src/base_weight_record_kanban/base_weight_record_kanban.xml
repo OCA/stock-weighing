@@ -27,6 +27,15 @@
             </button>
         </t>
         <t t-jquery=".o_column_unfold" t-operation="replace" />
+        <t t-jquery="span.o_column_title" t-operation="after">
+            <t t-if="!widget.folded and widget.grouped_by_m2o and widget.id">
+                <a
+                    role="image"
+                    class="ml-1 fa fa-external-link o_column_open"
+                    href="#"
+                />
+            </t>
+        </t>
     </t>
 
 </templates>

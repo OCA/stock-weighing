@@ -69,6 +69,10 @@
                 display: none;
             }
             .o_kanban_header_title {
+                .o_column_open {
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                }
                 .o_column_title {
                     cursor: initial;
                 }

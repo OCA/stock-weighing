@@ -12,6 +12,7 @@ export const WeightRecordingKanbanColumn = KanbanColumn.extend({
     events: _.extend({}, KanbanColumn.prototype.events || {}, {
         "click .toggle_kanban_fold": "_onToggleFold",
         "click .column_print_labels": "_onPrintLabels",
+        "click .o_column_open": "_onOpenColumn",
     }),
     /**
      * Show print button only when there are operations to print
@@ -30,6 +31,24 @@ export const WeightRecordingKanbanColumn = KanbanColumn.extend({
     _onPrintLabels(event) {
         event.preventDefault();
         this.trigger_up("column_print_labels");
+    },
+    /**
+     * Opens the related form view.
+     *
+     * @private
+     * @param {OdooEvent} ev
+     */
+    _onOpenColumn(event) {
+        event.preventDefault();
+        this.do_action({
+            context: {create: false},
+            type: "ir.actions.act_window",
+            target: "current",
+            views: [[false, "form"]],
+            res_model: this.relation,
+            res_id: this.id,
+            view_mode: "form",
+        });
     },
 });
 
