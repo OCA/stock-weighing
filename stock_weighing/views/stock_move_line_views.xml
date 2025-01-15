@@ -80,9 +80,9 @@
                                 <!-- Weight value -->
                                 <div class="col-3">
                                     <div>
-                                        <t t-if="record.recorded_weight.raw_value">
+                                        <t t-if="record.qty_done.raw_value">
                                             <span class="h1 text-success">
-                                                <field name="recorded_weight" />
+                                                <field name="qty_done" />
                                             </span>
                                             <sup class="initialism">
                                                 <field name="product_uom_id" />

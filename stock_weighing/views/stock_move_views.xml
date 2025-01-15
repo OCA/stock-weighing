@@ -21,6 +21,7 @@
                 <field name="product_uom_qty" />
                 <field name="product_qty" readonly="1" />
                 <field name="quantity_done" />
+                <field name="recorded_weight" />
                 <field name="reserved_availability" />
                 <field name="is_inventory" />
                 <field name="state" />
@@ -167,9 +168,9 @@
                                         t-attf-class="badge badge-{{record.recorded_weight.raw_value ? 'success' : 'light'}} w-100"
                                     >Qty. done</span>
                                     <div class="text-center">
-                                        <t t-if="record.recorded_weight.raw_value">
+                                        <t t-if="record.quantity_done.raw_value">
                                             <span class="h1 text-success">
-                                                <field name="recorded_weight" />
+                                                <field name="quantity_done" />
                                             </span>
                                             <sup class="initialism">
                                                 <field name="product_uom" />
