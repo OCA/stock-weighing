@@ -7,9 +7,13 @@
 
 <!-- /!\ do not modify above this line -->
 
-# stock-weighing
+# Stock Weighing
 
-stock-weighing
+Support products managed by weight.
+
+Are you looking for modules related to logistics? Or would like to contribute
+to? There are many repositories with specific purposes. Have a look at this
+[README](https://github.com/OCA/wms/blob/18.0/README.md).
 
 <!-- /!\ do not modify below this line -->
 
