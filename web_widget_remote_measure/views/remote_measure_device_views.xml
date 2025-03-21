@@ -10,7 +10,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <h1><field name="name" placeholder="e.g. Dock 1 Scale" /></h1>
@@ -39,12 +39,18 @@
     <record id="measure_device_tree" model="ir.ui.view">
         <field name="model">remote.measure.device</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="top">
                 <field name="name" />
                 <field name="host" />
                 <field name="protocol" optional="show" />
                 <field name="uom_id" optional="show" />
                 <field name="connection_mode" optional="show" />
+                <field
+                    name="test_measure"
+                    optional="hide"
+                    widget="remote_measure"
+                    options="{'allow_additive_measure': True}"
+                />
             </tree>
         </field>
     </record>
