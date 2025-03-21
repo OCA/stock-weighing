@@ -8,5 +8,7 @@ class ResUsers(models.Model):
 
     remote_measure_device_id = fields.Many2one(
         comodel_name="remote.measure.device",
+        related="res_users_settings_id.remote_measure_device_id",
+        readonly=False,
         help="Default remote measure device for this user",
     )
