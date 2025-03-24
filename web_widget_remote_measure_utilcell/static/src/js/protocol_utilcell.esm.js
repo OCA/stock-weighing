@@ -1,7 +1,8 @@
 /** @odoo-module **/
-import {RemoteMeasure} from "@web_widget_remote_measure/js/remote_measure_widget.esm";
+import {RemoteMeasureField} from "@web_widget_remote_measure/remote_measure_field/remote_measure_field.esm";
+import {patch} from "@web/core/utils/patch";
 
-export const RemoteMeasureUtilcell = RemoteMeasure.include({
+patch(RemoteMeasureField.prototype, {
     _read_from_device_tcp_params() {
         switch (this.protocol) {
             case "utilcell_f10":
@@ -9,7 +10,7 @@ export const RemoteMeasureUtilcell = RemoteMeasure.include({
             case "utilcell_f16":
                 return {command: "PF16\r\n"};
         }
-        return this._super(...arguments);
+        super._read_from_device_tcp_params(...arguments);
     },
     /**
      * Utilcell F10 Protocol response: +0020940
