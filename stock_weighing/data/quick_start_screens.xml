@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record
+        id="quick_start_screen_action_incoming_any_operations"
+        model="quick.start.screen.action"
+    >
+        <field name="name">Incoming (weighing)</field>
+        <field name="description">Incoming weighing operations</field>
+        <field name="action_ref_id" ref="stock_weighing.weighing_operation_action" />
+        <field name="domain">[
+            ("location_id.usage", "not in", ["internal", "transit"]),
+            ("location_dest_id.usage", "in", ["internal", "transit"]),
+            ("picking_type_id.weighing_operations", "=", True),
+        ]</field>
+        <field name="context">{'show_weight_detail_buttons': True}</field>
+        <field name="icon_name">fa-arrow-down</field>
+        <field name="color">7</field>
+    </record>
+    <record
+        id="quick_start_screen_action_outgoing_any_operations"
+        model="quick.start.screen.action"
+    >
+        <field name="name">Outgoing (weighing)</field>
+        <field name="description">Outgoing weighing operations</field>
+        <field name="action_ref_id" ref="stock_weighing.weighing_operation_action" />
+        <field name="domain">[
+            ("location_id.usage", "in", ["internal", "transit"]),
+            ("location_dest_id.usage", "not in", ["internal", "transit"]),
+            ("picking_type_id.weighing_operations", "=", True),
+        ]</field>
+        <field name="context">{'show_weight_detail_buttons': True}</field>
+        <field name="icon_name">fa-arrow-right</field>
+        <field name="color">7</field>
+    </record>
+    <record id="quick_start_screen_weighing" model="quick.start.screen">
+        <field name="name">Weighing</field>
+        <field
+            name="action_ids"
+            eval="[Command.link(ref('stock_weighing.quick_start_screen_action_incoming_any_operations')), Command.link(ref('stock_weighing.quick_start_screen_action_outgoing_any_operations'))]"
+        />
+    </record>
+    <record id="stock_move_weight_operation_start_screen" model="ir.actions.server">
+        <field name="name">Weight</field>
+        <field name="path">weigh</field>
+        <field name="model_id" ref="web_quick_start_screen.model_quick_start_screen" />
+        <field name="state">code</field>
+        <field name="code">
+action = env.ref('stock_weighing.quick_start_screen_weighing').action_screen_actions()
+        </field>
+    </record>
+    <menuitem
+        id="menu_weight_operation"
+        name="Weighing Operations"
+        parent="stock.menu_warehouse_report"
+        sequence="101"
+        action="weighing_operation_action"
+    />
+    <menuitem
+        id="menu_weighing"
+        name="Weighing"
+        web_icon="stock_weighing,static/description/icon.png"
+        groups="stock.group_stock_manager,stock.group_stock_user"
+        sequence="141"
+    />
+    <menuitem
+        id="menu_weight_operation_screen"
+        name="Weighing Operations"
+        parent="menu_weighing"
+        sequence="0"
+        action="stock_weighing.stock_move_weight_operation_start_screen"
+    />
+</odoo>

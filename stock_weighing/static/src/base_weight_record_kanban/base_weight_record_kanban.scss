@@ -4,9 +4,10 @@
 .o_kanban_view.o_weight_kanban {
     overflow: auto;
     border-top: 1px solid $border-color;
-    &.o_kanban_ungrouped {
+    .o_kanban_ungrouped {
         padding: 0px;
-        .o_weight_kanban_card {
+        --KanbanRecord-width: 100vw;
+        .o_kanban_record {
             width: 100%;
             margin: 0px;
             border-right: 0px;
@@ -19,28 +20,17 @@
                     display: grid;
                     align-items: center;
                 }
-                .o_weight_kanban_image {
-                    width: 56px;
-                    height: 56px;
-                    top: 0px;
-                    position: absolute;
-                }
                 .o_weight_name {
                     overflow-wrap: break-word;
-                }
-                .o_weight_kanban_actions_ungrouped {
-                    button {
-                        float: right;
-                        margin: 4px;
-                    }
                 }
             }
         }
     }
-    &.o_kanban_grouped {
+    .o_kanban_grouped {
         flex-flow: row wrap;
         min-height: 50%;
         .o_kanban_group {
+            --KanbanGroup-width: 100vw;
             width: 100%;
             padding: 0;
             overflow: hidden;
@@ -93,29 +83,26 @@
             }
         }
     }
-    // Kanban card side colors
-    .oe_kanban_color_weighed {
-        border-left-color: $o-success;
-        &:after {
-            background-color: $o-success;
-        }
-    }
-    .oe_kanban_color_weighing {
-        border-left-color: $o-warning;
-        &:after {
-            background-color: $o-warning;
-        }
-    }
-    .oe_kanban_color_to_weigh {
-        border-left-color: $o-danger;
-        &:after {
-            background-color: $o-danger;
-        }
-    }
 }
 // Big input for the wizard
-input.o_input_weight {
-    font-size: 3em;
-    font-weight: bold;
-    width: 90%;
+.o_input_weight {
+    input {
+        font-size: 3em;
+        font-weight: bold;
+        width: 90%;
+    }
+    .input-group-prepend,
+    .input-group-append {
+        font-size: 3em;
+    }
+}
+// Weighing operation detail form
+.weighing_detail_form {
+    .o_form_renderer {
+        padding: 0;
+        .o_kanban_ghost {
+            // Better, but it might lead to side effects?:
+            display: none;
+        }
+    }
 }

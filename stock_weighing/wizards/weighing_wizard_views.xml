@@ -3,16 +3,11 @@
     <record id="weighing_wizard_form_view" model="ir.ui.view">
         <field name="model">weighing.wizard</field>
         <field name="arch" type="xml">
-            <form
-                create="false"
-                string="Record Weight"
-                js_class="weight_recording_form"
-            >
+            <!-- <form create="false" string="Record Weight" js_class="weight_recording_form"> -->
+            <form create="false" string="Record Weight">
                 <field name="selected_move_line_id" invisible="1" />
-                <field name="wizard_state" invisible="1" />
                 <field name="move_id" invisible="1" />
                 <field name="product_id" invisible="1" />
-                <field name="product_tracking" invisible="1" />
                 <field name="available_lot_ids" invisible="1" />
                 <field name="available_result_package_ids" invisible="1" />
                 <field name="has_weight" invisible="1" />
@@ -22,25 +17,25 @@
                             name="lot_id"
                             class="form-control-lg pl-0"
                             placeholder="Select lot..."
-                            attrs="{'invisible': ['|', ('wizard_state', '=', 'weight'), ('product_tracking', '=', 'none')]}"
+                            invisible="wizard_state == 'weight' or product_tracking == 'none'"
                             options="{'no_open': True, 'no_create': True}"
                             nolabel="1"
                         />
                     </group>
                     <field
                         name="weight"
-                        class="input-group-lg"
                         nolabel="1"
                         default_focus="1"
                         widget="numeric_step"
-                        options="{'auto_select': True, 'min': 0, 'add_class': 'form-control-lg text-center text-info o_input_weight', 'remove_class': 'form-control'}"
+                        class="text-center text-info o_input_weight"
+                        options="{'auto_select': True, 'min': 0}"
                     />
                     <group groups="stock.group_production_lot">
                         <field
                             name="result_package_id"
-                            class="form-control-lg pl-0"
+                            class="form-control-lg ps-0"
                             placeholder="Select destination package..."
-                            attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
+                            invisible="wizard_state == 'weight'"
                             options="{'no_open': True, 'no_create': True}"
                             nolabel="1"
                         />
@@ -50,21 +45,21 @@
                             name="record_weight"
                             type="object"
                             class="btn btn-primary"
-                            attrs="{'invisible': [('wizard_state', '!=', 'weight')]}"
+                            invisible="wizard_state != 'weight'"
                             data-hotkey="r"
                         >Record</button>
                         <button
                             name="add_operation_and_record"
                             type="object"
                             class="btn btn-primary"
-                            attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
+                            invisible="wizard_state == 'weight'"
                             data-hotkey="r"
                         >Add detailed operation</button>
                         <button
                             name="add_operation_and_record"
                             type="object"
                             class="btn btn-secondary default-enter"
-                            attrs="{'invisible': [('wizard_state', '=', 'weight')]}"
+                            invisible="wizard_state == 'weight'"
                             data-hotkey="s"
                             context="{'reload_wizard_action': True}"
                         >Add detailed operation and new weighing</button>

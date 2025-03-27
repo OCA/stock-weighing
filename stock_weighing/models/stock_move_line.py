@@ -15,8 +15,8 @@ class StockMoveLine(models.Model):
     def _get_action_weighing_name(self):
         """Custom name to show in the wizard"""
         action_name = _(
-            "Weigh %(product_uom_qty)s %(uom)s of %(product)s",
-            product_uom_qty=self.product_uom_qty,
+            "Weigh %(quantity)s %(uom)s of %(product)s",
+            quantity=self.quantity,
             uom=self.product_uom_id.name,
             product=self.product_id.name,
         )
@@ -34,7 +34,7 @@ class StockMoveLine(models.Model):
         action["context"] = dict(
             self.env.context,
             default_selected_move_line_id=self[0].id,
-            default_weight=self[0].recorded_weight or self[0].qty_done,
+            default_weight=self[0].recorded_weight or self[0].quantity,
             default_move_line_ids=self.ids,
             default_print_label=self.picking_type_id.print_weighing_label,
             default_move_id=self.move_id.id,
@@ -47,7 +47,7 @@ class StockMoveLine(models.Model):
 
     def action_reset_weights(self):
         """Restore stock move lines weights"""
-        self.qty_done = 0
+        self.quantity = 0
         self.recorded_weight = 0
         self.has_recorded_weight = False
         # Keep who deleted them

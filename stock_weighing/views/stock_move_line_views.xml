@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <kanban class="o_weight_kanban">
                 <field name="product_id" />
-                <field name="product_uom_qty" />
+                <field name="quantity" />
                 <field name="location_id" invisible="1" />
                 <field name="location_dest_id" invisible="1" />
                 <field name="has_weight" />
@@ -16,15 +16,15 @@
                 <field name="reference" />
                 <field name="tracking" />
                 <templates>
-                    <t t-name="kanban-box">
-                        <div t-attf-class="o_weight_kanban_card">
+                    <t t-name="card">
+                        <div class="o_weight_kanban_card">
                             <div class="o_kanban_detail_ungrouped row">
                                 <div class="col-12">
                                     <div>
-                                        <span class="badge badge-light">
-                                            <t t-out="record.location_id.value" />
+                                        <span class="badge bg-light">
+                                            <field name="location_id" />
                                             <i class="fa fa-arrow-right" title="to" />
-                                            <t t-out="record.location_dest_id.value" />
+                                            <field name="location_dest_id" />
                                         </span>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                         <span>To weigh:</span>
                                         <br />
                                         <strong class="h5 text-warning">
-                                            <field name="product_uom_qty" />
+                                            <field name="quantity" />
                                             <field name="product_uom_id" />
                                         </strong>
                                     </div>
@@ -65,10 +65,7 @@
                                 <!-- Weight -->
                                 <!-- Recording button -->
                                 <div class="col-2">
-                                    <div
-                                        t-if="record.state.raw_value !== 'done'"
-                                        class="row"
-                                    >
+                                    <div t-if="record.state.raw_value !== 'done'">
                                         <button
                                             string="Record weight"
                                             name="action_weighing"
@@ -84,9 +81,9 @@
                                 <!-- Weight value -->
                                 <div class="col-3">
                                     <div>
-                                        <t t-if="record.qty_done.raw_value">
+                                        <t t-if="record.quantity.raw_value">
                                             <span class="h1 text-success">
-                                                <field name="qty_done" />
+                                                <field name="quantity" />
                                             </span>
                                             <sup class="initialism">
                                                 <field name="product_uom_id" />
@@ -101,7 +98,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <div class="row">
+                                    <div>
                                         <button
                                             class="btn btn-lg btn-secondary"
                                             name="action_print_weight_record_label"
@@ -116,7 +113,7 @@
                                             type="object"
                                             name="action_reset_weights"
                                             title="Reset weights"
-                                            class="btn btn-lg btn-secondary ml-1 "
+                                            class="ms-1 btn btn-secondary btn-lg"
                                             confirm="This will reset your current weight. Proceed?"
                                         >
                                             <i class="fa fa-times" />

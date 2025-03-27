@@ -4,15 +4,17 @@
         <field name="model">stock.picking.type</field>
         <field name="inherit_id" ref="stock.view_picking_type_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='show_reserved']/.." postion="inside">
+            <xpath expr="//field[@name='create_backorder']/.." postion="inside">
                 <field name="weighing_operations" />
+            </xpath>
+            <xpath expr="//field[@name='auto_print_delivery_slip']/.." postion="inside">
                 <field
                     name="print_weighing_label"
-                    attrs="{'invisible': [('weighing_operations', '=', False)]}"
+                    invisible="not weighing_operations"
                 />
                 <field
                     name="weighing_label_report_id"
-                    attrs="{'invisible': [('weighing_operations', '=', False)]}"
+                    invisible="not weighing_operations"
                 />
             </xpath>
         </field>
@@ -31,18 +33,17 @@
                 position="after"
             >
                 <t t-if="record.weighing_operations.raw_value">
-                    <a
+                    <button
                         name="action_weighing_operations"
                         type="object"
-                        class="btn btn-outline-primary mt-2"
-                        t-if="record.to_do_weights.raw_value"
-                        role="button"
+                        class="btn btn-outline-primary ms-1"
                     >
-                        <span
-                        class="badge badge-primary"
+                            <span
+                        class="badge bg-primary"
                         t-out="record.to_do_weights.value"
+                        t-if="record.to_do_weights.raw_value"
                     /> To weigh
-                    </a>
+                        </button>
                 </t>
             </xpath>
         </field>

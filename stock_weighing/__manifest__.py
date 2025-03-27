@@ -3,26 +3,26 @@
 {
     "name": "Weighing assistant",
     "summary": "Weighing assistant for stock operations",
-    "version": "15.0.2.1.2",
+    "version": "18.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
     "category": "Inventory",
     "depends": [
         "stock",
+        "web_quick_start_screen",
         "web_filter_header_button",
         "web_widget_numeric_step",
         "web_ir_actions_act_multi",
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/start_screen_banner.xml",
-        "wizards/weigh_operation_selection_views.xml",
         "views/stock_move_line_views.xml",
         "views/stock_move_views.xml",
         "views/stock_picking_views.xml",
         "views/stock_picking_type_views.xml",
         "wizards/weighing_wizard_views.xml",
+        "data/quick_start_screens.xml",
     ],
     "demo": [
         "demo/weight_label_demo.xml",
@@ -30,11 +30,7 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "stock_weighing/static/src/**/*.scss",
-            "stock_weighing/static/src/**/*.js",
-        ],
-        "web.assets_qweb": [
-            "stock_weighing/static/src/**/*.xml",
+            "stock_weighing/static/src/base_weight_record_kanban/**/*",
         ],
     },
     "post_init_hook": "post_init_hook",

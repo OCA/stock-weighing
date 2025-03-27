@@ -13,7 +13,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-thermometer-half "
-                    attrs="{'invisible': ['|', '|', ('weighing_operations', '=', False), ('has_weighing_operations', '=', False), ('state', 'in', ['draft', 'cancel'])]}"
+                    invisible="(not weighing_operations or not has_weighing_operations) or state in ['draft', 'cancel']"
                 />
             </div>
         </field>

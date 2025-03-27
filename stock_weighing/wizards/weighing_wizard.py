@@ -5,7 +5,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools.misc import clean_context
 
-from odoo.addons.web.controllers.main import clean_action
+from odoo.addons.web.controllers.utils import clean_action
 
 
 class StockMoveWeightWizard(models.TransientModel):
@@ -24,10 +24,10 @@ class StockMoveWeightWizard(models.TransientModel):
         comodel_name="product.product", related="move_id.product_id", store=True
     )
     available_lot_ids = fields.Many2many(
-        comodel_name="stock.production.lot", compute="_compute_available_lot_ids"
+        comodel_name="stock.lot", compute="_compute_available_lot_ids"
     )
     lot_id = fields.Many2one(
-        comodel_name="stock.production.lot", domain="[('id', 'in', available_lot_ids)]"
+        comodel_name="stock.lot", domain=[("id", "in", available_lot_ids)]
     )
     available_result_package_ids = fields.Many2many(
         comodel_name="stock.quant.package",
@@ -52,7 +52,7 @@ class StockMoveWeightWizard(models.TransientModel):
     def _compute_available_lot_ids(self):
         self.available_lot_ids = False
         for wiz in self.filtered(lambda x: x.product_id.tracking != "none"):
-            wiz.available_lot_ids = self.env["stock.production.lot"].search(
+            wiz.available_lot_ids = self.env["stock.lot"].search(
                 [("product_id", "=", wiz.product_id.id)],
                 order="create_date desc",
                 limit=5,
@@ -115,14 +115,14 @@ class StockMoveWeightWizard(models.TransientModel):
         """Register the operation weight"""
         selected_line = self.selected_move_line_id
         if self.weight:
-            selected_line.qty_done = self.weight
+            selected_line.quantity = self.weight
             selected_line.recorded_weight = self.weight
             selected_line.has_recorded_weight = True
             selected_line.weighing_user_id = self.env.user
             selected_line.weighing_date = fields.Datetime.now()
         # Reset value
         else:
-            selected_line.qty_done = 0
+            selected_line.quantity = 0
             selected_line.recorded_weight = 0
             selected_line.has_recorded_weight = False
             selected_line.weighing_user_id = False

@@ -11,10 +11,10 @@ class StockPicking(models.Model):
     weighing_operations = fields.Boolean(related="picking_type_id.weighing_operations")
     has_weighing_operations = fields.Boolean(compute="_compute_has_weighing_operations")
 
-    @api.depends("move_lines")
+    @api.depends("move_ids")
     def _compute_has_weighing_operations(self):
         for picking in self:
-            picking.has_weighing_operations = picking.move_lines.filtered("has_weight")
+            picking.has_weighing_operations = picking.move_ids.filtered("has_weight")
 
     def action_weighing_operations(self):
         """Weighing operations for this picking"""
@@ -27,9 +27,9 @@ class StockPicking(models.Model):
             .get_param("stock_weighing.any_operation_actions")
         )
         weight_moves = (
-            self.move_lines
+            self.move_ids
             if any_operation_actions
-            else self.move_lines.filtered("has_weight")
+            else self.move_ids.filtered("has_weight")
         )
         action["name"] = _("Weighing operations for %(name)s", name=self.name)
         action["domain"] = [("id", "in", weight_moves.ids)]

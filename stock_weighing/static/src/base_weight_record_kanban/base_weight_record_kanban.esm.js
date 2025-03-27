@@ -1,104 +1,62 @@
-/** @odoo-module **/
 /* Copyright 2024 Tecnativa - David Vidal
  * License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). */
-import KanbanColumn from "web.KanbanColumn";
-import KanbanController from "web.KanbanController";
-import KanbanRenderer from "web.KanbanRenderer";
-import KanbanView from "web.KanbanView";
-import viewRegistry from "web.view_registry";
+import {KanbanHeader} from "@web/views/kanban/kanban_header";
+import {KanbanRenderer} from "@web/views/kanban/kanban_renderer";
+import {kanbanView} from "@web/views/kanban/kanban_view";
+import {registry} from "@web/core/registry";
+import {useService} from "@web/core/utils/hooks";
 
-export const WeightRecordingKanbanColumn = KanbanColumn.extend({
-    template: "WeightRecordingKanbanView.Group",
-    events: _.extend({}, KanbanColumn.prototype.events || {}, {
-        "click .toggle_kanban_fold": "_onToggleFold",
-        "click .column_print_labels": "_onPrintLabels",
-        "click .o_column_open": "_onOpenColumn",
-    }),
+class WeightRecordingKanbanHeader extends KanbanHeader {
+    static template = "stock_weighing.KanbanHeader";
+    setup() {
+        super.setup();
+        this.action = useService("action");
+    }
     /**
      * Show print button only when there are operations to print
-     * @override
      */
-    init() {
-        this._super(...arguments);
-        this.show_weighing_print_button = this.data_records.some((move) => {
+    get show_weighing_print_button() {
+        return this.group.list.records.some((move) => {
             return move.data.show_weighing_print_button;
         });
-    },
+    }
     /**
-     * Bubble up to print labels of this group/column
-     * @param {Event} event
+     * Print all the labels from a group
      */
-    _onPrintLabels(event) {
-        event.preventDefault();
-        this.trigger_up("column_print_labels");
-    },
+    async onPrintLabels() {
+        const moves = this.group.list.records.map((record) => {
+            return record.data.id;
+        });
+        const res = this.orm.call("stock.move", "action_print_weight_record_label", [
+            moves,
+        ]);
+        this.action.doAction(res);
+    }
     /**
      * Opens the related form view.
-     *
-     * @private
-     * @param {OdooEvent} ev
      */
-    _onOpenColumn(event) {
-        event.preventDefault();
-        this.do_action({
+    onOpenColumn() {
+        this.action.doAction({
             context: {create: false},
             type: "ir.actions.act_window",
             target: "current",
             views: [[false, "form"]],
-            res_model: this.relation,
-            res_id: this.id,
+            res_model: this.group.groupByField.relation,
+            res_id: this.group.serverValue,
             view_mode: "form",
         });
-    },
-});
+    }
+}
+export class WeightRecordingKanbanRenderer extends KanbanRenderer {
+    static components = {
+        ...KanbanRenderer.components,
+        KanbanHeader: WeightRecordingKanbanHeader,
+    };
+}
 
-export const WeightRecordingKanbanController = KanbanController.extend({
-    custom_events: Object.assign({}, KanbanController.prototype.custom_events, {
-        column_print_labels: "_onPrintLabels",
-    }),
-    /**
-     * Refresh the view after we change the record value so we can update filters,
-     * progressbars, etc.
-     * TODO: Depends on https://github.com/odoo/odoo/pull/161042 Otherwise we should
-     * rewrite the whole method.
-     * @override
-     * @returns {Promise}
-     */
-    _reloadAfterButtonClick() {
-        const def = this._super(...arguments);
-        return def.then(() => {
-            this.reload();
-        });
-    },
-    /**
-     * Print all the labels from a group
-     * @param {Event} event
-     * @returns {Promise}
-     */
-    _onPrintLabels(event) {
-        const columnID = event.target.db_id || event.data.db_id;
-        const moves = this.model.get(columnID).data.map((r) => {
-            return r.res_id;
-        });
-        return this._rpc({
-            model: "stock.move",
-            method: "action_print_weight_record_label",
-            args: [moves],
-        });
-    },
-});
+export const WeightRecordingKanbanView = {
+    ...kanbanView,
+    Renderer: WeightRecordingKanbanRenderer,
+};
 
-export const WeightRecordingKanbanRenderer = KanbanRenderer.extend({
-    config: _.extend({}, KanbanRenderer.prototype.config, {
-        KanbanColumn: WeightRecordingKanbanColumn,
-    }),
-});
-
-export const WeightRecordingKanbanView = KanbanView.extend({
-    config: _.extend({}, KanbanView.prototype.config, {
-        Renderer: WeightRecordingKanbanRenderer,
-        Controller: WeightRecordingKanbanController,
-    }),
-});
-
-viewRegistry.add("base_weight_record_kanban", WeightRecordingKanbanView);
+registry.category("views").add("base_weight_record_kanban", WeightRecordingKanbanView);

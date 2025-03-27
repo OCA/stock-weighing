@@ -4,7 +4,7 @@
         <t t-call="web.basic_layout">
             <div class="page">
                 <!-- Don't print empty labels -->
-                <t t-foreach="docs.filtered('qty_done')" t-as="sml">
+                <t t-foreach="docs.filtered('quantity')" t-as="sml">
                     <t t-set="lot_name" t-value="sml.lot_id.name or sml.lot_name" />
                     <div class="o_label_page o_label_dymo">
                         <div>
@@ -12,7 +12,7 @@
                         </div>
                         <div class="h5 pt-2">
                             <span
-                                t-out="sml.qty_done"
+                                t-out="sml.quantity"
                                 t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}"
                             />
                             <span t-out="sml.product_uom_id.name" />

@@ -2,19 +2,18 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import logging
 
-from odoo import SUPERUSER_ID, api
-
 _logger = logging.getLogger(__name__)
 
 
-def pre_init_hook(cr):
+def pre_init_hook(env):
     _logger.info("Pre-creating weighing state column to avoid computing everyone...")
-    cr.execute("ALTER TABLE stock_move ADD COLUMN IF NOT EXISTS weighing_state VARCHAR")
+    env.cr.execute(
+        "ALTER TABLE stock_move ADD COLUMN IF NOT EXISTS weighing_state VARCHAR"
+    )
 
 
-def post_init_hook(cr, registry):
+def post_init_hook(env):
     """Recompute weighing_state only in pending moves"""
-    env = api.Environment(cr, SUPERUSER_ID, {})
     _logger.info("Computing weighing state on pending moves...")
     env["stock.move"].search(
         [

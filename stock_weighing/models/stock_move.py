@@ -44,11 +44,15 @@ class StockMove(models.Model):
     self_move_ids = fields.Many2many(
         comodel_name="stock.move", compute="_compute_self_move_ids"
     )
+    weighing_state_color = fields.Integer(compute="_compute_weighing_state_color")
 
-    def name_get(self):
+    @api.depends()
+    @api.depends_context("weight_operation_details")
+    def _compute_display_name(self):
         if not self.env.context.get("weight_operation_details"):
-            return super().name_get()
-        return [(move.id, _("%(name)s details", name=move.name)) for move in self]
+            return super()._compute_display_name()
+        for move in self:
+            move.display_name = _("%(name)s details", name=move.name)
 
     def _compute_self_move_ids(self):
         for move in self:
@@ -73,7 +77,7 @@ class StockMove(models.Model):
                 # Force the operation weighing state if one of the detailed
                 # operations overpasses the demand
                 or float_compare(
-                    move.quantity_done,
+                    move.quantity,
                     move.product_uom_qty,
                     precision_rounding=move.product_uom.rounding,
                 )
@@ -86,7 +90,7 @@ class StockMove(models.Model):
                 not move.recorded_weight
                 and not move.move_lines_weighed
                 and move_to_do
-                and not move.quantity_done
+                and not move.quantity
             ):
                 move.weighing_state = "to_weigh"
 
@@ -99,7 +103,8 @@ class StockMove(models.Model):
 
     @api.depends("move_line_ids.location_id")
     def _compute_origin_names(self):
-        """To use in the kanban and show the origin locations on this move reservation"""
+        """To use in the kanban and show the origin locations on this move
+        eservation"""
         self.origin_names = False
         for move in self:
             move.origin_names = ",".join(move.move_line_ids.location_id.mapped("name"))
@@ -114,13 +119,18 @@ class StockMove(models.Model):
             and x.weighing_user_id != self.env.user
         ).is_weighing_operation_locked = True
 
-    @api.depends("quantity_done", "picking_type_id.weighing_label_report_id")
+    @api.depends("quantity", "picking_type_id.weighing_label_report_id")
     def _compute_show_weighing_print_button(self):
         """"""
         self.show_weighing_print_button = False
         self.filtered(
-            lambda x: x.quantity_done and x.picking_type_id.weighing_label_report_id
+            lambda x: x.quantity and x.picking_type_id.weighing_label_report_id
         ).show_weighing_print_button = True
+
+    def _compute_weighing_state_color(self):
+        state_map = {"weighed": 10, "to_weigh": 1, "weighing": 3}
+        for move in self:
+            move.weighing_state_color = state_map.get(move.weighing_state)
 
     def _has_weigh_domain(self):
         """Show variable weight types only"""
@@ -134,10 +144,10 @@ class StockMove(models.Model):
         return domain
 
     @api.model
-    def search(self, args, offset=0, limit=None, order=None, count=False):
+    def search(self, domain, offset=0, limit=None, order=None):
         """We need to sort by move sub-fields. Don't force if we have a given order"""
-        moves = super().search(args, offset, limit, order, count)
-        if not count and self.env.context.get("outgoing_weighing_order") and not order:
+        moves = super().search(domain, offset, limit, order)
+        if self.env.context.get("outgoing_weighing_order") and not order:
             moves = moves.sorted(
                 lambda x: (
                     x.location_id.name or "",
@@ -147,12 +157,13 @@ class StockMove(models.Model):
             )
         return moves
 
-    def _set_quantities_to_reservation(self):
-        """Avoid squashing weighings values"""
-        weighted_records = self.filtered("move_line_ids.recorded_weight")
-        return super(
-            StockMove, self - weighted_records
-        )._set_quantities_to_reservation()
+    # TODO: This method disappeared (v17). Check the effect or if theres any equivalent
+    # def _set_quantities_to_reservation(self):
+    #     """Avoid squashing weighings values"""
+    #     weighted_records = self.filtered("move_line_ids.recorded_weight")
+    #     return super(
+    #         StockMove, self - weighted_records
+    #     )._set_quantities_to_reservation()
 
     def action_lock_weighing_operation(self):
         """Avoid other that other user to modify the weight operation"""
@@ -181,7 +192,7 @@ class StockMove(models.Model):
         action["context"] = dict(
             self.env.context,
             default_selected_move_line_id=(fields.first(self.move_line_ids).id),
-            default_weight=self.recorded_weight or self.quantity_done,
+            default_weight=self.recorded_weight or self.quantity,
             default_move_line_ids=self.move_line_ids.ids,
             default_print_label=self.picking_type_id.print_weighing_label,
         )
@@ -201,7 +212,7 @@ class StockMove(models.Model):
             "%(remain).2f %(uom)s remaining",
             product=self.product_id.name,
             operation=self.reference,
-            remain=max((self.product_uom_qty - self.quantity_done), 0),
+            remain=max((self.product_uom_qty - self.quantity), 0),
             uom=self.product_uom.name,
         )
         return action
@@ -211,7 +222,7 @@ class StockMove(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        action["name"] = _("Detailed operations for %(name)s", name=self.name)
+        action["display_name"] = _("Detailed operations for %(name)s", name=self.name)
         action["domain"] = [("id", "=", self.id)]
         action["view_mode"] = "form"
         action["res_id"] = self.id
@@ -253,7 +264,8 @@ class StockMove(models.Model):
         action["context"] = dict(
             show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
         )
-        action["name"] = _("Outgoing operations")
+        action["display_name"] = _("Outgoing operations")
+        action["path"] = "weigh_outgoing"
         return action
 
     @api.model
@@ -283,7 +295,8 @@ class StockMove(models.Model):
         action["context"] = dict(
             show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
         )
-        action["name"] = _("Outgoing operations")
+        action["display_name"] = _("Incoming operations")
+        action["path"] = "weigh_incoming"
         return action
 
     @api.model
