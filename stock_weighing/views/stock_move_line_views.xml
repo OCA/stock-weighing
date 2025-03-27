@@ -31,10 +31,12 @@
                                 <!-- Infos -->
                                 <div class="col-2">
                                     <div>
-                                        <span>To weigh:</span><br />
-                                        <strong class="h5 text-warning"><field
-                                                name="product_uom_qty"
-                                            /> <field name="product_uom_id" /></strong>
+                                        <span>To weigh:</span>
+                                        <br />
+                                        <strong class="h5 text-warning">
+                                            <field name="product_uom_qty" />
+                                            <field name="product_uom_id" />
+                                        </strong>
                                     </div>
                                 </div>
                                 <div class="col-2 o_weight_name">
@@ -72,9 +74,11 @@
                                             name="action_weighing"
                                             type="object"
                                             class="btn btn-lg border"
-                                        ><i
+                                        >
+                                            <i
                                                 t-attf-class="fa {{record.recorded_weight.raw_value ? 'fa-refresh text-success' : 'fa-circle text-danger'}}"
-                                            /></button>
+                                            />
+                                        </button>
                                     </div>
                                 </div>
                                 <!-- Weight value -->
@@ -104,7 +108,9 @@
                                             type="object"
                                             string="Print labels"
                                             title="Print labels"
-                                        ><i class="fa fa-print" role="image" /></button>
+                                        >
+                                            <i class="fa fa-print" role="image" />
+                                        </button>
                                         <button
                                             t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
                                             type="object"

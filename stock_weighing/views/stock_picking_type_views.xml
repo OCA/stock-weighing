@@ -39,9 +39,9 @@
                         role="button"
                     >
                         <span
-                            class="badge badge-primary"
-                            t-out="record.to_do_weights.value"
-                        /> To weigh
+                        class="badge badge-primary"
+                        t-out="record.to_do_weights.value"
+                    /> To weigh
                     </a>
                 </t>
             </xpath>

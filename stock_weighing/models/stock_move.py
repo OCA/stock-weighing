@@ -221,7 +221,7 @@ class StockMove(models.Model):
         action["context"] = dict(
             self.env.context,
             **ast.literal_eval(action["context"]),
-            weight_operation_details=True
+            weight_operation_details=True,
         )
         # Clean context key show_weight_detail_buttons if any module add it
         action["context"].pop("show_weight_detail_buttons", None)

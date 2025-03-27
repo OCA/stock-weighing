@@ -36,6 +36,6 @@ class StockPicking(models.Model):
         action["context"] = dict(
             self.env.context,
             **ast.literal_eval(action["context"]),
-            group_by=["picking_id"]
+            group_by=["picking_id"],
         )
         return action

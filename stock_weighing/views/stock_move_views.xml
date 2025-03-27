@@ -61,9 +61,9 @@
                                     <div name="weight_card_header" class="mb-2">
                                         <t t-if="record.lot_names.raw_value">
                                             <small>LOTS: </small>
-                                            <span class="text-muted"><field
-                                                    name="lot_names"
-                                                /></span>
+                                            <span class="text-muted">
+                                                <field name="lot_names" />
+                                            </span>
                                         </t>
                                         <span
                                             class="badge badge-light"
@@ -81,9 +81,8 @@
                                             class="pull-right badge badge-danger"
                                             title="Locked by user"
                                         >
-                                            <i class="fa fa-lock" /> <field
-                                                name="weighing_user_id"
-                                            />
+                                            <i class="fa fa-lock" />
+                                            <field name="weighing_user_id" />
                                         </span>
                                     </div>
                                 </div>
@@ -100,18 +99,21 @@
                                         <em t-out="record.partner_id.value" />
                                     </div>
                                     <div class="mt-2">
-                                        <span class="text-warning"><strong
-                                            >To do: </strong><field
-                                                name="product_uom_qty"
-                                            /><field name="product_uom" /></span>
-                                        <span class="text-info ml-2"><strong
-                                            >Reserved: </strong><field
-                                                name="reserved_availability"
-                                            /><field name="product_uom" /></span>
-                                        <span class="text-success ml-2"><strong
-                                            >Done: </strong><field
-                                                name="quantity_done"
-                                            /><field name="product_uom" /></span>
+                                        <span class="text-warning">
+                                            <strong>To do: </strong>
+                                            <field name="product_uom_qty" />
+                                            <field name="product_uom" />
+                                        </span>
+                                        <span class="text-info ml-2">
+                                            <strong>Reserved: </strong>
+                                            <field name="reserved_availability" />
+                                            <field name="product_uom" />
+                                        </span>
+                                        <span class="text-success ml-2">
+                                            <strong>Done: </strong>
+                                            <field name="quantity_done" />
+                                            <field name="product_uom" />
+                                        </span>
                                     </div>
                                 </div>
                                 <!-- Recording button -->
@@ -126,9 +128,11 @@
                                             type="object"
                                             class="btn btn-lg border"
                                             t-if="record.move_lines_count.raw_value === 1"
-                                        ><i
+                                        >
+                                            <i
                                                 t-attf-class="fa {{record.recorded_weight.raw_value ? 'fa-refresh text-success' : 'fa-circle text-danger'}}"
-                                            /></button>
+                                            />
+                                        </button>
                                         <!-- We can't do a t-attf-name -->
                                         <button
                                             string="Record weight"
@@ -136,9 +140,11 @@
                                             type="object"
                                             class="btn btn-lg border"
                                             t-elif="record.move_lines_count.raw_value > 1 &amp;&amp; !context.hide_weight_detail_buttons"
-                                        ><i
+                                        >
+                                            <i
                                                 t-attf-class="fa {{record.recorded_weight.raw_value &amp;&amp; record.weighing_state.raw_value == 'weighed' ? 'fa-refresh text-success' : 'fa-circle text-danger'}}"
-                                            /></button>
+                                            />
+                                        </button>
                                         <button
                                             string="Force weighed"
                                             title="Force weighed"
@@ -146,7 +152,9 @@
                                             type="object"
                                             class="btn btn-lg border"
                                             t-elif="record.move_lines_count.raw_value > 1 &amp;&amp; context.hide_weight_detail_buttons &amp;&amp; record.weighing_state.raw_value === 'weighing'"
-                                        ><i class="fa fa-check text-success" /></button>
+                                        >
+                                            <i class="fa fa-check text-success" />
+                                        </button>
                                     </div>
                                 </div>
                                 <!-- Weight -->
@@ -194,7 +202,9 @@
                                             type="object"
                                             string="Print labels"
                                             title="Print labels"
-                                        ><i class="fa fa-print" /></button>
+                                        >
+                                            <i class="fa fa-print" />
+                                        </button>
                                         <!-- Hidden for the moment -->
                                         <button
                                             t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
@@ -234,10 +244,12 @@
                                         name="action_weight_detailed_operations"
                                         t-attf-class="btn btn-lg {{single_move_line ? 'btn-secondary' : 'btn-primary'}}"
                                         title="Details"
-                                    ><i
+                                    >
+                                        <i
                                             t-attf-class="fa fa-th-list"
                                             title="Details"
-                                        /></button>
+                                        />
+                                    </button>
                                 </div>
                                 <!-- Footer infos-->
                                 <div class="col-12">
