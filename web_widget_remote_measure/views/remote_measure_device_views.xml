@@ -13,7 +13,9 @@
                         invisible="active"
                     />
                     <div class="oe_title">
-                        <h1><field name="name" placeholder="e.g. Dock 1 Scale" /></h1>
+                        <h1>
+                            <field name="name" placeholder="e.g. Dock 1 Scale" />
+                        </h1>
                     </div>
                     <group>
                         <group>
@@ -64,28 +66,31 @@
                 <field name="connection_mode" />
                 <templates>
                     <t t-name="kanban-box">
-                    <div class="oe_kanban_global_click">
-                         <div class="oe_kanban_details">
-                            <div class="o_kanban_record_top">
-                                <div class="o_kanban_record_headings">
-                                    <strong class="o_kanban_record_title">
-                                         <field name="name" placeholder="Device name" />
-                                    </strong>
-                                    <span class="o_kanban_record_subtitle"><field
-                                                name="host"
-                                            /></span>
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field
+                                                name="name"
+                                                placeholder="Device name"
+                                            />
+                                        </strong>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="host" />
+                                        </span>
+                                    </div>
                                 </div>
+                                <ul>
+                                    <li class="o_text_overflow">
+                                        <field name="protocol" />
+                                    </li>
+                                    <li class="o_text_overflow">
+                                        <field name="connection_mode" />
+                                    </li>
+                                </ul>
                             </div>
-                            <ul>
-                                <li class="o_text_overflow"><field
-                                            name="protocol"
-                                        /></li>
-                                <li class="o_text_overflow"><field
-                                            name="connection_mode"
-                                        /></li>
-                            </ul>
                         </div>
-                    </div>
                     </t>
                 </templates>
             </kanban>
