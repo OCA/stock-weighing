@@ -10,22 +10,23 @@
                         class="ml-1 mr-1 text-info text-left w-100"
                     >
                         <i class="fa fa-level-down" /> TARE: <span
-                            name="tare_amount"
-                            class="font-weight-bold text-danger"
-                        >0</span> <span t-out="uom_name" class="text-danger" />
+                        name="tare_amount"
+                        class="font-weight-bold text-danger"
+                    >0</span> <span t-out="uom_name" class="text-danger" />
                         <i class="fa fa-caret-square-o-right" /> REAL: <span
-                            name="real_amount"
-                            class="font-weight-bold text-success"
-                            t-out="amount"
-                        /> <span t-out="uom_name" class="text-success" />
+                        name="real_amount"
+                        class="font-weight-bold text-success"
+                        t-out="amount"
+                    /> <span t-out="uom_name" class="text-success" />
                         <div
-                            class="d-inline float-right text-dark"
-                            title="Device info"
-                            name="device_selector"
-                            role="button"
-                        >
-                            <i class="fa fa-thermometer" /> <span t-out="device_name" />
-                        </div>
+                        class="d-inline float-right text-dark"
+                        title="Device info"
+                        name="device_selector"
+                        role="button"
+                    >
+                        <i class="fa fa-thermometer" />
+                        <span t-out="device_name" />
+                    </div>
                     </div>
                     <div name="weight_control" class="w-100" />
                 </div>
@@ -49,7 +50,8 @@
                         <btn t-attf-class="btn btn-{{color}} disabled">
                             <t t-if="tare.name" t-out="tare.name" />
                             <t t-else="">
-                                <t t-out="tare.tare" /> <t t-out="uom_name" />
+                                <t t-out="tare.tare" />
+                                <t t-out="uom_name" />
                             </t>
                         </btn>
                         <btn
@@ -93,7 +95,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </t>

@@ -12,9 +12,9 @@
                     attrs="{'invisible': ['|', ('measure_device_id', '!=', False), ('has_weight', '=', False)]}"
                 >
                     <span><i
-                            class="fa fa-info-circle"
-                            role="image"
-                        /> You need to configure a default remote device in your user preferences to be able to start measuring remotely</span>
+                        class="fa fa-info-circle"
+                        role="image"
+                    /> You need to configure a default remote device in your user preferences to be able to start measuring remotely</span>
                 </div>
             </field>
             <field name="weight" position="attributes">
