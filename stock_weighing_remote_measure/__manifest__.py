@@ -3,7 +3,7 @@
 {
     "name": "Weighing assistant remote measure",
     "summary": "Gather the operations weights remotely",
-    "version": "15.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
@@ -15,9 +15,7 @@
     "data": ["wizards/weighing_wizard_views.xml"],
     "assets": {
         "web.assets_backend": [
-            "stock_weighing_remote_measure/static/src/**/*.js",
-            "stock_weighing_remote_measure/static/src/**/*.scss",
+            "stock_weighing_remote_measure/static/src/**/*",
         ],
-        "web.assets_qweb": ["stock_weighing_remote_measure/static/src/**/*.xml"],
     },
 }
