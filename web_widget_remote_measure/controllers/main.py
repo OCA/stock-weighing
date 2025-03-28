@@ -39,6 +39,6 @@ class RemoteDeviceTcpConnection(Controller):
         host, port = device.host.split(":")
         try:
             response = self._get_weight(command, host, int(port))
-        except socket.timeout:
+        except TimeoutError:
             response = b"timeout"
         return response
