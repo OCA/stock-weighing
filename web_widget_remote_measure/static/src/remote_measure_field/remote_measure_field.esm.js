@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/* global WebSocket, setTimeout */
 import {FloatField, floatField} from "@web/views/fields/float/float_field";
 import {
     onWillDestroy,
@@ -9,6 +9,8 @@ import {
 } from "@odoo/owl";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
+import {rpc} from "@web/core/network/rpc";
+import {user} from "@web/core/user";
 import {useService} from "@web/core/utils/hooks";
 
 // Animate the measure steps for each measure received.
@@ -32,13 +34,11 @@ export class RemoteMeasureField extends FloatField {
 
     setup() {
         super.setup();
-        this.rpc = useService("rpc");
         this.orm = useService("orm");
-        this.user = useService("user");
         this.remote_device_data = {};
         [this.default_user_device] =
             (this.props.default_user_device &&
-                this.user.settings.remote_measure_device_id) ||
+                user.settings.remote_measure_device_id) ||
             [];
         // When we're in the own device, we already have the data
         if (
@@ -49,25 +49,13 @@ export class RemoteMeasureField extends FloatField {
             [this.uom] = this.props.record.data.uom_id;
         } else if (this.props.remote_device_field) {
             [this.remote_device_data.id] =
-                this.props.record.data[this.props.remote_device_field];
+                this.props.record.data[this.props.remote_device_field] || [];
         } else if (this.default_user_device) {
             [this.remote_device_data.id] = this.default_user_device;
         }
         if (!this.uom && this.props.uom_field) {
             [this.uom] = this.props.record.data[this.props.uom_field];
         }
-        onWillStart(async () => {
-            if (!this.remote_device_data || !this.uom) {
-                return;
-            }
-            [this.uom] = await this.orm.call("uom.uom", "read", [this.uom]);
-            [this.remote_device_data] = await this.orm.call(
-                "remote.measure.device",
-                "read",
-                [this.remote_device_data.id]
-            );
-            this._assigDeviceData();
-        });
         this.default_ui_state = {
             stop: true,
             measuring: false,
@@ -81,6 +69,10 @@ export class RemoteMeasureField extends FloatField {
             ...this.state,
             ...this.default_ui_state,
             additive_measure: false,
+            device_name: false,
+        });
+        onWillStart(async () => {
+            await this._assignDevice();
         });
         // Reset states when we leave the button
         // TODO: Also halt any reading!
@@ -107,6 +99,19 @@ export class RemoteMeasureField extends FloatField {
 
     // Private methods
 
+    async _assignDevice() {
+        if (!this.remote_device_data || !this.uom) {
+            return;
+        }
+        [this.uom] = await this.orm.call("uom.uom", "read", [this.uom]);
+        [this.remote_device_data] = await this.orm.call(
+            "remote.measure.device",
+            "read",
+            [this.remote_device_data.id]
+        );
+        this._assigDeviceData();
+    }
+
     /**
      * @private
      */
@@ -122,6 +127,7 @@ export class RemoteMeasureField extends FloatField {
             device_uom: this.remote_device_data.uom_id[0],
             device_uom_category: this.remote_device_data.uom_category_id[0],
         });
+        this.state.device_name = this.remote_device_data.name;
     }
 
     /**
@@ -307,7 +313,7 @@ export class RemoteMeasureField extends FloatField {
      * @returns {Number}
      */
     async _read_from_device_tcp() {
-        const data = await this.rpc(
+        const data = await rpc(
             `/remote_measure_device/${this.remote_device_data.id}`,
             this._read_from_device_tcp_params()
         );
