@@ -242,6 +242,7 @@ export const RemoteMeasureMixin = {
      */
     measure() {
         this.stop = false;
+        if (!this.$start_measure) return;
         this.$start_measure.addClass("d-none");
         this.$stop_measure.removeClass("d-none");
         this.$icon = this.$stop_measure.find("i");
