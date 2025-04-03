@@ -110,6 +110,7 @@ Contributors
 -  `Tecnativa <https://www.tecnativa.com>`__:
 
    -  David Vidal
+   -  Sergio Teruel
 
 Maintainers
 -----------
