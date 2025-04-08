@@ -23,7 +23,16 @@ class StockPickingBatch(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        weighings = self.move_ids.filtered("has_weight")
+        any_operation_actions = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("stock_weighing.any_operation_actions")
+        )
+        weighings = (
+            self.move_ids
+            if any_operation_actions
+            else self.move_ids.filtered("has_weight")
+        )
         action["name"] = _("Weighing operations for %(name)s", name=self.name)
         action["domain"] = [("id", "in", weighings.ids)]
         action["context"] = dict(
