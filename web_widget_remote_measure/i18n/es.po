@@ -42,6 +42,12 @@ msgid "Connection Mode"
 msgstr "Modo de Conexión"
 
 #. module: web_widget_remote_measure
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#, python-format
+msgid "Connection failure to %(host)s:%(port)s"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_category_id
 msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
@@ -215,9 +221,22 @@ msgid "Scale F501"
 msgstr "Escala F501"
 
 #. module: web_widget_remote_measure
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#, python-format
+msgid "Successfully connected to %(host)s:%(port)s"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__test_measure
 msgid "Test Measure"
 msgstr "Medida de Prueba"
+
+#. module: web_widget_remote_measure
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+#, python-format
+msgid "Test connection"
+msgstr ""
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_id
