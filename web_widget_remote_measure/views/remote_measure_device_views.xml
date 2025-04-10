@@ -11,7 +11,7 @@
                         name="test_tcp_connection"
                         class="oe_highlight"
                         groups="base.group_no_one"
-                        attrs="{'invisible': [('connection_mode', '=', 'tcp')]}"
+                        attrs="{'invisible': [('connection_mode', '!=', 'tcp')]}"
                     />
                 </header>
                 <sheet>
