@@ -105,6 +105,7 @@
                                             type="object"
                                             string="Print labels"
                                             title="Print labels"
+                                            context="{'launch_manual_print': True}"
                                         >
                                             <i class="fa fa-print" role="image" />
                                         </button>
