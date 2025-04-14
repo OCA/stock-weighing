@@ -14,6 +14,7 @@
         "views/remote_measure_device_views.xml",
         "views/res_users_views.xml",
         "security/ir.model.access.csv",
+        "security/security.xml",
     ],
     "assets": {
         "web.assets_backend": [

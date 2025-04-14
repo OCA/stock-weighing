@@ -12,3 +12,8 @@ class ResUsers(models.Model):
         readonly=False,
         help="Default remote measure device for this user",
     )
+
+    def action_close_remote_device_wizard(self):
+        return {
+            "type": "ir.actions.act_window_close",
+        }

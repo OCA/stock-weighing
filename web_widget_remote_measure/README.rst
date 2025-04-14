@@ -49,6 +49,10 @@ To configure your remote devices:
 3. If the devices has an special port, set it up in the host data: e.g.:
    10.1.1.2:3210
 
+If you want to see the button in the top bar to set the user's remote
+device, you need to have the "Show remote device button on navbar"
+group.
+
 Usage
 =====
 
@@ -71,6 +75,9 @@ don't measure from the device.
 .. code:: xml
 
    <field name="float_field" widget="remote_measure" options="{'remote_device_field': 'measure_device_id', 'uom_field': 'uom_id'}" />
+
+The users are able to change their default remote device by using the
+button with the balance icon set on the navbar.
 
 Known issues / Roadmap
 ======================
@@ -111,6 +118,7 @@ Contributors
 
    -  David Vidal
    -  Sergio Teruel
+   -  Carlos Roca
 
 Maintainers
 -----------
