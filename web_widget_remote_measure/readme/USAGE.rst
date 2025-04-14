@@ -14,3 +14,6 @@ provide an uom field so records that aren't in that UoM don't measure from the d
 .. code:: xml
 
     <field name="float_field" widget="remote_measure" options="{'remote_device_field': 'measure_device_id', 'uom_field': 'uom_id'}" />
+
+The users are able to change their default remote device by using the button with the
+balance icon set on the navbar.

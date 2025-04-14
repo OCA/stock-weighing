@@ -2,3 +2,4 @@
 
   * David Vidal
   * Sergio Teruel
+  * Carlos Roca
