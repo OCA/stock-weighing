@@ -28,4 +28,29 @@
             </group>
         </field>
     </record>
+    <record id="view_users_select_remote_measure_form" model="ir.ui.view">
+        <field name="name">res.users.select.remote.measure.device</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="remote_measure_device_id" widget="selection_badge" />
+                <footer>
+                    <button
+                        type="object"
+                        name="action_close_remote_device_wizard"
+                        string="Confirm"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_user_remote_device_selector">
+        <field name="name">Select remote measure device</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_users_select_remote_measure_form" />
+        <field name="target">new</field>
+    </record>
 </odoo>
