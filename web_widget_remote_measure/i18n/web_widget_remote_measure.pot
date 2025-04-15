@@ -30,8 +30,18 @@ msgid "Archived"
 msgstr ""
 
 #. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
+msgid "Cancel"
+msgstr ""
+
+#. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_category_id
 msgid "Category"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
+msgid "Confirm"
 msgstr ""
 
 #. module: web_widget_remote_measure
@@ -210,6 +220,24 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__protocol__f501
 msgid "Scale F501"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.actions.act_window,name:web_widget_remote_measure.action_user_remote_device_selector
+msgid "Select remote measure device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. openerp-web
+#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#, python-format
+msgid "Select user remote device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:res.groups,name:web_widget_remote_measure.remote_device_button_group
+msgid "Show remote device button on navbar"
 msgstr ""
 
 #. module: web_widget_remote_measure
