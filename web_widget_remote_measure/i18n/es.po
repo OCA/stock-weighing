@@ -6,20 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-19 16:33+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2025-04-15 10:24+0000\n"
+"Last-Translator: Carlos Roca Zaragoza <carlos.roca@tecnativa.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__read_interval
 msgid "(0 for no sleep between reads) Miliseconds to wait between device reads"
 msgstr ""
+"(0 para no esperar entre lecturas) Milisegundos para esperar entre lecturas "
+"del dispositivo"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__active
@@ -34,7 +36,7 @@ msgstr "Archivado"
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_category_id
@@ -44,7 +46,7 @@ msgstr "Categoría"
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__connection_mode
@@ -55,7 +57,7 @@ msgstr "Modo de Conexión"
 #: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
 #, python-format
 msgid "Connection failure to %(host)s:%(port)s"
-msgstr ""
+msgstr "Conexión fallida a %(host)s:%(port)s"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_category_id
@@ -97,7 +99,7 @@ msgstr "Dispositivos"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__tcp
 msgid "Direct connection"
-msgstr ""
+msgstr "Conexión directa"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__display_name
@@ -107,7 +109,7 @@ msgstr "Mostrar Nombre"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__non_stop_read
 msgid "Don't stop reading until the widget is disposed"
-msgstr ""
+msgstr "No dejes de leer hasta que el widget sea eliminado"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__host
@@ -139,7 +141,7 @@ msgstr "ID (identificación)"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__instant_read
 msgid "Instant Read"
-msgstr ""
+msgstr "Lectura instantánea"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device____last_update
@@ -164,7 +166,7 @@ msgstr "Nombre"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__non_stop_read
 msgid "Non Stop Read"
-msgstr ""
+msgstr "Lectura continua"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__protocol
@@ -190,17 +192,17 @@ msgstr "Proporción"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__read_interval
 msgid "Read Interval"
-msgstr ""
+msgstr "Intervalo de lectura"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 msgid "Read behavior"
-msgstr ""
+msgstr "Comportamiento de lectura"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__instant_read
 msgid "Read right on as the widget gets rendered"
-msgstr ""
+msgstr "Leer inmediatamente cuando se renderiza el widget"
 
 #. module: web_widget_remote_measure
 #: model:ir.actions.act_window,name:web_widget_remote_measure.action_measure_device
@@ -233,25 +235,25 @@ msgstr "Escala F501"
 #. module: web_widget_remote_measure
 #: model:ir.actions.act_window,name:web_widget_remote_measure.action_user_remote_device_selector
 msgid "Select remote measure device"
-msgstr ""
+msgstr "Seleccionar dispositivo de medida remoto"
 
 #. module: web_widget_remote_measure
 #. openerp-web
 #: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
 #, python-format
 msgid "Select user remote device"
-msgstr ""
+msgstr "Seleccionar dispositivo remoto del usuario"
 
 #. module: web_widget_remote_measure
 #: model:res.groups,name:web_widget_remote_measure.remote_device_button_group
 msgid "Show remote device button on navbar"
-msgstr ""
+msgstr "Mostrar botón de dispositivo remoto en la barra superior"
 
 #. module: web_widget_remote_measure
 #: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
 #, python-format
 msgid "Successfully connected to %(host)s:%(port)s"
-msgstr ""
+msgstr "Conectado de manera exitosa a %(host)s:%(port)s"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__test_measure
@@ -263,7 +265,7 @@ msgstr "Medida de Prueba"
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 #, python-format
 msgid "Test connection"
-msgstr ""
+msgstr "Probar conexión"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_id
@@ -295,4 +297,4 @@ msgstr "p. ej. Muelle 1 Escala"
 #: code:addons/web_widget_remote_measure/static/src/xml/measure_device_status.xml:0
 #, python-format
 msgid "{{widget.title}}"
-msgstr ""
+msgstr "{{widget.title}}"
