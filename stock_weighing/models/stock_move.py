@@ -171,6 +171,10 @@ class StockMove(models.Model):
         self.ensure_one()
         self.weighing_user_id = False
 
+    def _get_default_print_label(self):
+        """Can be extended with other modules to add checks"""
+        return self.picking_type_id.print_weighing_label
+
     def action_weighing(self):
         """Open the wizard to record weights"""
         self.action_lock_weighing_operation()
@@ -183,7 +187,7 @@ class StockMove(models.Model):
             default_selected_move_line_id=(fields.first(self.move_line_ids).id),
             default_weight=self.recorded_weight or self.quantity_done,
             default_move_line_ids=self.move_line_ids.ids,
-            default_print_label=self.picking_type_id.print_weighing_label,
+            default_print_label=self._get_default_print_label(),
         )
         return action
 
