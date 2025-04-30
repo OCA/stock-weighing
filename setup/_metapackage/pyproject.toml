@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-stock-weighing"
-version = "17.0.20250430.0"
+version = "17.0.20250430.1"
 dependencies = [
     "odoo-addon-web_widget_remote_measure>=17.0dev,<17.1dev",
+    "odoo-addon-web_widget_remote_measure_utilcell>=17.0dev,<17.1dev",
 ]
 classifiers=[
     "Programming Language :: Python",
