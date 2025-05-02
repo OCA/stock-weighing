@@ -31,8 +31,9 @@ class WeighingWizard(models.TransientModel):
     def _post_add_detailed_operation(self):
         """After creating a new detailed operation for lot auto-assigning"""
         if self.show_auto_lot_info:
-            lot_sequence = self.env["stock.picking"]._get_lot_sequence()
-            self.selected_move_line_id.lot_name = lot_sequence
+            self.selected_move_line_id.lot_name = (
+                self.selected_move_line_id._get_lot_sequence()
+            )
             self.selected_move_line_id.with_context(
                 bypass_reservation_update=True
             )._create_and_assign_production_lot()

@@ -9,7 +9,7 @@
                 <div
                     role="alert"
                     class="alert alert-info"
-                    attrs="{'invisible':[('show_auto_lot_info', '=', False)]}"
+                    invisible="not show_auto_lot_info"
                 >
                     The lot will be created automatically if you don't select any
                 </div>
