@@ -6,35 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-05-03 17:24+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: web_widget_remote_measure_utilcell
 #: model:ir.model.fields,help:web_widget_remote_measure_utilcell.field_remote_measure_device__protocol
 msgid "Operating protocol"
-msgstr ""
+msgstr "Protocollo operativo"
 
 #. module: web_widget_remote_measure_utilcell
 #: model:ir.model.fields,field_description:web_widget_remote_measure_utilcell.field_remote_measure_device__protocol
 msgid "Protocol"
-msgstr ""
+msgstr "Protcollo"
 
 #. module: web_widget_remote_measure_utilcell
 #: model:ir.model,name:web_widget_remote_measure_utilcell.model_remote_measure_device
 msgid "Remote measure device"
-msgstr ""
+msgstr "Dispositivo di misura remoto"
 
 #. module: web_widget_remote_measure_utilcell
 #: model:ir.model.fields.selection,name:web_widget_remote_measure_utilcell.selection__remote_measure_device__protocol__utilcell_f10
 msgid "Utilcell F10"
-msgstr ""
+msgstr "Utilcell F10"
 
 #. module: web_widget_remote_measure_utilcell
 #: model:ir.model.fields.selection,name:web_widget_remote_measure_utilcell.selection__remote_measure_device__protocol__utilcell_f16
 msgid "Utilcell F16"
-msgstr ""
+msgstr "Utilcell F16"
