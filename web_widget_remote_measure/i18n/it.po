@@ -1,0 +1,304 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* web_widget_remote_measure
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__read_interval
+msgid ""
+"(0 for no sleep between reads) Miliseconds to wait between device reads"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__active
+msgid "Active"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-javascript
+#: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
+#, python-format
+msgid "Additive Measure"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+msgid "Archived"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
+msgid "Cancel"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_category_id
+msgid "Category"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
+msgid "Confirm"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__connection_mode
+msgid "Connection Mode"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-python
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#, python-format
+msgid "Connection failure to %(host)s:%(port)s"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_res_users__remote_measure_device_id
+#: model:ir.model.fields,help:web_widget_remote_measure.field_res_users_settings__remote_measure_device_id
+msgid "Default remote measure device for this user"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_kanban
+msgid "Device name"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.ui.menu,name:web_widget_remote_measure.menu_device_config
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
+msgid "Devices"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__tcp
+msgid "Direct connection"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__non_stop_read
+msgid "Don't stop reading until the widget is disposed"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__host
+msgid "Host"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_factor
+msgid ""
+"How much bigger or smaller this unit is compared to the reference Unit of "
+"Measure for this category: 1 * (reference unit) = ratio * (this unit)"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__id
+msgid "ID"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__instant_read
+msgid "Instant Read"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__name
+msgid "Name"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__non_stop_read
+msgid "Non Stop Read"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__protocol
+msgid "Operating protocol"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
+msgid "Preferred remote device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__protocol
+msgid "Protocol"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_factor
+msgid "Ratio"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__read_interval
+msgid "Read Interval"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+msgid "Read behavior"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__instant_read
+msgid "Read right on as the widget gets rendered"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.actions.act_window,name:web_widget_remote_measure.action_measure_device
+#: model:ir.ui.menu,name:web_widget_remote_measure.menu_measure_device
+msgid "Remote Devices"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_res_users__remote_measure_device_id
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_res_users_settings__remote_measure_device_id
+msgid "Remote Measure Device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-javascript
+#: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
+#, python-format
+msgid "Remote device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model,name:web_widget_remote_measure.model_remote_measure_device
+msgid "Remote measure device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__protocol__f501
+msgid "Scale F501"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.actions.act_window,name:web_widget_remote_measure.action_user_remote_device_selector
+msgid "Select remote measure device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-javascript
+#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#, python-format
+msgid "Select user remote device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:res.groups,name:web_widget_remote_measure.remote_device_button_group
+msgid "Show remote device button on navbar"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-python
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#, python-format
+msgid "Successfully connected to %(host)s:%(port)s"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__test_measure
+msgid "Test Measure"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-python
+#: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+#, python-format
+msgid "Test connection"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_id
+msgid "Unit of measure"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-javascript
+#: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
+#, python-format
+msgid "UoM"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#. odoo-javascript
+#: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
+#, python-format
+msgid "Use default device"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model,name:web_widget_remote_measure.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model,name:web_widget_remote_measure.model_res_users_settings
+msgid "User Settings"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__webservices
+msgid "Web Services"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__websockets
+msgid "Web Sockets"
+msgstr ""
+
+#. module: web_widget_remote_measure
+#: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
+msgid "e.g. Dock 1 Scale"
+msgstr ""
