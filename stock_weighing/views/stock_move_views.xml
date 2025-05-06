@@ -196,24 +196,13 @@
                                 <!-- Extra buttons -->
                                 <div class="col-3">
                                     <div>
-                                        <button
-                                            t-if="record.show_weighing_print_button.raw_value"
-                                            class="btn btn-lg btn-secondary"
-                                            name="action_print_weight_record_label"
-                                            type="object"
-                                            string="Print labels"
-                                            title="Print labels"
-                                            context="{'launch_manual_print': True}"
-                                        >
-                                            <i class="fa fa-print" />
-                                        </button>
                                         <!-- Hidden for the moment -->
                                         <button
                                             t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
                                             type="object"
                                             name="action_add_move_line"
                                             title="Add operation"
-                                            class="ms-1 btn btn-secondary btn-lg"
+                                            class="btn btn-secondary btn-lg"
                                         >
                                             <i class="fa fa-plus" />
                                         </button>
@@ -235,6 +224,17 @@
                                             class="ms-1 btn-danger btn btn-lg"
                                         >
                                             <i class="fa fa-lock" />
+                                        </button>
+                                        <button
+                                            t-if="record.show_weighing_print_button.raw_value"
+                                            class="btn btn-lg btn-secondary ms-2"
+                                            name="action_print_weight_record_label"
+                                            type="object"
+                                            string="Print labels"
+                                            title="Print labels"
+                                            context="{'launch_manual_print': True}"
+                                        >
+                                            <i class="fa fa-print" />
                                         </button>
                                     </div>
                                 </div>

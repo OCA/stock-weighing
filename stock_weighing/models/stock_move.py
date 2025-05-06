@@ -143,10 +143,11 @@ class StockMove(models.Model):
         domain = expression.AND([domain, [("product_uom_qty", ">", 0)]])
         return domain
 
-    @api.model
-    def search(self, domain, offset=0, limit=None, order=None):
-        """We need to sort by move sub-fields. Don't force if we have a given order"""
-        moves = super().search(domain, offset, limit, order)
+    def search_fetch(self, domain, field_names, offset=0, limit=None, order=None):
+        # We need to sort by move sub-fields. Don't force if we have a given order
+        moves = super().search_fetch(
+            domain, field_names, offset=offset, limit=limit, order=order
+        )
         if self.env.context.get("outgoing_weighing_order") and not order:
             moves = moves.sorted(
                 lambda x: (
@@ -252,65 +253,3 @@ class StockMove(models.Model):
 
     def action_force_weighed(self):
         self.weighing_state = "weighed"
-
-    @api.model
-    def action_outgoing_any_operations(self):
-        """Used in the start screen"""
-        action = self.env["ir.actions.actions"]._for_xml_id(
-            "stock_weighing.weighing_operation_action"
-        )
-        action["domain"] = [
-            ("location_id.usage", "in", ["internal", "transit"]),
-            ("location_dest_id.usage", "not in", ["internal", "transit"]),
-            ("picking_type_id.weighing_operations", "=", True),
-        ]
-        action["target"] = "main"
-        action["context"] = dict(
-            show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
-        )
-        action["display_name"] = _("Outgoing operations")
-        action["path"] = "weigh_outgoing"
-        return action
-
-    @api.model
-    def action_outgoing_weighing_operations(self):
-        """Used in the start screen"""
-        action = self.action_outgoing_any_operations()
-        action["domain"] = expression.AND(
-            [action["domain"], [("has_weight", "=", True)]]
-        )
-        action["context"].pop("show_weight_detail_buttons", None)
-        action["context"] = dict(search_default_to_weigh=1, **action["context"])
-        action["name"] = _("Weigh outgoing")
-        return action
-
-    @api.model
-    def action_incoming_any_operations(self):
-        """Used in the start screen"""
-        action = self.env["ir.actions.actions"]._for_xml_id(
-            "stock_weighing.weighing_operation_action"
-        )
-        action["domain"] = [
-            ("location_id.usage", "not in", ["internal", "transit"]),
-            ("location_dest_id.usage", "in", ["internal", "transit"]),
-            ("picking_type_id.weighing_operations", "=", True),
-        ]
-        action["target"] = "main"
-        action["context"] = dict(
-            show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
-        )
-        action["display_name"] = _("Incoming operations")
-        action["path"] = "weigh_incoming"
-        return action
-
-    @api.model
-    def action_incoming_weighing_operations(self):
-        """Used in the start screen"""
-        action = self.action_incoming_any_operations()
-        action["domain"] = expression.AND(
-            [action["domain"], [("has_weight", "=", True)]]
-        )
-        action["context"].pop("show_weight_detail_buttons", None)
-        action["context"] = dict(search_default_to_weigh=1, **action["context"])
-        action["name"] = _("Weigh incoming")
-        return action

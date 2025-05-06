@@ -61,11 +61,11 @@ To do so:
 If you don't have any product with units of measure of the weight
 category, you'll have to add some.
 
--  Allow to show the units of measure in your config settings if isn't
-   ready yet.
--  Add some products with a unit of measure of the weight category
-   (kilograms, grams, etc.).
--  Place some pending operations for those products.
+- Allow to show the units of measure in your config settings if isn't
+  ready yet.
+- Add some products with a unit of measure of the weight category
+  (kilograms, grams, etc.).
+- Place some pending operations for those products.
 
 If you want to use the weighing system for other operations you can set
 the configuration parameter ``stock_weighing.any_operation_actions`` to
@@ -101,12 +101,12 @@ Using the assitant
 You'll be presented with a list of operations to weigh. To weigh them,
 just press the red circle button to record a new weight:
 
--  If there's only one detailed operation reserved, a popup will show up
-   to record the operation weight.
--  If there are several, you'll enter the detailed view and you'll be
-   able to weigh every detailed operation.
--  If you just want to weigh one, you can force the operation as done
-   using the checkmark button.
+- If there's only one detailed operation reserved, a popup will show up
+  to record the operation weight.
+- If there are several, you'll enter the detailed view and you'll be
+  able to weigh every detailed operation.
+- If you just want to weigh one, you can force the operation as done
+  using the checkmark button.
 
 You can reset your weighing using the cross button. You can print the
 label on demand using the printer button. You can add a new detailed
@@ -115,9 +115,9 @@ operation using the plus button.
 Known issues / Roadmap
 ======================
 
--  This PR should be https://github.com/odoo/odoo/pull/161042 merged in
-   order to reload the kanban view properly after each action. Otherwise
-   we should reimplement the whole core method in our override.
+- This PR should be https://github.com/odoo/odoo/pull/161042 merged in
+  order to reload the kanban view properly after each action. Otherwise
+  we should reimplement the whole core method in our override.
 
 Bug Tracker
 ===========
@@ -140,10 +140,11 @@ Authors
 Contributors
 ------------
 
--  `Tecnativa <https://www.tecnativa.com>`__
+- `Tecnativa <https://www.tecnativa.com>`__
 
-   -  David Vidal
-   -  Sergio Teruel
+  - David Vidal
+  - Sergio Teruel
+  - Carlos Roca
 
 Maintainers
 -----------

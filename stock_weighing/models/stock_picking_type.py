@@ -32,7 +32,7 @@ class StockPickingType(models.Model):
             .get_param("stock_weighing.any_operation_actions")
         )
         domain = [("state", "in", ("assigned", "confirmed", "waiting"))]
-        if any_operation_actions:
+        if not any_operation_actions:
             domain = expression.AND([domain, [("has_weight", "=", True)]])
         for picking_type in self:
             picking_type.weight_move_ids = self.env["stock.move"].search(

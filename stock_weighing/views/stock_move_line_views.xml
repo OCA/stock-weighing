@@ -100,7 +100,17 @@
                                 <div class="col-3">
                                     <div>
                                         <button
-                                            class="btn btn-lg btn-secondary"
+                                            t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
+                                            type="object"
+                                            name="action_reset_weights"
+                                            title="Reset weights"
+                                            class="btn btn-secondary btn-lg"
+                                            confirm="This will reset your current weight. Proceed?"
+                                        >
+                                            <i class="fa fa-times" />
+                                        </button>
+                                        <button
+                                            class="btn btn-lg btn-secondary ms-2"
                                             name="action_print_weight_record_label"
                                             type="object"
                                             string="Print labels"
@@ -108,16 +118,6 @@
                                             context="{'launch_manual_print': True}"
                                         >
                                             <i class="fa fa-print" role="image" />
-                                        </button>
-                                        <button
-                                            t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
-                                            type="object"
-                                            name="action_reset_weights"
-                                            title="Reset weights"
-                                            class="ms-1 btn btn-secondary btn-lg"
-                                            confirm="This will reset your current weight. Proceed?"
-                                        >
-                                            <i class="fa fa-times" />
                                         </button>
                                     </div>
                                 </div>
