@@ -84,14 +84,14 @@ Known issues / Roadmap
 
 Current support:
 
--  Websockets connection
--  F501 protocol on continuous message stream.
+- Websockets connection
+- F501 protocol on continuous message stream.
 
 But this is a commonground to add:
 
--  Other connection interfaces like Webservices APIs
--  Other device protocols.
--  Active device controls, la Tare, resets, etc.
+- Other connection interfaces like Webservices APIs
+- Other device protocols.
+- Active device controls, la Tare, resets, etc.
 
 Bug Tracker
 ===========
@@ -114,11 +114,11 @@ Authors
 Contributors
 ------------
 
--  `Tecnativa <https://www.tecnativa.com>`__:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-   -  David Vidal
-   -  Sergio Teruel
-   -  Carlos Roca
+  - David Vidal
+  - Sergio Teruel
+  - Carlos Roca
 
 Maintainers
 -----------

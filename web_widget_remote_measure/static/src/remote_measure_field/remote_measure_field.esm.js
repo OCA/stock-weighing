@@ -35,6 +35,7 @@ export class RemoteMeasureField extends FloatField {
     setup() {
         super.setup();
         this.orm = useService("orm");
+        this.amount = 0;
         this.remote_device_data = {};
         [this.default_user_device] =
             (this.props.default_user_device &&
