@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-    <t t-name="web_widget_remote_measure.RemoteDeviceSelectorButton" owl="1">
+    <t t-name="web_widget_remote_measure.RemoteDeviceSelectorButton">
         <div class="div_remote_device_selector">
-            <a
+            <button
                 name="remote_device_selector"
+                class="btn btn-link"
                 title="Select user remote device"
                 href="#"
-                role="button"
                 t-on-click="onClickSelectRemoteDevice"
                 t-if="isRemoteDeviceUser"
             >
@@ -15,7 +15,7 @@
                     role="img"
                     aria-label="Select user remote device"
                 />
-            </a>
+            </button>
         </div>
     </t>
 </templates>
