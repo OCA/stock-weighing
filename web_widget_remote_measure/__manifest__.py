@@ -19,6 +19,7 @@
     "assets": {
         "web.assets_backend": [
             "web_widget_remote_measure/static/src/remote_measure_field/**/*",
+            "web_widget_remote_measure/static/src/systray/**/*",
         ],
     },
 }

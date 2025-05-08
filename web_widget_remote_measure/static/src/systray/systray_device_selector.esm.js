@@ -2,16 +2,16 @@
 /* Copyright 2025 Tecnativa - Carlos Roca
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 import {registry} from "@web/core/registry";
+import {user} from "@web/core/user";
+import {Component, onWillStart} from "@odoo/owl";
 import {useService} from "@web/core/utils/hooks";
-const {onWillStart} = owl.hooks;
-const {Component} = owl;
 
 export class SelectRemoteDeviceMenu extends Component {
+    static template = "web_widget_remote_measure.RemoteDeviceSelectorButton";
     setup() {
         this.action = useService("action");
-        this.user = useService("user");
         onWillStart(async () => {
-            this.isRemoteDeviceUser = await this.user.hasGroup(
+            this.isRemoteDeviceUser = await user.hasGroup(
                 "web_widget_remote_measure.remote_device_button_group"
             );
         });
@@ -25,13 +25,10 @@ export class SelectRemoteDeviceMenu extends Component {
         const action = await this.action.loadAction(
             "web_widget_remote_measure.action_user_remote_device_selector"
         );
-        action.res_id = this.user.userId;
+        action.res_id = user.userId;
         this.action.doAction(action);
     }
 }
-
-SelectRemoteDeviceMenu.template =
-    "web_widget_remote_measure.RemoteDeviceSelectorButton";
 
 export const systrayRemoteDeviceSelector = {
     Component: SelectRemoteDeviceMenu,
