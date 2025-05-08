@@ -1,6 +1,7 @@
 /* global WebSocket, setTimeout */
 import {FloatField, floatField} from "@web/views/fields/float/float_field";
 import {
+    onMounted,
     onWillDestroy,
     onWillStart,
     onWillUnmount,
@@ -71,6 +72,11 @@ export class RemoteMeasureField extends FloatField {
             ...this.default_ui_state,
             additive_measure: false,
             device_name: false,
+        });
+        onMounted(() => {
+            if (this.remote_device_data?.instant_read) {
+                this.measure();
+            }
         });
         onWillStart(async () => {
             await this._assignDevice();
