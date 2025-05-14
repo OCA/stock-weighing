@@ -51,7 +51,7 @@ export class RemoteMeasureField extends FloatField {
             [this.remote_device_data.id] =
                 this.props.record.data[this.props.remote_device_field];
         } else if (this.default_user_device) {
-            [this.remote_device_data.id] = this.default_user_device;
+            this.remote_device_data.id = this.default_user_device;
         }
         if (!this.uom && this.props.uom_field) {
             [this.uom] = this.props.record.data[this.props.uom_field];
