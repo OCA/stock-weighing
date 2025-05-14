@@ -18,8 +18,7 @@ msgstr ""
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__read_interval
-msgid ""
-"(0 for no sleep between reads) Miliseconds to wait between device reads"
+msgid "(0 for no sleep between reads) Miliseconds to wait between device reads"
 msgstr ""
 "(0 per nessuna sospensione tra le letture) Millisecondi di attesa tra le "
 "letture del dispositivo"
@@ -238,8 +237,7 @@ msgstr "Selezionare il dispositivo di misura remoto"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
-#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
-#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#: code:addons/web_widget_remote_measure/static/src/systray/systray_device_selector.xml:0
 #, python-format
 msgid "Select user remote device"
 msgstr "Selezionare il dispositivo remoto dell'utente"
