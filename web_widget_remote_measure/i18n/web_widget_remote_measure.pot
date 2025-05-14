@@ -227,8 +227,8 @@ msgstr ""
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
-#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
-#: code:addons/web_widget_remote_measure/static/src/xml/systray_device_selector.xml:0
+#: code:addons/web_widget_remote_measure/static/src/systray/systray_device_selector.xml:0
+#: code:addons/web_widget_remote_measure/static/src/systray/systray_device_selector.xml:0
 #, python-format
 msgid "Select user remote device"
 msgstr ""
