@@ -106,6 +106,7 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
             this.$input.val(this.format_weight(total));
             this._setValue(this.$input.val());
         }
+        this.$input.select();
     },
 
     /* TARE METHODS */
