@@ -147,6 +147,16 @@
                                             class="btn btn-lg border"
                                             t-elif="record.move_lines_count.raw_value > 1 &amp;&amp; context.hide_weight_detail_buttons &amp;&amp; record.weighing_state.raw_value === 'weighing'"
                                         ><i class="fa fa-check text-success" /></button>
+                                        <button
+                                            string="Set reserved to done"
+                                            title="Set reserved to done"
+                                            name="set_product_uom_qty_to_qty_done_from_weighing"
+                                            type="object"
+                                            class="btn btn-lg border ml-2"
+                                            t-if="!record.has_weight.raw_value and record.reserved_availability.raw_value !== record.quantity_done.raw_value"
+                                        ><i
+                                                class="fa fa-arrow-right text-success"
+                                            /></button>
                                     </div>
                                 </div>
                                 <!-- Weight -->
