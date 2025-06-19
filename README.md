@@ -30,9 +30,9 @@ addon | version | maintainers | summary
 [stock_weighing](stock_weighing/) | 15.0.2.3.0 |  | Weighing assistant for stock operations
 [stock_weighing_auto_create_lot](stock_weighing_auto_create_lot/) | 15.0.1.0.0 |  | Allow to create lots from the weighing kanban cards
 [stock_weighing_auto_package](stock_weighing_auto_package/) | 15.0.1.1.0 |  | Auto create package for every weighing operation
-[stock_weighing_remote_measure](stock_weighing_remote_measure/) | 15.0.1.0.0 |  | Gather the operations weights remotely
+[stock_weighing_remote_measure](stock_weighing_remote_measure/) | 15.0.1.0.1 |  | Gather the operations weights remotely
 [stock_weighing_threaded_print](stock_weighing_threaded_print/) | 15.0.1.0.1 |  | Print labels on a different thread
-[web_widget_remote_measure](web_widget_remote_measure/) | 15.0.1.1.1 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to connect to remote devices to record measures
+[web_widget_remote_measure](web_widget_remote_measure/) | 15.0.1.1.2 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to connect to remote devices to record measures
 [web_widget_remote_measure_utilcell](web_widget_remote_measure_utilcell/) | 15.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Compatibility with UTILCELL propietary protocols
 
 [//]: # (end addons)
