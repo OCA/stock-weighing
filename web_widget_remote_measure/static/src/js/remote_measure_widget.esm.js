@@ -183,6 +183,7 @@ export const RemoteMeasureMixin = {
         }
         this.$input.val(this.amount.toLocaleString(this.locale_code));
         this._setValue(this.$input.val());
+        this.$input.select();
     },
     /**
      * Procure to close the socket whenever the widget stops being used
@@ -323,6 +324,34 @@ export const RemoteMeasureMixin = {
     },
 };
 
+/**
+ * Attempts to select the given input element once it becomes visible.
+ *
+ * This function is necessary because, in Odoo's dynamic widget system,
+ * form fields and inputs may be present in the DOM but not yet visible on the screen
+ * due to asynchronous rendering, animations, or tab switching.
+ * Calling .select() on an element that is not yet visible
+ * will not reliably place the cursor or select the text as expected.
+ *
+ * This helper repeatedly checks whether the input is visible,
+ * and when it is, it  selects the entire content.
+ * It retries up to a maximum number of times (by default, 10),
+ * with a short delay between each attempt, to ensure robust user experience
+ * even in complex UI flows.
+ *
+ * @param {jQuery} $input - The jQuery input element to select.
+ * @param {Number} retries - Number of retries before giving up (default: 10).
+ */
+export function selectInputWhenVisible($input, retries = 10) {
+    if ($input.is(":visible")) {
+        $input.select();
+    } else if (retries > 0) {
+        setTimeout(() => {
+            selectInputWhenVisible($input, retries - 1);
+        }, 50);
+    }
+}
+
 export const RemoteMeasure = FieldFloat.extend(RemoteMeasureMixin, {
     description: _lt("Remote Measure"),
     className: "o_field_remote_device o_field_number",
@@ -436,6 +465,9 @@ export const RemoteMeasure = FieldFloat.extend(RemoteMeasureMixin, {
      */
     start() {
         this._super(...arguments).then(() => {
+            setTimeout(() => {
+                selectInputWhenVisible(this.$input);
+            }, 0);
             if (this.remote_device_data && this.remote_device_data.instant_read) {
                 this.measure();
             }
