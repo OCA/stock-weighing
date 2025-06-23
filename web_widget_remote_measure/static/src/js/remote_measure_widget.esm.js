@@ -465,9 +465,11 @@ export const RemoteMeasure = FieldFloat.extend(RemoteMeasureMixin, {
      */
     start() {
         this._super(...arguments).then(() => {
-            setTimeout(() => {
-                selectInputWhenVisible(this.$input);
-            }, 0);
+            if (this.$input) {
+                setTimeout(() => {
+                    selectInputWhenVisible(this.$input);
+                }, 0);
+            }
             if (this.remote_device_data && this.remote_device_data.instant_read) {
                 this.measure();
             }
