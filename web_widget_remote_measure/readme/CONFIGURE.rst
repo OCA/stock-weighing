@@ -6,3 +6,10 @@ To configure your remote devices:
 
 If you want to see the button in the top bar to set the user's remote device, you need
 to have the "Show remote device button on navbar" group.
+
+If you need the field to always be selected, you can use the ``always_selected``
+attribute in the view definition, as shown in the following example:
+
+.. code:: xml
+
+    <field name="field_float" widget="remote_measure" always_selected="1"/>

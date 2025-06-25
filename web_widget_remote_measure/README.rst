@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ============================
 Remote Measure Devices Input
 ============================
@@ -17,7 +13,7 @@ Remote Measure Devices Input
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fstock--weighing-lightgray.png?logo=github
@@ -54,6 +50,13 @@ To configure your remote devices:
 
 If you want to see the button in the top bar to set the user's remote device, you need
 to have the "Show remote device button on navbar" group.
+
+If you need the field to always be selected, you can use the ``always_selected``
+attribute in the view definition, as shown in the following example:
+
+.. code:: xml
+
+    <field name="field_float" widget="remote_measure" always_selected="1"/>
 
 Usage
 =====

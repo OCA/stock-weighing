@@ -383,6 +383,9 @@ export const RemoteMeasure = FieldFloat.extend(RemoteMeasureMixin, {
         this.uom = this.recordData[this.nodeOptions.uom_field].data;
         this.allow_additive_measure = this.nodeOptions.allow_additive_measure;
         // Add to your view options so you can log requests and responses
+        if (this.attrs.always_selected) {
+            this.nodeOptions.always_selected = JSON.parse(this.attrs.always_selected);
+        }
     },
     /**
      * Request the configured remote device info
@@ -465,7 +468,7 @@ export const RemoteMeasure = FieldFloat.extend(RemoteMeasureMixin, {
      */
     start() {
         this._super(...arguments).then(() => {
-            if (this.$input) {
+            if (this.nodeOptions.always_selected && this.$input) {
                 setTimeout(() => {
                     selectInputWhenVisible(this.$input);
                 }, 0);
