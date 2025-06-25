@@ -30,6 +30,7 @@
                     attrs="{'invisible': ['|', ('measure_device_id', '=', False), ('has_weight', '=', False)]}"
                     widget="remote_measure_form"
                     options="{'remote_device_field': 'measure_device_id', 'uom_field': 'uom_id', 'tares': [{'tare':'0.05', 'name': '50 gr.'}, {'tare': '0.1', 'name': '100 gr.'}, {'tare': '0.2', 'name': '200 gr.'}, {'tare': '0.5', 'name': '500 gr.'}]}"
+                    always_selected="1"
                 />
             </field>
         </field>
