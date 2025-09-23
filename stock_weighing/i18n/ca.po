@@ -1,0 +1,608 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_picking_type.py:0
+#, python-format
+msgid "%(name)s Weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "%(name)s details"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+msgid "<i class=\"fa fa-arrow-right\" title=\"to\"/>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+msgid "<small>Dest. Package</small>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+msgid "<small>LOT</small>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "<small>LOTS: </small>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+msgid "<span>To weigh:</span><br/>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "<strong>Done: </strong>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "<strong>Reserved: </strong>"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "<strong>To do: </strong>"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields.selection,name:stock_weighing.selection__weighing_wizard__wizard_state__new_move_line
+msgid "Add Operation"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Add detailed operation"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Add detailed operation and new weighing"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Add operation"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_lot_ids
+msgid "Available Lot"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_result_package_ids
+msgid "Available Result Package"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_label_report_id
+#: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__weighing_label_report_id
+msgid "Choose a custom label template for this operation type"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_uid
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_date
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Destination"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__result_package_id
+msgid "Destination Package"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Detailed operations for %(name)s"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Details"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__display_name
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__product_tracking
+msgid "Ensure the traceability of a storable product in your warehouse."
+msgstr ""
+
+#. module: stock_weighing
+#. openerp-web
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+#, python-format
+msgid "Fold"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Force weighed"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__has_recorded_weight
+msgid "Has Recorded Weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking__has_weighing_operations
+msgid "Has Weighing Operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__has_weight
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__has_weight
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_mixin__has_weight
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__has_weight
+msgid "Has Weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__id
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__result_package_id
+msgid "If set, the operations are packed into this package"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Incoming (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Incoming weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
+msgid "Is Weighing Operation Locked"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.report_weight_record_label
+msgid "LOT:"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__label_report_id
+msgid "Label Report"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection____last_update
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__write_uid
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__write_date
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Locked by user"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__lot_id
+msgid "Lot"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__lot_names
+msgid "Lot Names"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__move_id
+msgid "Move"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__move_line_ids
+msgid "Move Line"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__move_lines_weighed
+msgid "Move Lines Weighed"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid ""
+"New operation for %(product)s (%(operation)s) %(remain).2f %(uom)s remaining"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__origin_names
+msgid "Origin Names"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Outgoing (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Outgoing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Outgoing weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_stock_picking_type
+msgid "Picking Type"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__print_label
+msgid "Print Label"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__print_weighing_label
+msgid "Print Weighing Label"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__print_label
+msgid "Print label after the weight record"
+msgstr ""
+
+#. module: stock_weighing
+#. openerp-web
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+#, python-format
+msgid "Print labels"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__print_weighing_label
+msgid "Print the weight operation label automatically"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__product_id
+msgid "Product"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Qty. done"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Record"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.actions.act_window,name:stock_weighing.weighing_wizard_action
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Record Weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Record weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_weighing_wizard
+msgid "Record weights over detailed operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__recorded_weight
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__recorded_weight
+msgid "Recorded Weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Reset weights"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Select destination package..."
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Select lot..."
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__selected_move_line_id
+msgid "Selected Move Line"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__self_move_ids
+msgid "Self Move"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Set reserved to done"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__show_weighing_print_button
+msgid "Show Weighing Print Button"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "The user %(user)s is already weighing this operation"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_stock_move_line__has_recorded_weight
+msgid "The weight was set from the wizard"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_user_id
+msgid "This user is weighing the record, so it's locked by him"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "This will reset your current weight. Proceed?"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__to_do_weights
+msgid "To Do Weights"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_weighing_mixin
+msgid "To be used by stock.move and stock.move.line"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__to_weigh
+#: model_terms:ir.ui.view,arch_db:stock_weighing.stock_picking_type_kanban
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "To weigh"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+msgid "Today"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__product_tracking
+msgid "Tracking"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: stock_weighing
+#. openerp-web
+#: code:addons/stock_weighing/static/src/base_weight_record_form/base_weight_record_form.xml:0
+#, python-format
+msgid "True"
+msgstr ""
+
+#. module: stock_weighing
+#. openerp-web
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+#, python-format
+msgid "Unfold"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Unlock weight operation"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move_line.py:0
+#, python-format
+msgid "Weigh %(product_uom_qty)s %(uom)s of %(product)s"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Weigh incoming"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Weigh outgoing"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__weighed
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Weighed"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_stock_picking__weighing_operations
+#: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__weighing_operations
+msgid "Weighed products are done from weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__weighing
+#: model:ir.ui.menu,name:stock_weighing.menu_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Weighing"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_date
+msgid "Weighing Date"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_label_report_id
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weighing_label_report_id
+msgid "Weighing Label Report"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking__weighing_operations
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weighing_operations
+#: model:ir.ui.menu,name:stock_weighing.menu_weight_operation
+#: model:ir.ui.menu,name:stock_weighing.menu_weight_operation_screen
+msgid "Weighing Operations"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_state
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+msgid "Weighing State"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_user_id
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_user_id
+msgid "Weighing User"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.actions.act_window,name:stock_weighing.weighing_operation_action
+msgid "Weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_picking.py:0
+#, python-format
+msgid "Weighing operations for %(name)s"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.actions.act_window,name:stock_weighing.stock_move_weight_operation_start_screen
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__weight
+#: model:ir.model.fields.selection,name:stock_weighing.selection__weighing_wizard__wizard_state__weight
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_picking_form
+msgid "Weight"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weight_move_ids
+msgid "Weight Move"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.actions.report,name:stock_weighing.label_weight_record
+msgid "Weight Record Label"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__wizard_state
+msgid "Wizard State"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weighing_wizard.py:0
+#, python-format
+msgid "You need to supply a Lot/Serial Number"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_weigh_operation_selection
+msgid "weigh operation selection screen"
+msgstr ""
