@@ -248,11 +248,16 @@ class StockMove(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        action["domain"] = [
-            ("location_id.usage", "in", ["internal", "transit"]),
-            ("location_dest_id.usage", "not in", ["internal", "transit"]),
-            ("picking_type_id.weighing_operations", "=", True),
-        ]
+        action["domain"] = expression.AND(
+            [
+                self.initial_action_domain(),
+                [
+                    ("location_id.usage", "in", ["internal", "transit"]),
+                    ("location_dest_id.usage", "not in", ["internal", "transit"]),
+                    ("picking_type_id.weighing_operations", "=", True),
+                ],
+            ]
+        )
         action["target"] = "main"
         action["context"] = dict(
             show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
@@ -278,11 +283,16 @@ class StockMove(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        action["domain"] = [
-            ("location_id.usage", "not in", ["internal", "transit"]),
-            ("location_dest_id.usage", "in", ["internal", "transit"]),
-            ("picking_type_id.weighing_operations", "=", True),
-        ]
+        action["domain"] = expression.AND(
+            [
+                self.initial_action_domain(),
+                [
+                    ("location_id.usage", "not in", ["internal", "transit"]),
+                    ("location_dest_id.usage", "in", ["internal", "transit"]),
+                    ("picking_type_id.weighing_operations", "=", True),
+                ],
+            ]
+        )
         action["target"] = "main"
         action["context"] = dict(
             show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
@@ -317,11 +327,16 @@ class StockMove(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        action["domain"] = [
-            ("location_id.usage", "in", ["internal", "transit"]),
-            ("location_dest_id.usage", "in", ["internal", "transit"]),
-            ("picking_type_id.weighing_operations", "=", True),
-        ]
+        action["domain"] = expression.AND(
+            [
+                self.initial_action_domain(),
+                [
+                    ("location_id.usage", "in", ["internal", "transit"]),
+                    ("location_dest_id.usage", "in", ["internal", "transit"]),
+                    ("picking_type_id.weighing_operations", "=", True),
+                ],
+            ]
+        )
         action["target"] = "main"
         action["context"] = dict(
             show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
@@ -340,3 +355,11 @@ class StockMove(models.Model):
         action["context"] = dict(search_default_to_weigh=1, **action["context"])
         action["name"] = _("Weigh interwarehause")
         return action
+
+    @api.model
+    def initial_action_domain(self):
+        domain = []
+        user_warehouse = self.env.user.property_warehouse_id
+        if user_warehouse:
+            domain.append(("warehouse_id", "=", user_warehouse.id))
+        return domain
