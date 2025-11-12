@@ -310,3 +310,33 @@ class StockMove(models.Model):
             move_line.has_recorded_weight = True
             move_line.weighing_user_id = self.env.user
             move_line.weighing_date = fields.Datetime.now()
+
+    @api.model
+    def action_interwarehouse_any_operations(self):
+        """Used in the start screen"""
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "stock_weighing.weighing_operation_action"
+        )
+        action["domain"] = [
+            ("location_id.usage", "in", ["internal", "transit"]),
+            ("location_dest_id.usage", "in", ["internal", "transit"]),
+            ("picking_type_id.weighing_operations", "=", True),
+        ]
+        action["target"] = "main"
+        action["context"] = dict(
+            show_weight_detail_buttons=1, **ast.literal_eval(action["context"])
+        )
+        action["name"] = _("Interwarehouse operations")
+        return action
+
+    @api.model
+    def action_interwarehouse_weighing_operations(self):
+        """Used in the start screen"""
+        action = self.action_interwarehouse_any_operations()
+        action["domain"] = expression.AND(
+            [action["domain"], [("has_weight", "=", True)]]
+        )
+        action["context"].pop("show_weight_detail_buttons", None)
+        action["context"] = dict(search_default_to_weigh=1, **action["context"])
+        action["name"] = _("Weigh interwarehause")
+        return action

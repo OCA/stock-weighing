@@ -40,4 +40,16 @@ class WeightOperationSelection(models.TransientModel):
                 ),
             }
         )
+        actions.append(
+            {
+                "title": _("Interwarehouse (weighing)"),
+                "description": _("Interwarehouse weighing operations"),
+                "icon": "fa-arrows-h text-success",
+                "method": (
+                    "action_interwarehouse_any_operations"
+                    if any_operation_actions
+                    else "action_interwarehouse_weighing_operations"
+                ),
+            }
+        )
         return actions
