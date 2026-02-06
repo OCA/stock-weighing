@@ -3,6 +3,7 @@
 import ast
 
 from odoo import api, fields, models
+from odoo.tools.misc import str2bool
 
 
 class StockPicking(models.Model):
@@ -13,8 +14,17 @@ class StockPicking(models.Model):
 
     @api.depends("move_ids")
     def _compute_has_weighing_operations(self):
-        for picking in self:
-            picking.has_weighing_operations = picking.move_ids.filtered("has_weight")
+        if str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("stock_weighing.any_operation_actions")
+        ):
+            self.has_weighing_operations = True
+        else:
+            for picking in self:
+                picking.has_weighing_operations = picking.move_ids.filtered(
+                    "has_weight"
+                )
 
     def action_weighing_operations(self):
         """Weighing operations for this picking"""
