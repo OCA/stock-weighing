@@ -44,6 +44,9 @@ class StockMove(models.Model):
     self_move_ids = fields.Many2many(
         comodel_name="stock.move", compute="_compute_self_move_ids"
     )
+    picking_partner_id = fields.Many2one(
+        comodel_name="res.partner", related="picking_id.partner_id", store=True
+    )
 
     def name_get(self):
         if not self.env.context.get("weight_operation_details"):

@@ -10,6 +10,20 @@ _logger = logging.getLogger(__name__)
 def pre_init_hook(cr):
     _logger.info("Pre-creating weighing state column to avoid computing everyone...")
     cr.execute("ALTER TABLE stock_move ADD COLUMN IF NOT EXISTS weighing_state VARCHAR")
+    _logger.info(
+        "Pre-creating picking partner column and filling the value to avoid computing"
+        " everyone..."
+    )
+    cr.execute(
+        "ALTER TABLE stock_move ADD COLUMN IF NOT EXISTS picking_partner_id INTEGER"
+    )
+    cr.execute(
+        """
+        UPDATE stock_move sm
+        SET picking_partner_id = sp.partner_id FROM stock_picking sp
+        WHERE sm.picking_id = sp.id
+        """
+    )
 
 
 def post_init_hook(cr, registry):

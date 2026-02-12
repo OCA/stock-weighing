@@ -348,6 +348,12 @@
                     domain="[]"
                     context="{'group_by': 'warehouse_id'}"
                 />
+                <filter
+                    string="Supplier"
+                    name="supplier"
+                    domain="[]"
+                    context="{'group_by': 'picking_partner_id', 'shown_in_panel': {'icon': 'fa-address-book'}}"
+                />
             </filter>
         </field>
     </record>
