@@ -108,6 +108,7 @@ class StockMoveWeightWizard(models.TransientModel):
             .with_context(**clean_context(self.env.context))
             .create(vals)
         )
+        self.selected_move_line_id._apply_putaway_strategy()
         self._post_add_detailed_operation()
         return self.record_weight()
 
