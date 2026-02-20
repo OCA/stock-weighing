@@ -206,6 +206,24 @@ msgid "Incoming weighing operations"
 msgstr ""
 
 #. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Interwarehouse (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Interwarehouse operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Interwarehouse weighing operations"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
 msgid "Is Weighing Operation Locked"
 msgstr ""
@@ -493,6 +511,11 @@ msgid "Unlock weight operation"
 msgstr ""
 
 #. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+msgid "Warehouse"
+msgstr ""
+
+#. module: stock_weighing
 #: code:addons/stock_weighing/models/stock_move_line.py:0
 #, python-format
 msgid "Weigh %(product_uom_qty)s %(uom)s of %(product)s"
@@ -502,6 +525,12 @@ msgstr ""
 #: code:addons/stock_weighing/models/stock_move.py:0
 #, python-format
 msgid "Weigh incoming"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Weigh interwarehause"
 msgstr ""
 
 #. module: stock_weighing
