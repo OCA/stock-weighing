@@ -157,7 +157,6 @@ msgstr ""
 #. module: stock_weighing
 #. openerp-web
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 #, python-format
 msgid "Fold"
 msgstr ""
@@ -206,6 +205,24 @@ msgstr ""
 #: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
 #, python-format
 msgid "Incoming weighing operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Interwarehouse (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Interwarehouse operations"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Interwarehouse weighing operations"
 msgstr ""
 
 #. module: stock_weighing
@@ -290,7 +307,6 @@ msgid "Outgoing (weighing)"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/models/stock_move.py:0
 #: code:addons/stock_weighing/models/stock_move.py:0
 #, python-format
 msgid "Outgoing operations"
@@ -485,7 +501,6 @@ msgstr ""
 #. module: stock_weighing
 #. openerp-web
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 #, python-format
 msgid "Unfold"
 msgstr ""
@@ -493,6 +508,11 @@ msgstr ""
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Unlock weight operation"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+msgid "Warehouse"
 msgstr ""
 
 #. module: stock_weighing
@@ -505,6 +525,12 @@ msgstr ""
 #: code:addons/stock_weighing/models/stock_move.py:0
 #, python-format
 msgid "Weigh incoming"
+msgstr ""
+
+#. module: stock_weighing
+#: code:addons/stock_weighing/models/stock_move.py:0
+#, python-format
+msgid "Weigh interwarehause"
 msgstr ""
 
 #. module: stock_weighing
