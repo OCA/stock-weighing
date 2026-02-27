@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ====================================
 Weighing assistant in batch pickings
 ====================================
@@ -13,7 +17,7 @@ Weighing assistant in batch pickings
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fstock--weighing-lightgray.png?logo=github
@@ -30,10 +34,18 @@ Weighing assistant in batch pickings
 
 Weighing production finished moves
 
+Possibility of closing a Manufacturing Order from Weighing
+
 **Table of contents**
 
 .. contents::
    :local:
+
+Known issues / Roadmap
+======================
+
+- Add the possibility of using manufacturing with more than one
+  component.
 
 Bug Tracker
 ===========
@@ -56,10 +68,11 @@ Authors
 Contributors
 ------------
 
--  `Tecnativa <https://www.tecnativa.com>`__
+- `Tecnativa <https://www.tecnativa.com>`__
 
-   -  Sergio Teruel
-   -  Carlos Dauden
+  - Sergio Teruel
+  - Carlos Dauden
+  - Andrii Kompaniiets
 
 Maintainers
 -----------
