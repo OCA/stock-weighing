@@ -1,10 +1,16 @@
 # Copyright 2024 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
-from odoo import models
+
+from odoo import fields, models
 
 
 class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
+
+    selected_quant_id = fields.Many2one(
+        comodel_name="stock.quant",
+        readonly=True,
+    )
 
     def action_reset_weights(self):
         res = super().action_reset_weights()
@@ -12,4 +18,22 @@ class StockMoveLine(models.Model):
             lambda sm: sm.product_id == sm.production_id.product_id
         ):
             move.production_id.qty_producing = move.quantity_done
+        for move in self.move_id.filtered(
+            lambda sm: sm.move_orig_ids.production_id
+            and sm.product_id == sm.move_orig_ids.production_id.product_id
+        ):
+            should_consume_qty = (
+                move.move_orig_ids.production_id.move_raw_ids.should_consume_qty
+            )
+            move.move_orig_ids.production_id.qty_producing = move.quantity_done
+            move_line_id = (
+                move.move_orig_ids.production_id.move_raw_ids.move_line_ids.filtered(
+                    lambda x: self.selected_quant_id.id in x.lot_id.quant_ids.ids
+                )
+            )
+            if move_line_id:
+                move_line_id.qty_done -= (
+                    should_consume_qty
+                    - move.move_orig_ids.production_id.move_raw_ids.should_consume_qty
+                )
         return res

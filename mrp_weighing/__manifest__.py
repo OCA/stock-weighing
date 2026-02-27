@@ -8,9 +8,11 @@
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
     "category": "MRP",
-    "depends": [
-        "stock_weighing",
-        "mrp",
+    "depends": ["stock_weighing", "mrp", "sale_mrp"],
+    "data": [
+        "views/mrp_production_view.xml",
+        "views/stock_picking_views.xml",
+        "views/stock_move_views.xml",
+        "wizards/weighing_wizard_views.xml",
     ],
-    "data": ["views/mrp_production_view.xml"],
 }
