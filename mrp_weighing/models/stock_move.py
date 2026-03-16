@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools import clean_context
 
 
 class StockMove(models.Model):
@@ -69,3 +70,10 @@ class StockMove(models.Model):
         if default_lot_id:
             action["context"].update({"default_lot_id": default_lot_id})
         return action
+
+    def _account_analytic_entry_move(self):
+        # We need to clean the context because the weighing wizard has own
+        # context keys that can cause issues when writing on the production order
+        return super(
+            StockMove, self.with_context(**clean_context(self.env.context))
+        )._account_analytic_entry_move()

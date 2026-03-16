@@ -1,7 +1,7 @@
 # Copyright 2024 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models
-from odoo.tools.misc import clean_context
+from odoo.tools import clean_context
 
 
 class StockMoveWeightWizard(models.TransientModel):
@@ -77,24 +77,17 @@ class StockMoveWeightWizard(models.TransientModel):
             )
             # We need to clean the context because the weighing wizard has own
             # context keys that can cause issues when writing on the production order
-            selected_component_lot = (
-                self.env["stock.move.line"]
-                .with_context(**clean_context(self._context))
-                .create(
-                    {
-                        "move_id": move_component.id,
-                        "product_id": self.component_quant_id.product_id.id,
-                        "lot_id": self.component_quant_id.lot_id.id,
-                        "product_uom_id": self.component_quant_id.product_id.uom_id.id,
-                        "location_id": move_component.location_id.id,
-                        "location_dest_id": move_component.location_dest_id.id,
-                        "company_id": self.env.company.id,
-                    }
-                )
+            selected_component_lot = self.env["stock.move.line"].create(
+                {
+                    "move_id": move_component.id,
+                    "product_id": self.component_quant_id.product_id.id,
+                    "lot_id": self.component_quant_id.lot_id.id,
+                    "product_uom_id": self.component_quant_id.product_id.uom_id.id,
+                    "location_id": move_component.location_id.id,
+                    "location_dest_id": move_component.location_dest_id.id,
+                    "company_id": self.env.company.id,
+                }
             )
-        selected_component_lot = selected_component_lot.with_context(
-            **clean_context(self._context)
-        )
         self.selected_move_line_id.selected_quant_id = self.component_quant_id
         selected_component_lot.lot_id = self.component_quant_id.lot_id
         other_component_lots = production.move_raw_ids.move_line_ids.filtered(
@@ -103,12 +96,14 @@ class StockMoveWeightWizard(models.TransientModel):
             and line.qty_done > 0
         )
         if other_component_lots:
-            selected_component_lot.qty_done = (
-                production.move_raw_ids.should_consume_qty
-                - sum(other_component_lots.mapped("qty_done"))
+            qty_done = production.move_raw_ids.should_consume_qty - sum(
+                other_component_lots.mapped("qty_done")
             )
         else:
-            selected_component_lot.qty_done = production.move_raw_ids.should_consume_qty
+            qty_done = production.move_raw_ids.should_consume_qty
+        selected_component_lot.with_context(**clean_context(self._context)).write(
+            {"qty_done": qty_done}
+        )
 
     def add_operation_and_record(self):
         # It's need to generate name of quants with lot for the selection in the wizard
@@ -119,9 +114,6 @@ class StockMoveWeightWizard(models.TransientModel):
         action = super().record_weight()
         sm = self.selected_move_line_id.move_id
         production_id = self.move_id.move_orig_ids.production_id
-        # We need to clean the context because the weighing wizard has own
-        # context keys that can cause issues when writing on the production order
-        production_id = production_id.with_context(**clean_context(self._context))
         if sm.product_id == sm.production_id.product_id:
             sm.production_id.qty_producing = sm.quantity_done
             return action
