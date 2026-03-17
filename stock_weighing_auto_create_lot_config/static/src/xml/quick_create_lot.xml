@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t
+        t-name="stock_weighing_auto_create_lot_config.QuickCreateLot"
+        t-inherit="web.FieldMany2One"
+        t-inherit-mode="primary"
+    >
+        <xpath expr="//div[contains(@class, 'o_input_dropdown')]" position="after">
+            <button
+                type="button"
+                class="btn btn-primary o_m2o_quick_create_btn ml-1 fa fa-plus"
+                title="Quick create lot"
+            >
+            </button>
+        </xpath>
+    </t>
+</templates>
