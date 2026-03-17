@@ -19,10 +19,11 @@ class Picking(models.Model):
         for picking in self:
             production_ids = picking.move_lines.move_orig_ids.production_id
             if production_ids:
-                ctx = dict(
+                # pylint: disable=W8121
+                # Force context to remove default_group_id when analytic line is created
+                production_ids.with_context(
                     clean_context(self._context), skip_backorder=True, skip_expired=True
-                )
-                production_ids.with_context(**ctx).button_mark_done()
+                ).button_mark_done()
         return True
 
     def button_validate(self):

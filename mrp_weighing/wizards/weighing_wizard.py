@@ -101,7 +101,9 @@ class StockMoveWeightWizard(models.TransientModel):
             )
         else:
             qty_done = production.move_raw_ids.should_consume_qty
-        selected_component_lot.with_context(**clean_context(self._context)).write(
+        # pylint: disable=W8121
+        # Force context to remove default_move_id when analytic line is created
+        selected_component_lot.with_context(clean_context(self._context)).write(
             {"qty_done": qty_done}
         )
 
