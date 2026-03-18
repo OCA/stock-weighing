@@ -28,7 +28,7 @@ class MrpProduction(models.Model):
             self.env.context,
             **ast.literal_eval(action["context"]),
             group_by=["production_id"],
-            show_weight_detail_buttons=True
+            show_weight_detail_buttons=True,
         )
         # We weigh mrp operations that are not in ready state
         ctx.pop("search_default_ready")
