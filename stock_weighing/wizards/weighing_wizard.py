@@ -27,7 +27,7 @@ class StockMoveWeightWizard(models.TransientModel):
         comodel_name="stock.lot", compute="_compute_available_lot_ids"
     )
     lot_id = fields.Many2one(
-        comodel_name="stock.lot", domain=[("id", "in", available_lot_ids)]
+        comodel_name="stock.lot", domain="[('id', 'in', available_lot_ids)]"
     )
     available_result_package_ids = fields.Many2many(
         comodel_name="stock.quant.package",
