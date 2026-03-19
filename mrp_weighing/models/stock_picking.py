@@ -17,12 +17,21 @@ class Picking(models.Model):
 
     def _close_production(self):
         for picking in self:
-            production_ids = picking.move_lines.move_orig_ids.production_id
+            production_ids = picking.move_ids.move_orig_ids.production_id
             if production_ids:
+                production_ids.move_raw_ids.picked = True
                 # pylint: disable=W8121
                 # Force context to remove default_group_id when analytic line is created
+                move_lines_with_weight = (
+                    production_ids.move_raw_ids.move_line_ids.filtered(
+                        lambda line: line.qty_picked > 0
+                    )
+                )
+                for line in move_lines_with_weight:
+                    line.quantity = line.qty_picked
                 production_ids.with_context(
-                    clean_context(self._context), skip_backorder=True, skip_expired=True
+                    clean_context(self._context),
+                    skip_backorder=True,
                 ).button_mark_done()
         return True
 

@@ -1,4 +1,4 @@
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests import Form, TransactionCase
 
 
 class TestMrpWeighing(TransactionCase):
@@ -12,7 +12,7 @@ class TestMrpWeighing(TransactionCase):
                 "group_stock_multi_locations": True,
             }
         )
-        cls.stock_production_lot_model = cls.env["stock.production.lot"]
+        cls.stock_production_lot_model = cls.env["stock.lot"]
         cls.manufacture_route = cls.env.ref("mrp.route_warehouse0_manufacture")
         cls.mto_route = cls.env.ref("stock.route_warehouse0_mto")
         cls.delivery_operation_type = cls.env.ref("stock.picking_type_out")
@@ -26,22 +26,24 @@ class TestMrpWeighing(TransactionCase):
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Product B",
-                "type": "product",
+                "type": "consu",
                 "lst_price": 100.0,
                 "standard_price": 10.0,
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "tracking": "lot",
+                "is_storable": True,
                 "seller_ids": [
-                    (0, 0, {"name": cls.seller.id, "min_qty": 1, "price": 10.0})
+                    (0, 0, {"partner_id": cls.seller.id, "min_qty": 1, "price": 10.0})
                 ],
             }
         )
         cls.component = cls.env["product.product"].create(
             {
                 "name": "Test Component",
-                "type": "product",
+                "type": "consu",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
                 "tracking": "lot",
+                "is_storable": True,
             }
         )
         cls.component_lot_1 = cls.stock_production_lot_model.create(
@@ -120,13 +122,13 @@ class TestMrpWeighing(TransactionCase):
         sale_order = self._create_sale_order()
         wizard = self.env["weighing.wizard"].create(
             {
-                "move_id": sale_order.picking_ids.move_lines.id,
+                "move_id": sale_order.picking_ids.move_ids[0].id,
             }
         )
         wizard.lot_id = self.product_lot
         wizard.weight = 5
         wizard.add_operation_and_record()
-        self.assertEqual(5, sale_order.picking_ids.move_line_ids.qty_done)
+        self.assertEqual(5, sale_order.picking_ids.move_line_ids.qty_picked)
 
     def test_weighing_from_wizard_with_manufacturing(self):
         self.product.write(
@@ -137,7 +139,7 @@ class TestMrpWeighing(TransactionCase):
         sale_order = self._create_sale_order()
         wizard = self.env["weighing.wizard"].create(
             {
-                "move_id": sale_order.picking_ids.move_lines.id,
+                "move_id": sale_order.picking_ids.move_ids[0].id,
             }
         )
         wizard.component_quant_id = self.quant_1
@@ -145,8 +147,8 @@ class TestMrpWeighing(TransactionCase):
         wizard.weight = 4.5
         wizard.add_operation_and_record()
         picking = sale_order.picking_ids
-        production = picking.move_lines.move_orig_ids.production_id
-        self.assertEqual(4.5, picking.move_line_ids.qty_done)
+        production = picking.move_ids.move_orig_ids.production_id
+        self.assertEqual(4.5, picking.move_line_ids.qty_picked)
         self.assertEqual(4.5, production.qty_producing)
         self.assertEqual(wizard.lot_id, production.lot_producing_id)
         self.assertEqual(
@@ -165,7 +167,7 @@ class TestMrpWeighing(TransactionCase):
         sale_order = self._create_sale_order()
         wizard = self.env["weighing.wizard"].create(
             {
-                "move_id": sale_order.picking_ids.move_lines.id,
+                "move_id": sale_order.picking_ids.move_ids[0].id,
             }
         )
         wizard.component_quant_id = self.quant_1
@@ -176,8 +178,8 @@ class TestMrpWeighing(TransactionCase):
         wizard.weight = 2
         wizard.with_context(reload_wizard_action=False).add_operation_and_record()
         picking = sale_order.picking_ids
-        production = picking.move_lines.move_orig_ids.production_id
-        self.assertEqual(4.5, sum(picking.move_line_ids.mapped("qty_done")))
+        production = picking.move_ids.move_orig_ids.production_id
+        self.assertEqual(4.5, sum(picking.move_line_ids.mapped("qty_picked")))
         self.assertEqual(4.5, production.qty_producing)
         self.assertEqual(wizard.lot_id, production.lot_producing_id)
         self.assertEqual(
@@ -188,7 +190,7 @@ class TestMrpWeighing(TransactionCase):
         )
         self.assertEqual(
             4.95,  # Each unit of product requires 1.1 unit of the component
-            sum(production.move_raw_ids.mapped("quantity_done")),
+            sum(production.move_raw_ids.mapped("qty_picked")),
         )
         picking.with_context(skip_backorder=True, skip_expired=True).button_validate()
         self.assertEqual(picking.state, "done")

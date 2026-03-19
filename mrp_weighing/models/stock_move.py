@@ -21,6 +21,7 @@ class StockMove(models.Model):
     def action_mrp_production_weighing(self):
         """Used in the start screen"""
         action = self.env["ir.actions.actions"]._for_xml_id("mrp.mrp_production_action")
+        action["views"] = [[False, "kanban"], [False, "list"], [False, "form"]]
         ctx = {"search_default_todo": True}
         action["context"] = ctx
         return action
@@ -44,7 +45,7 @@ class StockMove(models.Model):
             if last_lot:
                 default_lot_id = last_lot.id
             elif self.has_tracking:
-                lot = self.env["stock.production.lot"].search(
+                lot = self.env["stock.lot"].search(
                     [
                         ("company_id", "=", self.company_id.id),
                         ("product_id", "=", self.product_id.id),

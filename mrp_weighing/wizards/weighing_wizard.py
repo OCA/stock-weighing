@@ -23,7 +23,7 @@ class StockMoveWeightWizard(models.TransientModel):
     def _compute_lot_id(self):
         for wiz in self:
             if wiz.is_production and wiz.component_quant_id and not wiz.lot_id:
-                existed_lot = self.env["stock.production.lot"].search(
+                existed_lot = self.env["stock.lot"].search(
                     [
                         ("product_id", "=", wiz.product_id.id),
                         ("company_id", "=", wiz.move_id.company_id.id),
@@ -34,7 +34,7 @@ class StockMoveWeightWizard(models.TransientModel):
                 if existed_lot:
                     wiz.lot_id = existed_lot
                 else:
-                    wiz.lot_id = self.env["stock.production.lot"].create(
+                    wiz.lot_id = self.env["stock.lot"].create(
                         {
                             "product_id": wiz.product_id.id,
                             "company_id": wiz.move_id.company_id.id,
@@ -54,7 +54,7 @@ class StockMoveWeightWizard(models.TransientModel):
             production = wiz.move_id.move_orig_ids.production_id
             if not production:
                 continue
-            product_ids = production.move_raw_ids.move_line_ids.product_id.ids
+            product_ids = production.move_raw_ids.product_id.ids
             wiz.component_available_stock_quant_ids = self.env["stock.quant"].search(
                 [
                     ("product_id", "in", product_ids),
@@ -93,34 +93,33 @@ class StockMoveWeightWizard(models.TransientModel):
         other_component_lots = production.move_raw_ids.move_line_ids.filtered(
             lambda line: line.product_id == self.component_quant_id.product_id
             and line.lot_id != self.component_quant_id.lot_id
-            and line.qty_done > 0
+            and line.qty_picked > 0
         )
         if other_component_lots:
             qty_done = production.move_raw_ids.should_consume_qty - sum(
-                other_component_lots.mapped("qty_done")
+                other_component_lots.mapped("qty_picked")
             )
         else:
             qty_done = production.move_raw_ids.should_consume_qty
         # pylint: disable=W8121
         # Force context to remove default_move_id when analytic line is created
         selected_component_lot.with_context(clean_context(self._context)).write(
-            {"qty_done": qty_done}
+            {"qty_picked": qty_done}
         )
 
     def add_operation_and_record(self):
-        # It's need to generate name of quants with lot for the selection in the wizard
         self = self.with_context(show_lot_product=True)
-        return super(StockMoveWeightWizard, self).add_operation_and_record()
+        return super().add_operation_and_record()
 
     def record_weight(self):
         action = super().record_weight()
         sm = self.selected_move_line_id.move_id
         production_id = self.move_id.move_orig_ids.production_id
         if sm.product_id == sm.production_id.product_id:
-            sm.production_id.qty_producing = sm.quantity_done
+            sm.production_id.qty_producing = sm.quantity
             return action
         if production_id:
-            production_id.qty_producing = sm.quantity_done
+            production_id.qty_producing = sm.qty_picked
             if self.selected_move_line_id.selected_quant_id:
                 self.component_quant_id = self.selected_move_line_id.selected_quant_id
             self._sync_production_weight(production_id)

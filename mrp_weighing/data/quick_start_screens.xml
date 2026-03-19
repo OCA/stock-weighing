@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record
+        id="quick_start_screen_action_productions_orders"
+        model="quick.start.screen.action"
+    >
+        <field name="name">Production Orders</field>
+        <field name="description">Weighing Production Orders</field>
+        <field name="action_ref_id" ref="stock_weighing.weighing_operation_action" />
+        <field name="domain">[
+            ('is_has_production', '=', True)
+        ]</field>
+        <field
+            name="context"
+        >{"search_default_todo": True, 'quick_start_screen_type':'production_order'}</field>
+        <field name="icon_name">fa-wrench</field>
+        <field name="color">7</field>
+    </record>
+    <record id="stock_weighing.quick_start_screen_weighing" model="quick.start.screen">
+        <field
+            name="action_ids"
+            eval="[
+            (Command.link(ref('mrp_weighing.quick_start_screen_action_productions_orders')))
+        ]"
+        />
+    </record>
+</odoo>
