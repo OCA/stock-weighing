@@ -32,7 +32,9 @@
                     type="object"
                     class="btn btn-primary"
                     title="Weighings"
-                ><i class="fa fa-thermometer" /></button>
+                >
+                    <i class="fa fa-thermometer" />
+                </button>
             </xpath>
         </field>
     </record>
