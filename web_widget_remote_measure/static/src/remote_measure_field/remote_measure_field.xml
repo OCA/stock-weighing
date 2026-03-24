@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="web_widget_remote_measure.RemoteMeasureField">
+        <span t-if="props.readonly" t-esc="formattedValue" />
+        <t t-else="">
+            <t t-if="this.remote_device_data">
+                <span
+                    t-if="this.state.stop"
+                    class="o_field_remote_device_start btn btn-primary btn-sm"
+                    t-on-click.prevent="onMeasure"
+                >
+                    <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                </span>
+                <span
+                    t-elif="!this.state.stop"
+                    t-attf-class="o_field_remote_device_stop btn btn-sm {{ this.state.class }}"
+                    t-on-click.prevent="onValidateMeasure"
+                >
+                    <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                </span>
+                <span
+                    t-if="this.state.additive_measure"
+                    class="o_field_remote_device_start btn btn-link btn-sm"
+                    t-on-click.prevent="onMeasureAdd"
+                >
+                    <i t-attf-class="fa fa-plus" role="img" />
+                </span>
+            </t>
+            <input
+                t-on-focusin="onFocusIn"
+                t-on-focusout="onFocusOut"
+                t-att-id="props.id"
+                t-ref="numpadDecimal"
+                t-att-placeholder="props.placeholder"
+                t-att-type="props.inputType"
+                inputmode="decimal"
+                class="o_input"
+                autocomplete="off"
+                t-att-step="props.step"
+            />
+        </t>
+    </t>
+</templates>
