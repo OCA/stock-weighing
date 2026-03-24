@@ -13,7 +13,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-thermometer-half "
-                    attrs="{'invisible': ['|', '|', ('weighing_operations', '=', False), ('has_weighing_operations', '=', False), ('state', 'in', ['draft', 'cancel'])]}"
+                    invisible="not weighing_operations or not has_weighing_operations or state in ['draft', 'cancel']"
                 />
             </div>
         </field>
@@ -23,9 +23,9 @@
         <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_kanban" />
         <field name="arch" type="xml">
             <field name="state" position="after">
-                <field name="has_weighing_operations" />
+                <field name="has_weighing_operations" invisible="1" />
             </field>
-            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="inside">
+            <xpath expr="//footer[hasclass('pt-0')]" position="inside">
                 <button
                     t-if="record.has_weighing_operations.raw_value"
                     name="action_weighing_operations"
