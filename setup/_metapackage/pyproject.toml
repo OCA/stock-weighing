@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-stock-weighing"
+version = "18.0.20260324.0"
+dependencies = [
+    "odoo-addon-web_widget_remote_measure==18.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 18.0",
+]
