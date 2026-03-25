@@ -14,7 +14,7 @@
                     <em>
                         <strong>
                             <field name="secondary_uom_qty" />
-                            &amp;#10005;
+                            &#10005;
                             <field name="secondary_uom_id" />
                         </strong>
                     </em>
