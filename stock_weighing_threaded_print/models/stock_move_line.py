@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import threading
 
-from odoo import _, models
+from odoo import models
 
 
 class StockMoveLine(models.Model):
@@ -32,8 +32,8 @@ class StockMoveLine(models.Model):
                 action["context"]["params"]["button_name"] = "Print"
                 action["context"]["params"]["button_icon"] = "fa-print"
                 self.env.user.notify_warning(
-                    title=_("Direct print issue"),
-                    message=_(
+                    title=self.env._("Direct print issue"),
+                    message=self.env._(
                         "The label(s) for <ul><b>%(operations_name)s</b></ul> "
                         "couldn't be printed. Click below to download it.",
                         operations_name=(
