@@ -8,7 +8,10 @@
                 <field name="sale_order_id" />
             </field>
             <xpath expr="//span[@t-out='record.state.value']" position="after">
-                <span t-if="record.sale_order_id.raw_value" class="badge badge-info">
+                <span
+                    t-if="record.sale_order_id.raw_value"
+                    class="badge text-bg-info ms-2"
+                >
                     <field name="sale_order_id" />
                 </span>
             </xpath>
