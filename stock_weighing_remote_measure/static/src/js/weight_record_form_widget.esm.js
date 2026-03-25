@@ -112,6 +112,7 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
     /* TARE METHODS */
 
     _updateTare() {
+        this.measure_stop();
         this.$tare_amount.text(this.format_weight(this.tare));
         this.$real_amount.text(this.format_weight(this.amount));
         this._setMeasure();
