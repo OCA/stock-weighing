@@ -10,7 +10,7 @@
                     t-if="record.delivery_zone_id.raw_value"
                     class="badge badge-info"
                 >
-                    <i class="fa fa-map-marker" role="image" />
+                    <i class="fa fa-map-marker me-1" role="image" />
                     <field name="delivery_zone_id" />
                 </span>
             </div>
