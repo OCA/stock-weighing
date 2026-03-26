@@ -16,6 +16,16 @@
                     invisible="(not weighing_operations or not has_weighing_operations) or state in ['draft', 'cancel']"
                 />
             </div>
+            <xpath
+                expr="//field[@name='move_ids_without_package']//list//field[@name='quantity']"
+                position="before"
+            >
+                <field
+                    name="qty_picked"
+                    column_invisible="not parent.has_weighing_operations"
+                    optional="hide"
+                />
+            </xpath>
         </field>
     </record>
 </odoo>

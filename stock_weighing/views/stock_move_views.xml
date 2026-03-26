@@ -106,14 +106,14 @@
                                             <field name="product_uom_qty" />
                                             <field name="product_uom" />
                                         </span>
-                                        <!-- <span class="text-info ms-2">
+                                        <span class="text-info ms-2">
                                             <strong>Reserved: </strong>
-                                            <field name="reserved_availability"/>
-                                            <field name="product_uom"/>
-                                        </span> -->
+                                            <field name="quantity" />
+                                            <field name="product_uom" />
+                                        </span>
                                         <span class="ms-2 text-success">
                                             <strong>Done: </strong>
-                                            <field name="quantity" />
+                                            <field name="qty_picked" />
                                             <field name="product_uom" />
                                         </span>
                                     </div>
@@ -177,9 +177,9 @@
                                         t-attf-class="badge bg-{{record.recorded_weight.raw_value ? 'success' : 'light'}} w-100"
                                     >Qty. done</span>
                                     <div class="text-center">
-                                        <t t-if="record.quantity.raw_value">
+                                        <t t-if="record.qty_picked.raw_value">
                                             <span class="h1 text-success">
-                                                <field name="quantity" />
+                                                <field name="qty_picked" />
                                             </span>
                                             <sup class="initialism">
                                                 <field name="product_uom" />

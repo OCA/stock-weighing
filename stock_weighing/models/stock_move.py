@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import ast
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 from odoo.osv import expression
 from odoo.tools import float_compare
@@ -45,6 +45,17 @@ class StockMove(models.Model):
         comodel_name="stock.move", compute="_compute_self_move_ids"
     )
     weighing_state_color = fields.Integer(compute="_compute_weighing_state_color")
+    qty_picked = fields.Float(
+        compute="_compute_qty_picked",
+        digits="Product Unit of Measure",
+        store=True,
+        readonly=False,
+    )
+
+    @api.depends("move_line_ids.qty_picked")
+    def _compute_qty_picked(self):
+        for move in self:
+            move.qty_picked = sum(move.move_line_ids.mapped("qty_picked"))
 
     @api.depends()
     @api.depends_context("weight_operation_details")
@@ -52,7 +63,7 @@ class StockMove(models.Model):
         if not self.env.context.get("weight_operation_details"):
             return super()._compute_display_name()
         for move in self:
-            move.display_name = _("%(name)s details", name=move.name)
+            move.display_name = self.env._("%(name)s details", name=move.name)
 
     def _compute_self_move_ids(self):
         for move in self:
@@ -90,7 +101,7 @@ class StockMove(models.Model):
                 not move.recorded_weight
                 and not move.move_lines_weighed
                 and move_to_do
-                and not move.quantity
+                and not move.qty_picked
             ):
                 move.weighing_state = "to_weigh"
 
@@ -171,7 +182,7 @@ class StockMove(models.Model):
         self.ensure_one()
         if self.weighing_user_id and self.weighing_user_id != self.env.user:
             raise UserError(
-                _(
+                self.env._(
                     "The user %(user)s is already weighing this operation",
                     user=self.weighing_user_id.name,
                 )
@@ -212,7 +223,7 @@ class StockMove(models.Model):
             default_weight=0,
         )
         del action["context"]["default_selected_move_line_id"]
-        action["name"] = _(
+        action["name"] = self.env._(
             "New operation for %(product)s (%(operation)s) "
             "%(remain).2f %(uom)s remaining",
             product=self.product_id.name,
@@ -227,7 +238,9 @@ class StockMove(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "stock_weighing.weighing_operation_action"
         )
-        action["display_name"] = _("Detailed operations for %(name)s", name=self.name)
+        action["display_name"] = self.env._(
+            "Detailed operations for %(name)s", name=self.name
+        )
         action["domain"] = [("id", "=", self.id)]
         action["view_mode"] = "form"
         action["res_id"] = self.id

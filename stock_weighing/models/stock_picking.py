@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import ast
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class StockPicking(models.Model):
@@ -31,7 +31,7 @@ class StockPicking(models.Model):
             if any_operation_actions
             else self.move_ids.filtered("has_weight")
         )
-        action["name"] = _("Weighing operations for %(name)s", name=self.name)
+        action["name"] = self.env._("Weighing operations for %(name)s", name=self.name)
         action["domain"] = [("id", "in", weight_moves.ids)]
         action["context"] = dict(
             self.env.context,
@@ -39,3 +39,12 @@ class StockPicking(models.Model):
             group_by=["picking_id"],
         )
         return action
+
+    def button_validate(self):
+        move_lines_with_weight = self.move_ids.move_line_ids.filtered("has_weight")
+        for move_line in move_lines_with_weight:
+            if move_line.qty_picked > 0:
+                move_line.quantity = move_line.qty_picked
+            else:
+                move_line.quantity = 0
+        return super().button_validate()

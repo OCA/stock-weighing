@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-26 11:39+0000\n"
+"PO-Revision-Date: 2026-03-26 11:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,14 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_picking_type.py:0
-#, python-format
 msgid "%(name)s Weighing operations"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
 msgid "%(name)s details"
 msgstr ""
 
@@ -47,7 +49,9 @@ msgstr ""
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
-msgid "<span>To weigh:</span><br/>"
+msgid ""
+"<span>To weigh:</span>\n"
+"                                        <br/>"
 msgstr ""
 
 #. module: stock_weighing
@@ -63,6 +67,11 @@ msgstr ""
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "<strong>To do: </strong>"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model,name:stock_weighing.model_quick_start_screen_action
+msgid "Actions to be launched from a quick start screen"
 msgstr ""
 
 #. module: stock_weighing
@@ -107,13 +116,11 @@ msgid "Choose a custom label template for this operation type"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_uid
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_date
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_date
 msgid "Created on"
 msgstr ""
@@ -130,8 +137,8 @@ msgid "Destination Package"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
 msgid "Detailed operations for %(name)s"
 msgstr ""
 
@@ -141,7 +148,6 @@ msgid "Details"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__display_name
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__display_name
 msgid "Display Name"
 msgstr ""
@@ -152,10 +158,8 @@ msgid "Ensure the traceability of a storable product in your warehouse."
 msgstr ""
 
 #. module: stock_weighing
-#. openerp-web
+#. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#, python-format
 msgid "Fold"
 msgstr ""
 
@@ -183,7 +187,6 @@ msgid "Has Weight"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__id
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__id
 msgid "ID"
 msgstr ""
@@ -194,14 +197,12 @@ msgid "If set, the operations are packed into this package"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_incoming_any_operations
 msgid "Incoming (weighing)"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_incoming_any_operations
 msgid "Incoming weighing operations"
 msgstr ""
 
@@ -221,19 +222,11 @@ msgid "Label Report"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection____last_update
-#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__write_uid
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__write_date
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -269,10 +262,16 @@ msgid "Move Lines Weighed"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
 msgid ""
 "New operation for %(product)s (%(operation)s) %(remain).2f %(uom)s remaining"
+msgstr ""
+
+#. module: stock_weighing
+#. odoo-javascript
+#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
+msgid "Open record"
 msgstr ""
 
 #. module: stock_weighing
@@ -281,21 +280,12 @@ msgid "Origin Names"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_outgoing_any_operations
 msgid "Outgoing (weighing)"
 msgstr ""
 
 #. module: stock_weighing
-#: code:addons/stock_weighing/models/stock_move.py:0
-#: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
-msgid "Outgoing operations"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_outgoing_any_operations
 msgid "Outgoing weighing operations"
 msgstr ""
 
@@ -320,11 +310,10 @@ msgid "Print label after the weight record"
 msgstr ""
 
 #. module: stock_weighing
-#. openerp-web
+#. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
-#, python-format
 msgid "Print labels"
 msgstr ""
 
@@ -341,6 +330,12 @@ msgstr ""
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__qty_weighed
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__qty_weighed
+msgid "Qty Weighed"
 msgstr ""
 
 #. module: stock_weighing
@@ -413,8 +408,8 @@ msgid "Stock Move"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
 msgid "The user %(user)s is already weighing this operation"
 msgstr ""
 
@@ -468,17 +463,8 @@ msgid "Transfer"
 msgstr ""
 
 #. module: stock_weighing
-#. openerp-web
-#: code:addons/stock_weighing/static/src/base_weight_record_form/base_weight_record_form.xml:0
-#, python-format
-msgid "True"
-msgstr ""
-
-#. module: stock_weighing
-#. openerp-web
+#. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
-#, python-format
 msgid "Unfold"
 msgstr ""
 
@@ -488,21 +474,9 @@ msgid "Unlock weight operation"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_move_line.py:0
-#, python-format
-msgid "Weigh %(product_uom_qty)s %(uom)s of %(product)s"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
-msgid "Weigh incoming"
-msgstr ""
-
-#. module: stock_weighing
-#: code:addons/stock_weighing/models/stock_move.py:0
-#, python-format
-msgid "Weigh outgoing"
+msgid "Weigh %(quantity)s %(uom)s of %(product)s"
 msgstr ""
 
 #. module: stock_weighing
@@ -520,6 +494,7 @@ msgstr ""
 #. module: stock_weighing
 #: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__weighing
 #: model:ir.ui.menu,name:stock_weighing.menu_weighing
+#: model:quick.start.screen,name:stock_weighing.quick_start_screen_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Weighing"
 msgstr ""
@@ -550,6 +525,11 @@ msgid "Weighing State"
 msgstr ""
 
 #. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_state_color
+msgid "Weighing State Color"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_user_id
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_user_id
 msgid "Weighing User"
@@ -561,13 +541,13 @@ msgid "Weighing operations"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/models/stock_picking.py:0
-#, python-format
 msgid "Weighing operations for %(name)s"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.actions.act_window,name:stock_weighing.stock_move_weight_operation_start_screen
+#: model:ir.actions.server,name:stock_weighing.stock_move_weight_operation_start_screen
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__weight
 #: model:ir.model.fields.selection,name:stock_weighing.selection__weighing_wizard__wizard_state__weight
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
@@ -591,12 +571,7 @@ msgid "Wizard State"
 msgstr ""
 
 #. module: stock_weighing
+#. odoo-python
 #: code:addons/stock_weighing/wizards/weighing_wizard.py:0
-#, python-format
 msgid "You need to supply a Lot/Serial Number"
-msgstr ""
-
-#. module: stock_weighing
-#: model:ir.model,name:stock_weighing.model_weigh_operation_selection
-msgid "weigh operation selection screen"
 msgstr ""

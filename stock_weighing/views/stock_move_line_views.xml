@@ -81,9 +81,9 @@
                                 <!-- Weight value -->
                                 <div class="col-3">
                                     <div>
-                                        <t t-if="record.quantity.raw_value">
+                                        <t t-if="record.qty_picked.raw_value">
                                             <span class="h1 text-success">
-                                                <field name="quantity" />
+                                                <field name="qty_picked" />
                                             </span>
                                             <sup class="initialism">
                                                 <field name="product_uom_id" />
@@ -126,6 +126,36 @@
                     </t>
                 </templates>
             </kanban>
+        </field>
+    </record>
+    <record id="view_stock_move_line_operation_tree" model="ir.ui.view">
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree" />
+        <field name="arch" type="xml">
+            <field name="quantity" position="before">
+                <field name="qty_picked" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="view_stock_move_line_detailed_operation_tree" model="ir.ui.view">
+        <field name="model">stock.move.line</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_stock_move_line_detailed_operation_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="quantity" position="before">
+                <field name="qty_picked" optional="hide" />
+            </field>
+        </field>
+    </record>
+    <record id="view_move_line_tree_detailed" model="ir.ui.view">
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_tree_detailed" />
+        <field name="arch" type="xml">
+            <field name="quantity" position="before">
+                <field name="qty_picked" optional="hide" />
+            </field>
         </field>
     </record>
 </odoo>

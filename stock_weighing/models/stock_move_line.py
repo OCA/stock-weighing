@@ -11,6 +11,11 @@ class StockMoveLine(models.Model):
     recorded_weight = fields.Float(digits="Product Unit of Measure")
     weighing_user_id = fields.Many2one(comodel_name="res.users")
     weighing_date = fields.Datetime()
+    qty_picked = fields.Float(
+        digits="Product Unit of Measure",
+        store=True,
+        readonly=False,
+    )
 
     def _get_action_weighing_name(self):
         """Custom name to show in the wizard"""
@@ -47,8 +52,8 @@ class StockMoveLine(models.Model):
 
     def action_reset_weights(self):
         """Restore stock move lines weights"""
-        self.quantity = 0
         self.recorded_weight = 0
+        self.qty_picked = 0
         self.has_recorded_weight = False
         # Keep who deleted them
         self.weighing_user_id = self.env.user

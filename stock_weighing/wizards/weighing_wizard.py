@@ -100,6 +100,8 @@ class StockMoveWeightWizard(models.TransientModel):
         vals = self.move_id._prepare_move_line_vals(quantity=self.weight)
         # Avoid filling the reserved quantities
         vals.pop("product_uom_qty", None)
+        vals.pop("quantity", None)
+        vals.update({"qty_picked": self.weight})
         if self.lot_id:
             vals["lot_id"] = self.lot_id.id
         self._check_lot_creation()
@@ -115,14 +117,14 @@ class StockMoveWeightWizard(models.TransientModel):
         """Register the operation weight"""
         selected_line = self.selected_move_line_id
         if self.weight:
-            selected_line.quantity = self.weight
+            selected_line.qty_picked = self.weight
             selected_line.recorded_weight = self.weight
             selected_line.has_recorded_weight = True
             selected_line.weighing_user_id = self.env.user
             selected_line.weighing_date = fields.Datetime.now()
         # Reset value
         else:
-            selected_line.quantity = 0
+            selected_line.qty_picked = 0
             selected_line.recorded_weight = 0
             selected_line.has_recorded_weight = False
             selected_line.weighing_user_id = False
