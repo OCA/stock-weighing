@@ -3,7 +3,7 @@
 {
     "name": "Weighing assistant elaborations",
     "summary": "Weighing assistant extension for elaborations",
-    "version": "15.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
@@ -12,11 +12,6 @@
         "stock_weighing",
         "sale_elaboration",
     ],
-    "data": ["views/stock_move_views.xml"],
-    "assets": {
-        "web.assets_backend": [
-            "sale_elaboration_weighing/static/src/scss/stock_weighing.scss",
-        ],
-    },
+    "data": ["views/stock_move_views.xml", "data/quick_start_screens.xml"],
     "installable": True,
 }

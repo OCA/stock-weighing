@@ -10,9 +10,9 @@
             <xpath expr="//div[@name='weight_card_footer']" position="inside">
                 <span
                     t-if="record.elaboration_note.raw_value"
-                    class="badge o_elaboration_note"
+                    class="badge text-bg-warning ms-1 px-1"
                 >
-                    <i class="fa fa-cutlery mr-1" title="Elaboration note" />
+                    <i class="fa fa-cutlery me-2" title="Elaboration note" />
                     <em>
                         <t t-out="record.elaboration_note.raw_value" />
                     </em>

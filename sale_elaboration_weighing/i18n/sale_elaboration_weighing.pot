@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-27 09:53+0000\n"
+"PO-Revision-Date: 2026-03-27 09:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,7 +17,12 @@ msgstr ""
 
 #. module: sale_elaboration_weighing
 #: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_weight_kanban_view
-msgid "<i class=\"fa fa-cutlery mr-1\" title=\"Elaboration note\"/>"
+msgid "<i class=\"fa fa-cutlery me-1\" title=\"Elaboration note\"/>"
+msgstr ""
+
+#. module: sale_elaboration_weighing
+#: model:ir.model,name:sale_elaboration_weighing.model_quick_start_screen_action
+msgid "Actions to be launched from a quick start screen"
 msgstr ""
 
 #. module: sale_elaboration_weighing
@@ -24,8 +31,7 @@ msgid "Elaborated"
 msgstr ""
 
 #. module: sale_elaboration_weighing
-#: code:addons/sale_elaboration_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model:quick.start.screen.action,name:sale_elaboration_weighing.quick_start_screen_action_elaborations
 msgid "Elaborations"
 msgstr ""
 
@@ -35,23 +41,12 @@ msgid "Not elaborated"
 msgstr ""
 
 #. module: sale_elaboration_weighing
-#: code:addons/sale_elaboration_weighing/wizards/weigh_operation_selection.py:0
-#, python-format
+#: model_terms:quick.start.screen.action,description:sale_elaboration_weighing.quick_start_screen_action_elaborations
 msgid "Outgoing elaborations"
 msgstr ""
 
 #. module: sale_elaboration_weighing
-#: model:ir.model,name:sale_elaboration_weighing.model_stock_move
-msgid "Stock Move"
-msgstr ""
-
-#. module: sale_elaboration_weighing
-#: code:addons/sale_elaboration_weighing/models/stock_move.py:0
-#, python-format
+#. odoo-python
+#: code:addons/sale_elaboration_weighing/models/quick_start_screen_action.py:0
 msgid "Weigh elaborations"
-msgstr ""
-
-#. module: sale_elaboration_weighing
-#: model:ir.model,name:sale_elaboration_weighing.model_weigh_operation_selection
-msgid "weigh operation selection screen"
 msgstr ""

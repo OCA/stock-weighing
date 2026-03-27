@@ -1,1 +1,1 @@
-from . import stock_move
+from . import quick_start_screen_action
