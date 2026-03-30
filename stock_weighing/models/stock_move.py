@@ -1,0 +1,268 @@
+# Copyright 2024 Tecnativa - David Vidal
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+import ast
+
+from odoo import api, fields, models
+from odoo.exceptions import UserError
+from odoo.osv import expression
+from odoo.tools import float_compare
+
+
+class StockMove(models.Model):
+    _name = "stock.move"
+    _inherit = ["stock.move", "weighing.mixin"]
+
+    recorded_weight = fields.Float(
+        compute="_compute_recorded_weight", digits="Product Unit of Measure"
+    )
+    move_lines_weighed = fields.Boolean(compute="_compute_recorded_weight")
+    weighing_state = fields.Selection(
+        selection=[
+            ("weighed", "Weighed"),
+            ("weighing", "Weighing"),
+            ("to_weigh", "To weigh"),
+        ],
+        compute="_compute_weighing_state",
+        store=True,
+    )
+    weighing_user_id = fields.Many2one(
+        comodel_name="res.users",
+        help="This user is weighing the record, so it's locked by him",
+    )
+    is_weighing_operation_locked = fields.Boolean(
+        compute="_compute_is_weighing_operation_locked"
+    )
+    lot_names = fields.Char(compute="_compute_lot_names")
+    origin_names = fields.Char(compute="_compute_origin_names")
+    weighing_label_report_id = fields.Many2one(
+        related="picking_type_id.weighing_label_report_id"
+    )
+    show_weighing_print_button = fields.Boolean(
+        compute="_compute_show_weighing_print_button"
+    )
+    # HACK: To show the kanban of this move in its own form
+    self_move_ids = fields.Many2many(
+        comodel_name="stock.move", compute="_compute_self_move_ids"
+    )
+    weighing_state_color = fields.Integer(compute="_compute_weighing_state_color")
+    qty_picked = fields.Float(
+        compute="_compute_qty_picked",
+        digits="Product Unit of Measure",
+        store=True,
+        readonly=False,
+    )
+
+    @api.depends("move_line_ids.qty_picked")
+    def _compute_qty_picked(self):
+        for move in self:
+            move.qty_picked = sum(move.move_line_ids.mapped("qty_picked"))
+
+    @api.depends()
+    @api.depends_context("weight_operation_details")
+    def _compute_display_name(self):
+        if not self.env.context.get("weight_operation_details"):
+            return super()._compute_display_name()
+        for move in self:
+            move.display_name = self.env._("%(name)s details", name=move.name)
+
+    def _compute_self_move_ids(self):
+        for move in self:
+            move.self_move_ids = self
+
+    @api.depends("move_line_ids.recorded_weight")
+    def _compute_recorded_weight(self):
+        for move in self:
+            move.recorded_weight = sum(move.move_line_ids.mapped("recorded_weight"))
+            move.move_lines_weighed = move.move_line_ids and all(
+                move.move_line_ids.mapped("recorded_weight")
+            )
+
+    @api.depends("move_line_ids.recorded_weight", "state", "product_id")
+    def _compute_weighing_state(self):
+        """Only products with weight will trigger this state"""
+        self.weighing_state = False
+        for move in self.filtered("has_weight"):
+            move_to_do = move.state not in {"draft", "cancel", "done"}
+            if (
+                move.move_lines_weighed
+                # Force the operation weighing state if one of the detailed
+                # operations overpasses the demand
+                or float_compare(
+                    move.quantity,
+                    move.product_uom_qty,
+                    precision_rounding=move.product_uom.rounding,
+                )
+                >= 0
+            ) and any(move.move_line_ids.mapped("has_recorded_weight")):
+                move.weighing_state = "weighed"
+            elif move.recorded_weight and not move.move_lines_weighed and move_to_do:
+                move.weighing_state = "weighing"
+            elif (
+                not move.recorded_weight
+                and not move.move_lines_weighed
+                and move_to_do
+                and not move.qty_picked
+            ):
+                move.weighing_state = "to_weigh"
+
+    @api.depends("move_line_ids.lot_id")
+    def _compute_lot_names(self):
+        """To use in the kanban and show the list of lots for this move"""
+        self.lot_names = False
+        for move in self:
+            move.lot_names = ",".join(move.move_line_ids.lot_id.mapped("name"))
+
+    @api.depends("move_line_ids.location_id")
+    def _compute_origin_names(self):
+        """To use in the kanban and show the origin locations on this move
+        eservation"""
+        self.origin_names = False
+        for move in self:
+            move.origin_names = ",".join(move.move_line_ids.location_id.mapped("name"))
+
+    @api.depends("weighing_user_id", "state")
+    def _compute_is_weighing_operation_locked(self):
+        """Out own operations won't show up as locked"""
+        self.is_weighing_operation_locked = False
+        self.filtered(
+            lambda x: x.state not in {"cancel", "draft", "done"}
+            and x.weighing_user_id
+            and x.weighing_user_id != self.env.user
+        ).is_weighing_operation_locked = True
+
+    @api.depends("quantity", "picking_type_id.weighing_label_report_id")
+    def _compute_show_weighing_print_button(self):
+        """"""
+        self.show_weighing_print_button = False
+        self.filtered(
+            lambda x: x.quantity and x.picking_type_id.weighing_label_report_id
+        ).show_weighing_print_button = True
+
+    def _compute_weighing_state_color(self):
+        state_map = {"weighed": 10, "to_weigh": 1, "weighing": 3}
+        for move in self:
+            move.weighing_state_color = state_map.get(move.weighing_state)
+
+    def _has_weigh_domain(self):
+        """Show variable weight types only"""
+        domain = super()._has_weigh_domain()
+        domain = expression.AND([domain, [("product_uom_qty", ">", 0)]])
+        return domain
+
+    def _search_has_weight(self, operator, value):
+        domain = super()._search_has_weight(operator, value)
+        domain = expression.AND([domain, [("product_uom_qty", ">", 0)]])
+        return domain
+
+    def search_fetch(self, domain, field_names, offset=0, limit=None, order=None):
+        # We need to sort by move sub-fields. Don't force if we have a given order
+        moves = super().search_fetch(
+            domain, field_names, offset=offset, limit=limit, order=order
+        )
+        if self.env.context.get("outgoing_weighing_order") and not order:
+            moves = moves.sorted(
+                lambda x: (
+                    x.location_id.name or "",
+                    x.product_id.default_code or "",
+                    x.product_id.name or "",
+                )
+            )
+        return moves
+
+    # TODO: This method disappeared (v17). Check the effect or if theres any equivalent
+    # def _set_quantities_to_reservation(self):
+    #     """Avoid squashing weighings values"""
+    #     weighted_records = self.filtered("move_line_ids.recorded_weight")
+    #     return super(
+    #         StockMove, self - weighted_records
+    #     )._set_quantities_to_reservation()
+
+    def action_lock_weighing_operation(self):
+        """Avoid other that other user to modify the weight operation"""
+        self.ensure_one()
+        if self.weighing_user_id and self.weighing_user_id != self.env.user:
+            raise UserError(
+                self.env._(
+                    "The user %(user)s is already weighing this operation",
+                    user=self.weighing_user_id.name,
+                )
+            )
+        self.weighing_user_id = self.env.user
+
+    def action_unlock_weigh_operation(self):
+        """Unlock the weigh operation"""
+        self.ensure_one()
+        self.weighing_user_id = False
+
+    def _get_default_print_label(self):
+        """Can be extended with other modules to add checks"""
+        return self.picking_type_id.print_weighing_label
+
+    def action_weighing(self):
+        """Open the wizard to record weights"""
+        self.action_lock_weighing_operation()
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "stock_weighing.weighing_wizard_action"
+        )
+        action["name"] = fields.first(self.move_line_ids)._get_action_weighing_name()
+        action["context"] = dict(
+            self.env.context,
+            default_selected_move_line_id=(fields.first(self.move_line_ids).id),
+            default_weight=self.recorded_weight or self.quantity,
+            default_move_line_ids=self.move_line_ids.ids,
+            default_print_label=self._get_default_print_label(),
+        )
+        return action
+
+    def action_add_move_line(self):
+        """Open the weight wizard to add a new operation weight"""
+        action = self.action_weighing()
+        action["context"].update(
+            default_wizard_state="new_move_line",
+            default_move_id=self.id,
+            default_weight=0,
+        )
+        del action["context"]["default_selected_move_line_id"]
+        action["name"] = self.env._(
+            "New operation for %(product)s (%(operation)s) "
+            "%(remain).2f %(uom)s remaining",
+            product=self.product_id.name,
+            operation=self.reference,
+            remain=max((self.product_uom_qty - self.quantity), 0),
+            uom=self.product_uom.name,
+        )
+        return action
+
+    def action_weight_detailed_operations(self):
+        """Weight detailed operations for this picking"""
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "stock_weighing.weighing_operation_action"
+        )
+        action["display_name"] = self.env._(
+            "Detailed operations for %(name)s", name=self.name
+        )
+        action["domain"] = [("id", "=", self.id)]
+        action["view_mode"] = "form"
+        action["res_id"] = self.id
+        action["views"] = [
+            (view, mode) for view, mode in action["views"] if mode == "form"
+        ]
+        action["context"] = dict(
+            self.env.context,
+            **ast.literal_eval(action["context"]),
+            weight_operation_details=True,
+        )
+        # Clean context key show_weight_detail_buttons if any module add it
+        action["context"].pop("show_weight_detail_buttons", None)
+        return action
+
+    def action_print_weight_record_label(self):
+        """Get operations labels"""
+        return self.move_line_ids.action_print_weight_record_label()
+
+    def action_reset_weights(self):
+        """Restore stock move lines weights"""
+        self.move_line_ids.action_reset_weights()
+
+    def action_force_weighed(self):
+        self.weighing_state = "weighed"

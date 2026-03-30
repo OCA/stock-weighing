@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t
+        t-name="stock_weighing.KanbanHeader"
+        t-inherit="web.KanbanHeader"
+        t-inherit-mode="primary"
+    >
+        <xpath expr="//t[@t-esc='groupName']" position="before">
+            <span class="me-2">
+                <i
+                    class="fa fa-folder-open text-warning"
+                    role="button"
+                    aria-label="Fold"
+                    title="Fold"
+                    t-on-click.stop="toggleGroup"
+                />
+            </span>
+        </xpath>
+        <xpath expr="//span[@t-esc='groupName']" position="before">
+            <span class="me-2">
+                <i
+                    class="fa fa-folder text-warning"
+                    role="button"
+                    aria-label="Unfold"
+                    title="Unfold"
+                    t-on-click.stop.prevent="toggleGroup"
+                />
+            </span>
+            <button
+                t-if="show_weighing_print_button"
+                class="btn btn-secondary me-2"
+                title="Print labels"
+                t-on-click.prevent="onPrintLabels"
+            >
+                <i class="fa fa-print" role="image" />
+            </button>
+        </xpath>
+        <xpath expr="//span[@t-esc='groupName']" position="after">
+            <button
+                t-if="!group.isFolded and group.groupByField.relation"
+                class="btn btn-link"
+                title="Open record"
+                t-on-click.prevent="onOpenColumn"
+            >
+                <i class="fa fa-external-link" role="image" />
+            </button>
+        </xpath>
+    </t>
+</templates>

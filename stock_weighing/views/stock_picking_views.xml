@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="weighing_operations" invisible="1" />
+                <field name="has_weighing_operations" invisible="1" />
+                <button
+                    name="action_weighing_operations"
+                    string="Weight"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-thermometer-half "
+                    invisible="(not weighing_operations or not has_weighing_operations) or state in ['draft', 'cancel']"
+                />
+            </div>
+            <xpath
+                expr="//field[@name='move_ids_without_package']//list//field[@name='quantity']"
+                position="before"
+            >
+                <field
+                    name="qty_picked"
+                    column_invisible="not parent.has_weighing_operations"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

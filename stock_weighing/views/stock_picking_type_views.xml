@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_picking_type_form" model="ir.ui.view">
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_backorder']/.." postion="inside">
+                <field name="weighing_operations" />
+            </xpath>
+            <xpath expr="//field[@name='auto_print_delivery_slip']/.." postion="inside">
+                <field
+                    name="print_weighing_label"
+                    invisible="not weighing_operations"
+                />
+                <field
+                    name="weighing_label_report_id"
+                    invisible="not weighing_operations"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="stock_picking_type_kanban" model="ir.ui.view">
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.stock_picking_type_kanban" />
+        <field name="arch" type="xml">
+            <field name="count_picking_backorders" position="after">
+                <field name="weight_move_ids" />
+                <field name="to_do_weights" />
+                <field name="weighing_operations" />
+            </field>
+            <xpath
+                expr="//button[@name='get_action_picking_tree_ready']"
+                position="after"
+            >
+                <t t-if="record.weighing_operations.raw_value">
+                    <button
+                        name="action_weighing_operations"
+                        type="object"
+                        class="btn btn-outline-primary ms-1"
+                    >
+                            <span
+                        class="badge bg-primary"
+                        t-out="record.to_do_weights.value"
+                        t-if="record.to_do_weights.raw_value"
+                    /> To weigh
+                        </button>
+                </t>
+            </xpath>
+        </field>
+    </record>
+</odoo>
