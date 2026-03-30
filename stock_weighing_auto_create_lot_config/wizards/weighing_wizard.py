@@ -11,7 +11,7 @@ class WeighingWizard(models.TransientModel):
         if self.show_auto_lot_info and not self.lot_id:
             return {
                 "type": "ir.actions.act_window",
-                "res_model": "stock.production.lot",
+                "res_model": "stock.lot",
                 "view_mode": "form",
                 "res_id": self.selected_move_line_id.lot_id.id,
                 "views": [[False, "form"]],

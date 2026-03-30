@@ -3,7 +3,7 @@
 {
     "name": "Weighing assistant configure lots on creations",
     "summary": "Allow to configure the lots created",
-    "version": "15.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Warehouse",
     "website": "https://github.com/OCA/stock-weighing",
@@ -14,9 +14,7 @@
     "maintainers": ["CarlosRoca13"],
     "assets": {
         "web.assets_backend": [
-            "/stock_weighing_auto_create_lot_config/static/src/js/*.js"
-        ],
-        "web.assets_qweb": [
+            "/stock_weighing_auto_create_lot_config/static/src/js/*.js",
             "/stock_weighing_auto_create_lot_config/static/src/xml/quick_create_lot.xml",
         ],
     },

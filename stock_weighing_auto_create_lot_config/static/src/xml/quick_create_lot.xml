@@ -2,13 +2,18 @@
 <templates xml:space="preserve">
     <t
         t-name="stock_weighing_auto_create_lot_config.QuickCreateLot"
-        t-inherit="web.FieldMany2One"
+        t-inherit="web.Many2OneField"
         t-inherit-mode="primary"
     >
-        <xpath expr="//div[contains(@class, 'o_input_dropdown')]" position="after">
+        <xpath
+            expr="//div[contains(@class, 'o_field_many2one_selection')]//t[@t-if='hasExternalButton']"
+            position="after"
+        >
             <button
+                t-if="!props.readonly"
                 type="button"
-                class="btn btn-primary o_m2o_quick_create_btn ml-1 fa fa-plus"
+                class="btn btn-primary o_m2o_quick_create_btn ms-1 fa fa-plus"
+                t-on-click="onClickQuickCreate"
                 title="Quick create lot"
             />
         </xpath>
