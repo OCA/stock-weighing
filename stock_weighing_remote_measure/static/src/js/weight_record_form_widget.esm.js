@@ -90,6 +90,7 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
                 useGrouping: false,
             })
         );
+        this._updateTare();
         return def;
     },
     /**
