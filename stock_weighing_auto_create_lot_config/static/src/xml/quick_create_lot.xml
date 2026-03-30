@@ -10,8 +10,7 @@
                 type="button"
                 class="btn btn-primary o_m2o_quick_create_btn ml-1 fa fa-plus"
                 title="Quick create lot"
-            >
-            </button>
+            />
         </xpath>
     </t>
 </templates>
