@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo-addon-stock_secondary_unit_weighing>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing_auto_create_lot>=15.0dev,<15.1dev',
+        'odoo-addon-stock_weighing_auto_create_lot_config>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing_auto_package>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing_remote_measure>=15.0dev,<15.1dev',
         'odoo-addon-stock_weighing_threaded_print>=15.0dev,<15.1dev',
