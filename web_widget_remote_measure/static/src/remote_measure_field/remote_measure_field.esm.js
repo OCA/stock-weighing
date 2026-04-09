@@ -104,6 +104,13 @@ export class RemoteMeasureField extends FloatField {
         onWillUnmount(() => this._closeSocket());
     }
 
+    /**
+     * Getter to allow set extra measures to the main input
+     */
+    get extraMeasures() {
+        return 0;
+    }
+
     // Private methods
 
     async _assignDevice() {
@@ -239,7 +246,7 @@ export class RemoteMeasureField extends FloatField {
         if (this.state.start_add) {
             this.amount += this.state.input_val;
         }
-        this.props.record.update({[this.props.name]: this.amount});
+        this.props.record.update({[this.props.name]: this.amount + this.extraMeasures});
     }
     nextStateIcon() {
         this.state.icon = nextState[this.state.icon];
