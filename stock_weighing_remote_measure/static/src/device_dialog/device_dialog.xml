@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="stock_weighing_remote_measure.DeviceDialog">
+        <Dialog size="'md'" footer="false" title.translate="Choose a device">
+            <div>
+                <button
+                    t-foreach="devices"
+                    t-as="device"
+                    t-key="device.id"
+                    t-att-data-device_id="device.id"
+                    class="btn btn-dark w-100 mb-2"
+                    t-on-click.prevent="onClickDevice"
+                >
+                    <t t-esc="device.name" />
+                </button>
+            </div>
+        </Dialog>
+    </t>
+</templates>

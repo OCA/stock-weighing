@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="stock_weighing_remote_measure.RemoteMeasureForm">
+        <div class="container" t-if="this.remote_device_data">
+            <div class="row">
+                <div class="col-12 border-dark p-2 rounded border ms-0" name="display">
+                    <div
+                        name="tare_infos"
+                        t-if="props.tares.length"
+                        class="text-start ms-1 text-info me-1 w-100"
+                    >
+                        <i class="fa fa-level-down" /> TARE:
+                        <span
+                        name="tare_amount"
+                        class="fw-bold text-danger"
+                        t-out="this.formatFloat(this.state.tare)"
+                    />
+                        <span t-out="this.uom.name" class="text-danger me-1" />
+                        <i class="fa fa-caret-square-o-right" /> REAL: <span
+                        name="real_amount"
+                        class="text-success fw-bold"
+                        t-out="this.formatFloat(this.state.input_val)"
+                    /> <span t-out="this.uom.name" class="text-success" />
+                        <div
+                        class="text-dark d-inline float-end"
+                        title="Device info"
+                        name="device_selector"
+                        role="button"
+                        t-on-click.prevent="onDeviceSelector"
+                    >
+                        <i class="fa fa-thermometer me-1" />
+                        <span t-out="this.state.device_name" />
+                    </div>
+                    </div>
+                    <div
+                        name="weight_control"
+                        class="d-flex justify-content-around align-items-center w-100"
+                    >
+                        <span
+                            t-if="this.state.stop"
+                            class="o_field_remote_device_start btn btn-primary btn-lg"
+                            t-on-click.prevent="onMeasure"
+                        >
+                            <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                        </span>
+                        <span
+                            t-elif="!this.state.stop"
+                            t-attf-class="o_field_remote_device_stop btn btn-lg {{ this.state.class }}"
+                            t-on-click.prevent="onValidateMeasure"
+                        >
+                            <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                        </span>
+                        <span
+                            t-if="this.state.additive_measure"
+                            class="o_field_remote_device_start btn btn-link btn-sm"
+                            t-on-click.prevent="onMeasureAdd"
+                        >
+                            <i t-attf-class="fa fa-plus" role="img" />
+                        </span>
+                        <input
+                            t-on-focusin="onFocusIn"
+                            t-on-focusout="onFocusOut"
+                            t-att-id="props.id"
+                            t-ref="numpadDecimal"
+                            t-att-placeholder="props.placeholder"
+                            t-att-type="props.inputType"
+                            inputmode="decimal"
+                            class="o_input border-0"
+                            autocomplete="off"
+                            t-att-step="props.step"
+                        />
+                    </div>
+                </div>
+                <t
+                    t-set="colors"
+                    t-value="['success', 'info', 'warning', 'danger', 'primary']"
+                />
+                <div class="pt-2 col-12 ps-0 pe-0" name="buttons">
+                    <div
+                        t-foreach="props.tares"
+                        t-as="tare"
+                        class="btn-group mb-2 float-start me-2 btn-group-lg"
+                        t-key="tare_index"
+                    >
+                        <t t-set="color" t-value="colors[tare_index % colors.length]" />
+                        <btn
+                            t-attf-class="btn btn-outline-{{color}}"
+                            t-att-data-tare="tare.tare"
+                            t-on-click.prevent="onClickTare"
+                        >
+                            -
+                        </btn>
+                        <btn t-attf-class="btn btn-{{color}} disabled">
+                            <t t-if="tare.name" t-out="tare.name" />
+                            <t t-else="">
+                                <t t-out="tare.tare" />
+                                <t t-out="this.uom.name" />
+                            </t>
+                        </btn>
+                        <btn
+                            t-attf-class="btn btn-outline-{{color}}"
+                            t-attf-data-tare="-{{tare.tare}}"
+                            t-on-click.prevent="onClickTare"
+                        >
+                            +
+                        </btn>
+                    </div>
+                </div>
+                <div class="pt-2 col-12 ps-0">
+                    <div name="manual_tare" class="input-group input-group-lg">
+                        <span
+                            class="input-group-text text-uppercase manual_tare_label"
+                        >Manual tare</span>
+                        <button
+                            class="fa fa-minus btn btn-primary"
+                            aria-label="Minus"
+                            title="Minus"
+                            type="button"
+                            data-mode="plus"
+                            t-on-click.prevent="onClickManualTare"
+                        />
+                        <input
+                            type="number"
+                            step="0.1"
+                            inputmode="decimal"
+                            class="form-control text-center"
+                            aria-label="Manual tare"
+                            t-on-change="onChangeTareManualTare"
+                        />
+                        <button
+                            class="fa fa-plus btn btn-primary"
+                            aria-label="Plus"
+                            title="Plus"
+                            type="button"
+                            data-mode="minus"
+                            t-on-click.prevent="onClickManualTare"
+                        />
+                        <span class="input-group-text" t-out="this.uom.name" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
