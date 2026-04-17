@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [sale_stock_weighing](sale_stock_weighing/) | 15.0.1.0.0 |  | Weight assistant extension sales
 [stock_picking_batch_weighing](stock_picking_batch_weighing/) | 15.0.1.0.1 |  | Launch the weighing assistant from batch pickings
 [stock_secondary_unit_weighing](stock_secondary_unit_weighing/) | 15.0.1.0.0 |  | Show secondary unit info in the weighing assistant
-[stock_weighing](stock_weighing/) | 15.0.2.4.0 |  | Weighing assistant for stock operations
+[stock_weighing](stock_weighing/) | 15.0.2.4.1 |  | Weighing assistant for stock operations
 [stock_weighing_auto_create_lot](stock_weighing_auto_create_lot/) | 15.0.1.0.0 |  | Allow to create lots from the weighing kanban cards
 [stock_weighing_auto_create_lot_config](stock_weighing_auto_create_lot_config/) | 15.0.1.0.0 | <a href='https://github.com/CarlosRoca13'><img src='https://github.com/CarlosRoca13.png' width='32' height='32' style='border-radius:50%;' alt='CarlosRoca13'/></a> | Allow to configure the lots created
 [stock_weighing_auto_package](stock_weighing_auto_package/) | 15.0.1.1.0 |  | Auto create package for every weighing operation
