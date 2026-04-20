@@ -113,6 +113,11 @@ msgstr ""
 "operación"
 
 #. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__picking_partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weigh_operation_selection__create_uid
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_uid
 msgid "Created by"
@@ -440,6 +445,11 @@ msgstr "Mostrar botón de impresión de pesaje"
 #: model:ir.model,name:stock_weighing.model_stock_move
 msgid "Stock Move"
 msgstr "Movimiento de stock"
+
+#. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
+msgid "Supplier"
+msgstr ""
 
 #. module: stock_weighing
 #: code:addons/stock_weighing/models/stock_move.py:0
