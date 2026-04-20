@@ -23,23 +23,19 @@
         <field name="model">stock.picking.type</field>
         <field name="inherit_id" ref="stock.stock_picking_type_kanban" />
         <field name="arch" type="xml">
-            <field name="count_picking_backorders" position="after">
-                <field name="weight_move_ids" />
-                <field name="to_do_weights" />
-                <field name="weighing_operations" />
-            </field>
             <xpath
                 expr="//button[@name='get_action_picking_tree_ready']"
                 position="after"
             >
                 <t t-if="record.weighing_operations.raw_value">
+                    <field name="to_do_weights" invisible="1" />
                     <button
                         name="action_weighing_operations"
                         type="object"
-                        class="btn btn-outline-primary ms-1"
+                        class="btn btn-outline-primary me-2"
                     >
                             <span
-                        class="badge bg-primary"
+                        class="badge bg-secondary"
                         t-out="record.to_do_weights.value"
                         t-if="record.to_do_weights.raw_value"
                     /> To weigh
