@@ -27,6 +27,7 @@
                 expr="//button[@name='get_action_picking_tree_ready']"
                 position="after"
             >
+                <field name="weighing_operations" invisible="1" />
                 <t t-if="record.weighing_operations.raw_value">
                     <field name="to_do_weights" invisible="1" />
                     <button
