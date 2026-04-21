@@ -1,10 +1,21 @@
 # Copyright 2024 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
-from odoo import api, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class StockMove(models.Model):
     _inherit = "stock.move"
+
+    is_has_production = fields.Boolean(compute="_compute_is_has_production")
+
+    @api.depends("move_line_ids", "move_orig_ids")
+    def _compute_is_has_production(self):
+        self.is_has_production = False
+        for move in self:
+            move.is_has_production = bool(
+                move.created_production_id or move.move_orig_ids.mapped("production_id")
+            )
 
     @api.model
     def action_mrp_production_weighing(self):
@@ -17,6 +28,13 @@ class StockMove(models.Model):
     def action_add_move_line(self):
         action = super().action_add_move_line()
         if not self.production_id.lot_producing_id:
+            production_id = self.move_orig_ids.production_id
+            if (
+                production_id
+                and self.product_id == production_id.product_id
+                and production_id.state == "done"
+            ):
+                raise ValidationError(_("You can not add weight, the MO is done."))
             return action
         default_lot_id = False
         if self.product_id == self.production_id.product_id:
