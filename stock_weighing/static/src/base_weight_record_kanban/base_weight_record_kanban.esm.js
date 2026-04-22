@@ -6,7 +6,7 @@ import {kanbanView} from "@web/views/kanban/kanban_view";
 import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
 
-class WeightRecordingKanbanHeader extends KanbanHeader {
+export class WeightRecordingKanbanHeader extends KanbanHeader {
     static template = "stock_weighing.KanbanHeader";
     setup() {
         super.setup();
