@@ -8,7 +8,7 @@
         <xpath expr="//t[@t-esc='groupName']" position="before">
             <span class="me-2">
                 <i
-                    class="fa fa-folder-open text-warning"
+                    class="fa fa-folder text-warning"
                     role="button"
                     aria-label="Fold"
                     title="Fold"
@@ -19,7 +19,7 @@
         <xpath expr="//span[@t-esc='groupName']" position="before">
             <span class="me-2">
                 <i
-                    class="fa fa-folder text-warning"
+                    class="fa fa-folder-open text-warning"
                     role="button"
                     aria-label="Unfold"
                     title="Unfold"
