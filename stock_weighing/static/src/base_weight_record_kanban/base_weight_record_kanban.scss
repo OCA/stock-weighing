@@ -4,6 +4,12 @@
 .o_kanban_view.o_weight_kanban {
     overflow: auto;
     border-top: 1px solid $border-color;
+    .flex-basis-0 {
+        flex-basis: auto !important;
+    }
+    .o_column_unfold {
+        display: none !important;
+    }
     .o_kanban_ungrouped {
         padding: 0px;
         --KanbanRecord-width: 100vw;
