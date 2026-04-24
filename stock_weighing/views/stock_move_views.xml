@@ -95,7 +95,7 @@
                                     </strong>
                                     <div class="mt-1">
                                         <span
-                                            class="badge bg-primary text-light h4"
+                                            class="badge bg-primary text-light h4 me-1"
                                             t-out="record.reference.raw_value"
                                         />
                                         <em t-out="record.partner_id.value" />

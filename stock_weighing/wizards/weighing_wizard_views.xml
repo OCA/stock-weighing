@@ -27,7 +27,7 @@
                         nolabel="1"
                         default_focus="1"
                         widget="numeric_step"
-                        class="text-center text-info o_input_weight"
+                        class="w-100 text-center text-info o_input_weight"
                         options="{'auto_select': True, 'min': 0}"
                     />
                     <group groups="stock.group_production_lot">
