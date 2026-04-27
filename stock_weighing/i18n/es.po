@@ -213,6 +213,16 @@ msgid "Incoming weighing operations"
 msgstr "Operaciones de pesaje entrantes"
 
 #. module: stock_weighing
+#: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
+msgid "Interwarehouse (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
+msgid "Interwarehouse weighing operations"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
 msgid "Is Weighing Operation Locked"
 msgstr "Operación de pesaje bloqueada"
@@ -341,10 +351,10 @@ msgid "Product Moves (Stock Move Line)"
 msgstr "Movimientos de Producto (Stock Move Line)"
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__qty_weighed
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__qty_weighed
-msgid "Qty Weighed"
-msgstr "Peso registrado"
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__qty_picked
+#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__qty_picked
+msgid "Qty Picked"
+msgstr ""
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
@@ -486,7 +496,6 @@ msgstr "Desbloquear operación de pesaje"
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_move_line.py:0
 #, fuzzy
-#| msgid "Weigh %(product_uom_qty)s %(uom)s of %(product)s"
 msgid "Weigh %(quantity)s %(uom)s of %(product)s"
 msgstr "Pesar %(product_uom_qty)s %(uom)s de %(product)s"
 
@@ -538,7 +547,6 @@ msgstr "Estado de pesaje"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_state_color
 #, fuzzy
-#| msgid "Weighing State"
 msgid "Weighing State Color"
 msgstr "Estado de pesaje"
 
@@ -588,6 +596,9 @@ msgstr "Estado del asistente"
 #: code:addons/stock_weighing/wizards/weighing_wizard.py:0
 msgid "You need to supply a Lot/Serial Number"
 msgstr "Necesita proporcionar un número de serie/lote"
+
+#~ msgid "Qty Weighed"
+#~ msgstr "Peso registrado"
 
 #~ msgid "<span>To weigh:</span><br/>"
 #~ msgstr "<span>A pesar:</span><br/>"

@@ -206,6 +206,16 @@ msgid "Incoming weighing operations"
 msgstr ""
 
 #. module: stock_weighing
+#: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
+msgid "Interwarehouse (weighing)"
+msgstr ""
+
+#. module: stock_weighing
+#: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
+msgid "Interwarehouse weighing operations"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
 msgid "Is Weighing Operation Locked"
 msgstr ""
