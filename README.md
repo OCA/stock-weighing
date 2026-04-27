@@ -22,6 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[sale_elaboration_weighing](sale_elaboration_weighing/) | 18.0.1.0.0 |  | Weighing assistant extension for elaborations
 [stock_weighing](stock_weighing/) | 18.0.1.0.7 |  | Weighing assistant for stock operations
 [stock_weighing_remote_measure](stock_weighing_remote_measure/) | 18.0.1.0.0 |  | Gather the operations weights remotely
 [web_widget_remote_measure](web_widget_remote_measure/) | 18.0.1.0.1 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to connect to remote devices to record measures
