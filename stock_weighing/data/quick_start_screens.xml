@@ -32,11 +32,27 @@
         <field name="icon_name">fa-arrow-right</field>
         <field name="color">7</field>
     </record>
+    <record
+        id="quick_start_screen_action_interwarehouse_any_operations"
+        model="quick.start.screen.action"
+    >
+        <field name="name">Interwarehouse (weighing)</field>
+        <field name="description">Interwarehouse weighing operations</field>
+        <field name="action_ref_id" ref="stock_weighing.weighing_operation_action" />
+        <field name="domain">[
+            ("location_id.usage", "in", ["internal", "transit"]),
+            ("location_dest_id.usage", "in", ["internal", "transit"]),
+            ("picking_type_id.weighing_operations", "=", True),
+        ]</field>
+        <field name="context">{'show_weight_detail_buttons': True}</field>
+        <field name="icon_name">fa-arrows-h</field>
+        <field name="color">7</field>
+    </record>
     <record id="quick_start_screen_weighing" model="quick.start.screen">
         <field name="name">Weighing</field>
         <field
             name="action_ids"
-            eval="[Command.link(ref('stock_weighing.quick_start_screen_action_incoming_any_operations')), Command.link(ref('stock_weighing.quick_start_screen_action_outgoing_any_operations'))]"
+            eval="[Command.link(ref('stock_weighing.quick_start_screen_action_incoming_any_operations')), Command.link(ref('stock_weighing.quick_start_screen_action_outgoing_any_operations')), Command.link(ref('stock_weighing.quick_start_screen_action_interwarehouse_any_operations'))]"
         />
     </record>
     <record id="stock_move_weight_operation_start_screen" model="ir.actions.server">
