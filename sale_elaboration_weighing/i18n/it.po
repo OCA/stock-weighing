@@ -6,46 +6,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-04-30 10:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: sale_elaboration_weighing
 #: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_weight_kanban_view
 msgid "<i class=\"fa fa-cutlery me-2\" title=\"Elaboration note\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-cutlery me-2\" title=\"Nota elaborazione\"/>"
 
 #. module: sale_elaboration_weighing
 #: model:ir.model,name:sale_elaboration_weighing.model_quick_start_screen_action
 msgid "Actions to be launched from a quick start screen"
-msgstr ""
+msgstr "Azioni da lanciare da una schermata di avvio rapido"
 
 #. module: sale_elaboration_weighing
 #: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_search
 msgid "Elaborated"
-msgstr ""
+msgstr "Elaborata"
 
 #. module: sale_elaboration_weighing
 #: model:quick.start.screen.action,name:sale_elaboration_weighing.quick_start_screen_action_elaborations
 msgid "Elaborations"
-msgstr ""
+msgstr "Elaborazioni"
 
 #. module: sale_elaboration_weighing
 #: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_search
 msgid "Not elaborated"
-msgstr ""
+msgstr "Non elaborate"
 
 #. module: sale_elaboration_weighing
 #: model_terms:quick.start.screen.action,description:sale_elaboration_weighing.quick_start_screen_action_elaborations
 msgid "Outgoing elaborations"
-msgstr ""
+msgstr "Elaborazioni in uscita"
 
 #. module: sale_elaboration_weighing
 #. odoo-python
 #: code:addons/sale_elaboration_weighing/models/quick_start_screen_action.py:0
 msgid "Weigh elaborations"
-msgstr ""
+msgstr "Elaborazioni peso"
