@@ -24,7 +24,7 @@ class WeighingWizard(models.TransientModel):
             )
 
     def _post_add_detailed_operation(self):
-        res = super(WeighingWizard, self)._post_add_detailed_operation()
+        res = super()._post_add_detailed_operation()
         if self.result_package_id:
             self.selected_move_line_id.result_package_id = self.result_package_id
         elif self.stock_weighing_auto_package:
