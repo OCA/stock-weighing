@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_wizard_form_view" model="ir.ui.view">
+        <field name="model">weighing.wizard</field>
+        <field name="inherit_id" ref="stock_weighing.weighing_wizard_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//footer" position="inside">
+                <field name="product_brand_has_logo" invisible="1" />
+                <div class="float-right" style="margin-left: 16px;">
+                    <field
+                        name="product_brand_logo"
+                        widget="image"
+                        options='{"size": [48, 48]}'
+                        invisible="not product_brand_has_logo"
+                    />
+                    <field
+                        name="product_brand"
+                        invisible="not product_brand_has_logo"
+                        class="badge badge-dark text-center m-2"
+                        style="font-size:1em"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
