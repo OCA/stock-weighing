@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_weighing_auto_package
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: stock_weighing_auto_package
+#: model:ir.model.fields,field_description:stock_weighing_auto_package.field_weighing_wizard__stock_weighing_auto_package
+msgid "Auto package"
+msgstr ""
+
+#. module: stock_weighing_auto_package
+#: model:ir.model,name:stock_weighing_auto_package.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: stock_weighing_auto_package
+#: model:ir.model,name:stock_weighing_auto_package.model_weighing_wizard
+msgid "Record weights over detailed operations"
+msgstr ""
+
+#. module: stock_weighing_auto_package
+#: model:ir.model.fields,field_description:stock_weighing_auto_package.field_product_product__stock_weighing_auto_package
+msgid "Stock Weighing Auto Package"
+msgstr ""
