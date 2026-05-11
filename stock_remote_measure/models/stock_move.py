@@ -3,38 +3,36 @@
 from odoo import api, fields, models
 
 
-class StockMoveLine(models.Model):
-    _inherit = "stock.move.line"
+class StockMove(models.Model):
+    _inherit = "stock.move"
 
     remote_scale_id = fields.Many2one(
         comodel_name="remote.measure.device",
         compute="_compute_remote_scale_id",
         readonly=False,
-        store=True,
     )
 
     @api.depends(
         "picking_id",
         "picking_id.picking_type_id.remote_scale_id",
         "picking_id.remote_scale_id",
-        "product_uom_id",
+        "product_uom",
     )
     def _compute_remote_scale_id(self):
-        """We don't want to measure if the scale uom is not in the same category than
-        the line"""
-        for sml in self:
+        """Avoid measuring when the scale and move UoMs are in different categories."""
+        for move in self:
             picking_scale = (
-                sml.picking_id.remote_scale_id
-                or sml.picking_id.picking_type_id.remote_scale_id
+                move.picking_id.remote_scale_id
+                or move.picking_id.picking_type_id.remote_scale_id
             )
             scale = (
-                sml.product_uom_id.category_id == picking_scale.uom_id.category_id
+                move.product_uom.category_id == picking_scale.uom_id.category_id
                 and picking_scale
             )
             if not scale and self.env.context.get("force_user_measure_device"):
                 scale = (
-                    sml.product_uom_id.category_id
+                    move.product_uom.category_id
                     == self.env.user.remote_measure_device_id.uom_id.category_id
                     and self.env.user.remote_measure_device_id
                 )
-            sml.remote_scale_id = scale or False
+            move.remote_scale_id = scale or False

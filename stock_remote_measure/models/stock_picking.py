@@ -11,5 +11,4 @@ class StockPicking(models.Model):
         default=lambda self: self.env["stock.picking.type"]
         .browse(self._context.get("default_picking_type_id"))
         .remote_scale_id,
-        states={"done": [("readonly", True)]},
     )
