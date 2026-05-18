@@ -41,10 +41,11 @@ class StockPicking(models.Model):
         return action
 
     def button_validate(self):
+        # Only sync quantity from the weighing wizard result; skip lines completed
+        # directly from the reception screen (no recorded weight) to avoid zeroing them.
         move_lines_with_weight = self.move_ids.move_line_ids.filtered("has_weight")
         for move_line in move_lines_with_weight:
-            if move_line.qty_picked > 0:
-                move_line.quantity = move_line.qty_picked
-            else:
-                move_line.quantity = 0
+            if not move_line.has_recorded_weight:
+                continue
+            move_line.quantity = move_line.qty_picked
         return super().button_validate()
