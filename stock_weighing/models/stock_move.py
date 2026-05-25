@@ -266,3 +266,12 @@ class StockMove(models.Model):
 
     def action_force_weighed(self):
         self.weighing_state = "weighed"
+
+    def set_product_uom_qty_to_qty_done_from_weighing(self):
+        self.ensure_one()
+        for move_line in self.filtered(lambda line: not line.has_weight).move_line_ids:
+            move_line.qty_picked = move_line.quantity
+            move_line.recorded_weight = move_line.quantity
+            move_line.has_recorded_weight = True
+            move_line.weighing_user_id = self.env.user
+            move_line.weighing_date = fields.Datetime.now()
