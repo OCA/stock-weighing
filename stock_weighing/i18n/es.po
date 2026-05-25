@@ -416,6 +416,11 @@ msgid "Self Move"
 msgstr ""
 
 #. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
+msgid "Set reserved to done"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__show_weighing_print_button
 msgid "Show Weighing Print Button"
 msgstr "Mostrar botón de impresión de pesaje"
