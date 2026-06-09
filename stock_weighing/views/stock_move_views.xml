@@ -122,6 +122,7 @@
                                 <div class="col-1">
                                     <div
                                         t-if="!['done', 'cancel', 'draft'].includes(record.state.raw_value)"
+                                        class="d-flex flex-column flex-xl-row align-items-center gap-2"
                                     >
                                         <button
                                             string="Record weight"
@@ -161,7 +162,7 @@
                                             title="Set reserved to done"
                                             name="set_product_uom_qty_to_qty_done_from_weighing"
                                             type="object"
-                                            class="btn btn-lg border ms-2"
+                                            class="btn btn-lg border"
                                             t-if="!record.has_weight.raw_value and record.quantity.raw_value !== record.qty_picked.raw_value"
                                         >
                                             <i class="fa fa-arrow-right text-success" />
