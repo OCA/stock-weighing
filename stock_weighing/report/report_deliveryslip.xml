@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//span[@t-field='move.quantity']" position="attributes">
+            <attribute
+                name="t-if"
+            >not move.qty_picked or move.state == 'done'</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='move.quantity']" position="before">
+            <span
+                t-if="move.qty_picked and move.state != 'done'"
+                t-field="move.qty_picked"
+                class="text-nowrap"
+            />
+        </xpath>
+    </template>
+    <template
+        id="stock_report_delivery_has_serial_move_line"
+        inherit_id="stock.stock_report_delivery_has_serial_move_line"
+    >
+        <xpath expr="//span[@t-field='move_line.quantity']" position="attributes">
+            <attribute
+                name="t-if"
+            >not move_line.qty_picked or move_line.state == 'done'</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.quantity']" position="before">
+            <span
+                t-if="move_line.qty_picked and move_line.state != 'done'"
+                t-field="move_line.qty_picked"
+                class="text-nowrap"
+            />
+        </xpath>
+    </template>
+</odoo>
