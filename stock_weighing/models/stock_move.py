@@ -130,12 +130,12 @@ class StockMove(models.Model):
             and x.weighing_user_id != self.env.user
         ).is_weighing_operation_locked = True
 
-    @api.depends("quantity", "picking_type_id.weighing_label_report_id")
+    @api.depends("qty_picked", "picking_type_id.weighing_label_report_id")
     def _compute_show_weighing_print_button(self):
         """"""
         self.show_weighing_print_button = False
         self.filtered(
-            lambda x: x.quantity and x.picking_type_id.weighing_label_report_id
+            lambda x: x.qty_picked and x.picking_type_id.weighing_label_report_id
         ).show_weighing_print_button = True
 
     def _compute_weighing_state_color(self):
