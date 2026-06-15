@@ -17,6 +17,7 @@
                 records_draggable="0"
                 groups_draggable="0"
                 quick_create="0"
+                limit="80"
             >
                 <field name="id" />
                 <field name="product_id" />
