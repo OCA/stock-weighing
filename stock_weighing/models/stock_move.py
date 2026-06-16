@@ -211,6 +211,7 @@ class StockMove(models.Model):
             default_weight=self.recorded_weight or self.quantity,
             default_move_line_ids=self.move_line_ids.ids,
             default_print_label=self._get_default_print_label(),
+            default_move_id=self.id,
         )
         return action
 
