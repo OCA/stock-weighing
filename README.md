@@ -22,6 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[partner_delivery_zone_weighing](partner_delivery_zone_weighing/) | 18.0.1.0.0 |  | Show delivery zones info in weighings
 [sale_elaboration_weighing](sale_elaboration_weighing/) | 18.0.1.0.0 |  | Weighing assistant extension for elaborations
 [sale_stock_weighing](sale_stock_weighing/) | 18.0.1.0.0 |  | Weight assistant extension sales
 [stock_weighing](stock_weighing/) | 18.0.1.2.0 |  | Weighing assistant for stock operations
