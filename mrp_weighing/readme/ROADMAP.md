@@ -1,0 +1,1 @@
+- Add the possibility of using manufacturing with more than one component.

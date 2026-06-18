@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_wizard_form_view_inherit" model="ir.ui.view">
+        <field name="inherit_id" ref="stock_weighing.weighing_wizard_form_view" />
+        <field name="model">weighing.wizard</field>
+        <field name="arch" type="xml">
+            <field name="lot_id" position="before">
+                <field name="component_available_stock_quant_ids" invisible="1" />
+                <field name="is_production" invisible="1" />
+                <field
+                    name="component_quant_id"
+                    class="form-control-lg pl-0"
+                    placeholder="Select component quant..."
+                    invisible="(not is_production or wizard_state == 'weight')"
+                    required="(is_production and wizard_state != 'weight')"
+                    options="{'no_open': True, 'no_create': True}"
+                    nolabel="1"
+                    context="{'show_lot_product': True}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

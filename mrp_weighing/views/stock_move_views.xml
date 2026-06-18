@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="mrp_production_view_move_weight_kanban_view" model="ir.ui.view">
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock_weighing.view_move_weight_kanban_view" />
+        <field name="arch" type="xml">
+            <field name="move_line_ids" position="after">
+                <field name="is_has_production" />
+            </field>
+            <xpath expr="//strong/field[@name='product_id']" position="after">
+                <t t-if="record.is_has_production.raw_value">
+                    <i class="fa fa-fw fa-wrench" title="Manufacturing Order" />
+                </t>
+            </xpath>
+            <button name="action_reset_weights" position="attributes">
+                <attribute name="context">{'reset_all_lines': True}</attribute>
+            </button>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,148 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 15:33+0000\n"
+"PO-Revision-Date: 2026-03-16 16:36+0100\n"
+"Last-Translator: Andrii Kompaniiets <andrii.kompaniiets@tecnativa.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_stock_picking__close_production
+#: model:ir.model.fields,field_description:mrp_weighing.field_stock_picking_type__close_production
+msgid "Close Production"
+msgstr "Cerrar fabricación"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__component_available_stock_quant_ids
+msgid "Component Available Stock Quant"
+msgstr "Quant disponible de componentes"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_mrp_production__has_weighing_operations
+msgid "Has Weighing Operations"
+msgstr "Tiene operaciones de pesaje"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_stock_move__is_has_production
+#, fuzzy
+#| msgid "Is Production"
+msgid "Is Has Production"
+msgstr "¿Es fabricación?"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__is_production
+msgid "Is Production"
+msgstr "¿Es fabricación?"
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Tipo de operación"
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de productos (línea de movimiento de existencias)"
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de producción"
+
+#. module: mrp_weighing
+#: code:addons/mrp_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Production Orders"
+msgstr "Órdenes de producción"
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_weighing_wizard
+msgid "Record weights over detailed operations"
+msgstr "Registrar pesos en operaciones detalladas"
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__component_quant_id
+msgid "Select component lot"
+msgstr "Seleccionar lote de componentes"
+
+#. module: mrp_weighing
+#: model_terms:ir.ui.view,arch_db:mrp_weighing.weighing_wizard_form_view_inherit
+msgid "Select component quant..."
+msgstr "Seleccionar quant de componentes..."
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_stock_move_line__selected_quant_id
+msgid "Selected Quant"
+msgstr "Quant seleccionado"
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: mrp_weighing
+#: model:ir.model.fields,help:mrp_weighing.field_mrp_production__weighing_operations
+msgid "Weighed products are done from weighing operations"
+msgstr "Los productos pesados se obtienen a partir de operaciones de pesaje."
+
+#. module: mrp_weighing
+#: model:ir.model.fields,field_description:mrp_weighing.field_mrp_production__weighing_operations
+msgid "Weighing Operations"
+msgstr "Operaciones de pesaje"
+
+#. module: mrp_weighing
+#: code:addons/mrp_weighing/wizards/weigh_operation_selection.py:0
+#, python-format
+msgid "Weighing Production Orders"
+msgstr "Pesaje de órdenes de producción"
+
+#. module: mrp_weighing
+#: code:addons/mrp_weighing/models/mrp_production.py:0
+#, python-format
+msgid "Weighing operations for %(name)s"
+msgstr "Operaciones de pesaje para %(name)s"
+
+#. module: mrp_weighing
+#: model_terms:ir.ui.view,arch_db:mrp_weighing.mrp_production_form_view
+msgid "Weight"
+msgstr "Pesaje"
+
+#. module: mrp_weighing
+#: code:addons/mrp_weighing/models/stock_move.py:0
+#, python-format
+msgid "You can not add weight, the MO is done."
+msgstr "No se puede añadir peso, el orden de fabricación está hecho."
+
+#. module: mrp_weighing
+#: model:ir.model,name:mrp_weighing.model_weigh_operation_selection
+msgid "weigh operation selection screen"
+msgstr "Pantalla de selección de operación de pesaje"
+
+#~ msgid "Close MO"
+#~ msgstr "Cerrar fabricación"
+
+#, fuzzy
+#~| msgid "Is Production"
+#~ msgid "Is Production Done"
+#~ msgstr "¿Es fabricación?"
