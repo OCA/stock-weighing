@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [partner_delivery_zone_weighing](partner_delivery_zone_weighing/) | 18.0.1.0.0 |  | Show delivery zones info in weighings
 [sale_elaboration_weighing](sale_elaboration_weighing/) | 18.0.1.0.0 |  | Weighing assistant extension for elaborations
 [sale_stock_weighing](sale_stock_weighing/) | 18.0.1.0.0 |  | Weight assistant extension sales
+[stock_remote_measure](stock_remote_measure/) | 18.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to connect to remote devices to record measures in stock fields
 [stock_weighing](stock_weighing/) | 18.0.1.2.0 |  | Weighing assistant for stock operations
 [stock_weighing_auto_create_lot](stock_weighing_auto_create_lot/) | 18.0.1.0.0 |  | Allow to create lots from the weighing kanban cards
 [stock_weighing_auto_package](stock_weighing_auto_package/) | 18.0.1.0.0 |  | Auto create package for every weighing operation
