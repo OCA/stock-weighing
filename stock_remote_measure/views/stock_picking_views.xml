@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <group name="other_infos" position="inside">
+                <field name="remote_scale_id" readonly="state == 'done'" />
+            </group>
+            <xpath
+                expr="//field[@name='move_ids_without_package']/list/field[@name='quantity']"
+                position="before"
+            >
+                <field name="remote_scale_id" column_invisible="True" />
+            </xpath>
+            <xpath
+                expr="//field[@name='move_ids_without_package']/list/field[@name='quantity']"
+                position="attributes"
+            >
+                <attribute name="widget">remote_measure</attribute>
+                <attribute
+                    name="options"
+                >{'remote_device_field': 'remote_scale_id', 'uom_field': 'product_uom', 'default_user_device': True, 'allow_additive_measure': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
