@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 08:44+0000\n"
+"PO-Revision-Date: 2026-06-25 08:48+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -33,12 +33,12 @@ msgstr "Premiki proizvoda (postavka premika zaloge)"
 #: model:ir.model.fields,field_description:stock_remote_measure.field_stock_picking__remote_scale_id
 #: model:ir.model.fields,field_description:stock_remote_measure.field_stock_picking_type__remote_scale_id
 msgid "Remote Scale"
-msgstr ""
+msgstr "Oddaljena tehtnica"
 
 #. module: stock_remote_measure
 #: model:ir.model.fields,help:stock_remote_measure.field_stock_picking_type__remote_scale_id
 msgid "Scale used by default in this operations"
-msgstr ""
+msgstr "Privzeto uporabljena tehtnica za te operacije"
 
 #. module: stock_remote_measure
 #: model:ir.model,name:stock_remote_measure.model_stock_move
