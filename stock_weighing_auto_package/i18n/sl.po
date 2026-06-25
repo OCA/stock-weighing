@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 08:48+0000\n"
+"PO-Revision-Date: 2026-06-25 08:54+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: stock_weighing_auto_package
 #: model:ir.model.fields,field_description:stock_weighing_auto_package.field_weighing_wizard__stock_weighing_auto_package
 msgid "Auto package"
-msgstr ""
+msgstr "Samodejno pakiranje"
 
 #. module: stock_weighing_auto_package
 #: model:ir.model,name:stock_weighing_auto_package.model_product_product
@@ -35,4 +35,4 @@ msgstr "Zabeleži mase na podrobnih operacijah"
 #. module: stock_weighing_auto_package
 #: model:ir.model.fields,field_description:stock_weighing_auto_package.field_product_product__stock_weighing_auto_package
 msgid "Stock Weighing Auto Package"
-msgstr ""
+msgstr "Samodejno pakiranje pri tehtanju zaloge"
