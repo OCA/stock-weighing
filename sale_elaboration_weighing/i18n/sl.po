@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 09:00+0000\n"
+"PO-Revision-Date: 2026-06-25 09:04+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: sale_elaboration_weighing
 #: model_terms:ir.ui.view,arch_db:sale_elaboration_weighing.view_move_weight_kanban_view
 msgid "<i class=\"fa fa-cutlery me-2\" title=\"Elaboration note\"/>"
-msgstr "<i class=\"fa fa-cutlery me-2\" title=\"Opomba k dodelavi\"/>"
+msgstr "<i class=\"fa fa-cutlery me-2\" title=\"Opomba dodelave\"/>"
 
 #. module: sale_elaboration_weighing
 #: model:ir.model,name:sale_elaboration_weighing.model_quick_start_screen_action
@@ -45,10 +45,10 @@ msgstr "Ni dodelano"
 #. module: sale_elaboration_weighing
 #: model_terms:quick.start.screen.action,description:sale_elaboration_weighing.quick_start_screen_action_elaborations
 msgid "Outgoing elaborations"
-msgstr ""
+msgstr "Izhodne dodelave"
 
 #. module: sale_elaboration_weighing
 #. odoo-python
 #: code:addons/sale_elaboration_weighing/models/quick_start_screen_action.py:0
 msgid "Weigh elaborations"
-msgstr ""
+msgstr "Tehtaj dodelave"
