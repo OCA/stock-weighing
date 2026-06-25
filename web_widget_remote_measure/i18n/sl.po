@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 08:39+0000\n"
+"PO-Revision-Date: 2026-06-25 08:44+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -32,7 +32,7 @@ msgstr "Aktivno"
 #. odoo-javascript
 #: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
 msgid "Additive Measure"
-msgstr ""
+msgstr "Seštevalna meritev"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
@@ -57,13 +57,13 @@ msgstr "Potrdi"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__connection_mode
 msgid "Connection Mode"
-msgstr ""
+msgstr "Način povezave"
 
 #. module: web_widget_remote_measure
 #. odoo-python
 #: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
 msgid "Connection failure to %(host)s:%(port)s"
-msgstr ""
+msgstr "Povezava z %(host)s:%(port)s ni uspela"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_category_id
@@ -110,12 +110,12 @@ msgstr "Prikazani naziv"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__non_stop_read
 msgid "Don't stop reading until the widget is disposed"
-msgstr ""
+msgstr "Ne prenehaj brati, dokler se gradnik ne odstrani"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__host
 msgid "Host"
-msgstr ""
+msgstr "Gostitelj"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__uom_factor
@@ -123,6 +123,8 @@ msgid ""
 "How much bigger or smaller this unit is compared to the reference Unit of "
 "Measure for this category: 1 * (reference unit) = ratio * (this unit)"
 msgstr ""
+"Koliko večja ali manjša je ta enota v primerjavi z referenčno mersko enoto "
+"za to kategorijo: 1 * (referenčna enota) = razmerje * (ta enota)"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__id
@@ -132,7 +134,7 @@ msgstr "ID"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__instant_read
 msgid "Instant Read"
-msgstr ""
+msgstr "Takojšnje branje"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__write_uid
@@ -152,18 +154,18 @@ msgstr "Naziv"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__non_stop_read
 msgid "Non Stop Read"
-msgstr ""
+msgstr "Neprekinjeno branje"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__protocol
 msgid "Operating protocol"
-msgstr ""
+msgstr "Operacijski protokol"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
 msgid "Preferred remote device"
-msgstr ""
+msgstr "Prednostna oddaljena naprava"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__protocol
@@ -173,77 +175,77 @@ msgstr "Protokol"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_factor
 msgid "Ratio"
-msgstr ""
+msgstr "Razmerje"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__read_interval
 msgid "Read Interval"
-msgstr ""
+msgstr "Interval branja"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 msgid "Read behavior"
-msgstr ""
+msgstr "Vedenje branja"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__instant_read
 msgid "Read right on as the widget gets rendered"
-msgstr ""
+msgstr "Začni brati takoj, ko se gradnik prikaže"
 
 #. module: web_widget_remote_measure
 #: model:ir.actions.act_window,name:web_widget_remote_measure.action_measure_device
 #: model:ir.ui.menu,name:web_widget_remote_measure.menu_measure_device
 msgid "Remote Devices"
-msgstr ""
+msgstr "Oddaljene naprave"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_res_users__remote_measure_device_id
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_res_users_settings__remote_measure_device_id
 msgid "Remote Measure Device"
-msgstr ""
+msgstr "Oddaljena merilna naprava"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
 #: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
 msgid "Remote device"
-msgstr ""
+msgstr "Oddaljena naprava"
 
 #. module: web_widget_remote_measure
 #: model:ir.model,name:web_widget_remote_measure.model_remote_measure_device
 msgid "Remote measure device"
-msgstr ""
+msgstr "Oddaljena merilna naprava"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__protocol__f501
 msgid "Scale F501"
-msgstr ""
+msgstr "Tehtnica F501"
 
 #. module: web_widget_remote_measure
 #: model:ir.actions.act_window,name:web_widget_remote_measure.action_user_remote_device_selector
 msgid "Select remote measure device"
-msgstr ""
+msgstr "Izberi oddaljeno merilno napravo"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
 #: code:addons/web_widget_remote_measure/static/src/systray/systray_device_selector.xml:0
 msgid "Select user remote device"
-msgstr ""
+msgstr "Izberi uporabnikovo oddaljeno napravo"
 
 #. module: web_widget_remote_measure
 #: model:res.groups,name:web_widget_remote_measure.remote_device_button_group
 msgid "Show remote device button on navbar"
-msgstr ""
+msgstr "Prikaži gumb oddaljene naprave v navigacijski vrstici"
 
 #. module: web_widget_remote_measure
 #. odoo-python
 #: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
 msgid "Successfully connected to %(host)s:%(port)s"
-msgstr ""
+msgstr "Uspešno povezano z %(host)s:%(port)s"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__test_measure
 msgid "Test Measure"
-msgstr ""
+msgstr "Testna meritev"
 
 #. module: web_widget_remote_measure
 #. odoo-python
@@ -267,7 +269,7 @@ msgstr "EM"
 #. odoo-javascript
 #: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
 msgid "Use default device"
-msgstr ""
+msgstr "Uporabi privzeto napravo"
 
 #. module: web_widget_remote_measure
 #: model:ir.model,name:web_widget_remote_measure.model_res_users
@@ -282,14 +284,14 @@ msgstr "Uporabniške nastavitve"
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__webservices
 msgid "Web Services"
-msgstr ""
+msgstr "Spletne storitve"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__websockets
 msgid "Web Sockets"
-msgstr ""
+msgstr "Spletne vtičnice"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 msgid "e.g. Dock 1 Scale"
-msgstr ""
+msgstr "npr. tehtnica na rampi 1"
