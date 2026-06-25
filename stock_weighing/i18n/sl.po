@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 08:23+0000\n"
+"PO-Revision-Date: 2026-06-25 08:39+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -21,33 +21,33 @@ msgstr ""
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_picking_type.py:0
 msgid "%(name)s Weighing operations"
-msgstr ""
+msgstr "%(name)s - tehtalne operacije"
 
 #. module: stock_weighing
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
 msgid "%(name)s details"
-msgstr ""
+msgstr "Podrobnosti za %(name)s"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 msgid "<i class=\"fa fa-arrow-right\" title=\"to\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-arrow-right\" title=\"do\"/>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 msgid "<small>Dest. Package</small>"
-msgstr ""
+msgstr "<small>Ciljno pakiranje</small>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 msgid "<small>LOT</small>"
-msgstr ""
+msgstr "<small>LOT</small>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "<small>LOTS: </small>"
-msgstr ""
+msgstr "<small>LOTI: </small>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
@@ -55,56 +55,58 @@ msgid ""
 "<span>To weigh:</span>\n"
 "                                        <br/>"
 msgstr ""
+"<span>Za tehtanje:</span>\n"
+"                                        <br/>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "<strong>Done: </strong>"
-msgstr ""
+msgstr "<strong>Opravljeno: </strong>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "<strong>Reserved: </strong>"
-msgstr ""
+msgstr "<strong>Rezervirano: </strong>"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "<strong>To do: </strong>"
-msgstr ""
+msgstr "<strong>Za opraviti: </strong>"
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_quick_start_screen_action
 msgid "Actions to be launched from a quick start screen"
-msgstr ""
+msgstr "Dejanja, ki se zaženejo z zaslona za hitri začetek"
 
 #. module: stock_weighing
 #: model:ir.model.fields.selection,name:stock_weighing.selection__weighing_wizard__wizard_state__new_move_line
 msgid "Add Operation"
-msgstr ""
+msgstr "Dodaj operacijo"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
 msgid "Add detailed operation"
-msgstr ""
+msgstr "Dodaj podrobno operacijo"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
 msgid "Add detailed operation and new weighing"
-msgstr ""
+msgstr "Dodaj podrobno operacijo in novo tehtanje"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Add operation"
-msgstr ""
+msgstr "Dodaj operacijo"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_lot_ids
 msgid "Available Lot"
-msgstr ""
+msgstr "Razpoložljivi lot"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__available_result_package_ids
 msgid "Available Result Package"
-msgstr ""
+msgstr "Razpoložljivo ciljno pakiranje"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
@@ -115,7 +117,7 @@ msgstr "Prekliči"
 #: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_label_report_id
 #: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__weighing_label_report_id
 msgid "Choose a custom label template for this operation type"
-msgstr ""
+msgstr "Izberite prilagojeno predlogo etikete za ta tip operacije"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_uid
@@ -136,13 +138,13 @@ msgstr "Cilj"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__result_package_id
 msgid "Destination Package"
-msgstr ""
+msgstr "Ciljno pakiranje"
 
 #. module: stock_weighing
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
 msgid "Detailed operations for %(name)s"
-msgstr ""
+msgstr "Podrobne operacije za %(name)s"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
@@ -163,22 +165,22 @@ msgstr "Zagotovite sledljivost skladiščnih proizvodov v svojem skladišču."
 #. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 msgid "Fold"
-msgstr ""
+msgstr "Zloži"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Force weighed"
-msgstr ""
+msgstr "Vsili tehtano"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__has_recorded_weight
 msgid "Has Recorded Weight"
-msgstr ""
+msgstr "Ima zabeleženo maso"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking__has_weighing_operations
 msgid "Has Weighing Operations"
-msgstr ""
+msgstr "Ima tehtalne operacije"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__has_weight
@@ -186,7 +188,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_mixin__has_weight
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__has_weight
 msgid "Has Weight"
-msgstr ""
+msgstr "Ima maso"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__id
@@ -196,32 +198,32 @@ msgstr "ID"
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__result_package_id
 msgid "If set, the operations are packed into this package"
-msgstr ""
+msgstr "Če je nastavljeno, se operacije zapakirajo v to pakiranje"
 
 #. module: stock_weighing
 #: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_incoming_any_operations
 msgid "Incoming (weighing)"
-msgstr ""
+msgstr "Prejem (tehtanje)"
 
 #. module: stock_weighing
 #: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_incoming_any_operations
 msgid "Incoming weighing operations"
-msgstr ""
+msgstr "Tehtalne operacije prejema"
 
 #. module: stock_weighing
 #: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
 msgid "Interwarehouse (weighing)"
-msgstr ""
+msgstr "Med skladišči (tehtanje)"
 
 #. module: stock_weighing
 #: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
 msgid "Interwarehouse weighing operations"
-msgstr ""
+msgstr "Tehtalne operacije med skladišči"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__is_weighing_operation_locked
 msgid "Is Weighing Operation Locked"
-msgstr ""
+msgstr "Je tehtalna operacija zaklenjena"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.report_weight_record_label
@@ -231,7 +233,7 @@ msgstr "LOT:"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__label_report_id
 msgid "Label Report"
-msgstr ""
+msgstr "Poročilo etikete"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_uid
@@ -271,7 +273,7 @@ msgstr "Postavka premika"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__move_lines_weighed
 msgid "Move Lines Weighed"
-msgstr ""
+msgstr "Postavke premika stehtane"
 
 #. module: stock_weighing
 #. odoo-python
@@ -279,27 +281,28 @@ msgstr ""
 msgid ""
 "New operation for %(product)s (%(operation)s) %(remain).2f %(uom)s remaining"
 msgstr ""
+"Nova operacija za %(product)s (%(operation)s), preostane %(remain).2f %(uom)s"
 
 #. module: stock_weighing
 #. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 msgid "Open record"
-msgstr ""
+msgstr "Odpri zapis"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__origin_names
 msgid "Origin Names"
-msgstr ""
+msgstr "Nazivi izvorov"
 
 #. module: stock_weighing
 #: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_outgoing_any_operations
 msgid "Outgoing (weighing)"
-msgstr ""
+msgstr "Odprema (tehtanje)"
 
 #. module: stock_weighing
 #: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_outgoing_any_operations
 msgid "Outgoing weighing operations"
-msgstr ""
+msgstr "Tehtalne operacije odpreme"
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_picking_type
@@ -309,17 +312,17 @@ msgstr "Tip dobavnice"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__print_label
 msgid "Print Label"
-msgstr ""
+msgstr "Natisni etiketo"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__print_weighing_label
 msgid "Print Weighing Label"
-msgstr ""
+msgstr "Natisni tehtalno etiketo"
 
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__print_label
 msgid "Print label after the weight record"
-msgstr ""
+msgstr "Natisni etiketo po zapisu mase"
 
 #. module: stock_weighing
 #. odoo-javascript
@@ -327,12 +330,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Print labels"
-msgstr ""
+msgstr "Natisni etikete"
 
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__print_weighing_label
 msgid "Print the weight operation label automatically"
-msgstr ""
+msgstr "Samodejno natisni etiketo tehtalne operacije"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__product_id
@@ -375,49 +378,49 @@ msgstr "Masa zapisa"
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_weighing_wizard
 msgid "Record weights over detailed operations"
-msgstr ""
+msgstr "Zabeleži mase na podrobnih operacijah"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__recorded_weight
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__recorded_weight
 msgid "Recorded Weight"
-msgstr ""
+msgstr "Zabeležena masa"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Reset weights"
-msgstr ""
+msgstr "Ponastavi mase"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
 msgid "Select destination package..."
-msgstr ""
+msgstr "Izberite ciljno pakiranje ..."
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
 msgid "Select lot..."
-msgstr ""
+msgstr "Izberite lot ..."
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__selected_move_line_id
 msgid "Selected Move Line"
-msgstr ""
+msgstr "Izbrana postavka premika"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__self_move_ids
 msgid "Self Move"
-msgstr ""
+msgstr "Lastni premik"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Set reserved to done"
-msgstr ""
+msgstr "Nastavi rezervirano kot opravljeno"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__show_weighing_print_button
 msgid "Show Weighing Print Button"
-msgstr ""
+msgstr "Prikaži gumb za tiskanje tehtanja"
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_move
@@ -428,33 +431,33 @@ msgstr "Premik zaloge"
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_move.py:0
 msgid "The user %(user)s is already weighing this operation"
-msgstr ""
+msgstr "Uporabnik %(user)s že tehta to operacijo"
 
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_stock_move_line__has_recorded_weight
 msgid "The weight was set from the wizard"
-msgstr ""
+msgstr "Masa je bila nastavljena iz čarovnika"
 
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_stock_move__weighing_user_id
 msgid "This user is weighing the record, so it's locked by him"
-msgstr ""
+msgstr "Ta uporabnik tehta zapis, zato ga je zaklenil"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.stock_move_line_weight_kanban_view
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "This will reset your current weight. Proceed?"
-msgstr ""
+msgstr "To bo ponastavilo trenutno maso. Nadaljujem?"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__to_do_weights
 msgid "To Do Weights"
-msgstr ""
+msgstr "Mase za obdelavo"
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_weighing_mixin
 msgid "To be used by stock.move and stock.move.line"
-msgstr ""
+msgstr "Za uporabo v stock.move in stock.move.line"
 
 #. module: stock_weighing
 #: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__to_weigh
@@ -483,30 +486,30 @@ msgstr "Premestitev"
 #. odoo-javascript
 #: code:addons/stock_weighing/static/src/base_weight_record_kanban/base_weight_record_kanban.xml:0
 msgid "Unfold"
-msgstr ""
+msgstr "Razširi"
 
 #. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Unlock weight operation"
-msgstr ""
+msgstr "Odkleni tehtalno operacijo"
 
 #. module: stock_weighing
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_move_line.py:0
 msgid "Weigh %(quantity)s %(uom)s of %(product)s"
-msgstr ""
+msgstr "Stehtajte %(quantity)s %(uom)s proizvoda %(product)s"
 
 #. module: stock_weighing
 #: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__weighed
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Weighed"
-msgstr ""
+msgstr "Stehtano"
 
 #. module: stock_weighing
 #: model:ir.model.fields,help:stock_weighing.field_stock_picking__weighing_operations
 #: model:ir.model.fields,help:stock_weighing.field_stock_picking_type__weighing_operations
 msgid "Weighed products are done from weighing operations"
-msgstr ""
+msgstr "Stehtani proizvodi se zaključijo iz tehtalnih operacij"
 
 #. module: stock_weighing
 #: model:ir.model.fields.selection,name:stock_weighing.selection__stock_move__weighing_state__weighing
@@ -514,18 +517,18 @@ msgstr ""
 #: model:quick.start.screen,name:stock_weighing.quick_start_screen_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Weighing"
-msgstr ""
+msgstr "Tehtanje"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_date
 msgid "Weighing Date"
-msgstr ""
+msgstr "Datum tehtanja"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_label_report_id
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weighing_label_report_id
 msgid "Weighing Label Report"
-msgstr ""
+msgstr "Poročilo tehtalne etikete"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking__weighing_operations
@@ -533,35 +536,35 @@ msgstr ""
 #: model:ir.ui.menu,name:stock_weighing.menu_weight_operation
 #: model:ir.ui.menu,name:stock_weighing.menu_weight_operation_screen
 msgid "Weighing Operations"
-msgstr ""
+msgstr "Tehtalne operacije"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_state
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_search
 msgid "Weighing State"
-msgstr ""
+msgstr "Stanje tehtanja"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_state_color
 msgid "Weighing State Color"
-msgstr ""
+msgstr "Barva stanja tehtanja"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__weighing_user_id
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__weighing_user_id
 msgid "Weighing User"
-msgstr ""
+msgstr "Uporabnik tehtanja"
 
 #. module: stock_weighing
 #: model:ir.actions.act_window,name:stock_weighing.weighing_operation_action
 msgid "Weighing operations"
-msgstr ""
+msgstr "Tehtalne operacije"
 
 #. module: stock_weighing
 #. odoo-python
 #: code:addons/stock_weighing/models/stock_picking.py:0
 msgid "Weighing operations for %(name)s"
-msgstr ""
+msgstr "Tehtalne operacije za %(name)s"
 
 #. module: stock_weighing
 #: model:ir.actions.server,name:stock_weighing.stock_move_weight_operation_start_screen
@@ -575,20 +578,20 @@ msgstr "Masa"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_picking_type__weight_move_ids
 msgid "Weight Move"
-msgstr ""
+msgstr "Premik mase"
 
 #. module: stock_weighing
 #: model:ir.actions.report,name:stock_weighing.label_weight_record
 msgid "Weight Record Label"
-msgstr ""
+msgstr "Etiketa zapisa mase"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__wizard_state
 msgid "Wizard State"
-msgstr ""
+msgstr "Stanje čarovnika"
 
 #. module: stock_weighing
 #. odoo-python
 #: code:addons/stock_weighing/wizards/weighing_wizard.py:0
 msgid "You need to supply a Lot/Serial Number"
-msgstr ""
+msgstr "Vnesti morate lot/serijsko številko"
