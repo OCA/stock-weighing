@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-25 08:39+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,17 +15,18 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__read_interval
 msgid ""
 "(0 for no sleep between reads) Miliseconds to wait between device reads"
-msgstr ""
+msgstr "(0 za brez mirovanja med branji) Milisekunde čakanja med branji naprave"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
@@ -35,22 +37,22 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 msgid "Archived"
-msgstr ""
+msgstr "Arhivirano"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_category_id
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: web_widget_remote_measure
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_select_remote_measure_form
 msgid "Confirm"
-msgstr ""
+msgstr "Potrdi"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__connection_mode
@@ -69,39 +71,41 @@ msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
 "same category. The conversion will be made based on the ratios."
 msgstr ""
+"Pretvorba med merskimi enotami je možna le, če pripadajo isti kategoriji. "
+"Pretvorba bo izvedena na podlagi razmerij."
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_res_users__remote_measure_device_id
 #: model:ir.model.fields,help:web_widget_remote_measure.field_res_users_settings__remote_measure_device_id
 msgid "Default remote measure device for this user"
-msgstr ""
+msgstr "Privzeta naprava za daljinsko merjenje za tega uporabnika"
 
 #. module: web_widget_remote_measure
 #: model:ir.ui.menu,name:web_widget_remote_measure.menu_device_config
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.res_users_form_view
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.view_users_form
 msgid "Devices"
-msgstr ""
+msgstr "Naprave"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__tcp
 msgid "Direct connection"
-msgstr ""
+msgstr "Direktna povezava"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,help:web_widget_remote_measure.field_remote_measure_device__non_stop_read
@@ -123,7 +127,7 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__instant_read
@@ -133,17 +137,17 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__non_stop_read
@@ -164,7 +168,7 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__protocol
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_factor
@@ -246,18 +250,18 @@ msgstr ""
 #: code:addons/web_widget_remote_measure/models/remote_measure_device.py:0
 #: model_terms:ir.ui.view,arch_db:web_widget_remote_measure.measure_device_form
 msgid "Test connection"
-msgstr ""
+msgstr "Test povezave"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields,field_description:web_widget_remote_measure.field_remote_measure_device__uom_id
 msgid "Unit of measure"
-msgstr ""
+msgstr "Enota mere"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
 #: code:addons/web_widget_remote_measure/static/src/remote_measure_field/remote_measure_field.esm.js:0
 msgid "UoM"
-msgstr ""
+msgstr "EM"
 
 #. module: web_widget_remote_measure
 #. odoo-javascript
@@ -268,12 +272,12 @@ msgstr ""
 #. module: web_widget_remote_measure
 #: model:ir.model,name:web_widget_remote_measure.model_res_users
 msgid "User"
-msgstr ""
+msgstr "Uporabnik"
 
 #. module: web_widget_remote_measure
 #: model:ir.model,name:web_widget_remote_measure.model_res_users_settings
 msgid "User Settings"
-msgstr ""
+msgstr "Uporabniške nastavitve"
 
 #. module: web_widget_remote_measure
 #: model:ir.model.fields.selection,name:web_widget_remote_measure.selection__remote_measure_device__connection_mode__webservices
