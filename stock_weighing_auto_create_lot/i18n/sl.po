@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-06-25 08:39+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,18 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: stock_weighing_auto_create_lot
 #: model:ir.model,name:stock_weighing_auto_create_lot.model_weighing_wizard
 msgid "Record weights over detailed operations"
-msgstr ""
+msgstr "Zabeleži mase na podrobnih operacijah"
 
 #. module: stock_weighing_auto_create_lot
 #: model:ir.model.fields,field_description:stock_weighing_auto_create_lot.field_weighing_wizard__show_auto_lot_info
 msgid "Show Auto Lot Info"
-msgstr ""
+msgstr "Prikaži informacije o samodejnem lotu"
 
 #. module: stock_weighing_auto_create_lot
 #: model_terms:ir.ui.view,arch_db:stock_weighing_auto_create_lot.weighing_wizard_form_view
 msgid "The lot will be created automatically if you don't select any"
-msgstr ""
+msgstr "Lot bo ustvarjen samodejno, če ne izberete nobenega"
