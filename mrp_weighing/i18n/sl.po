@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-25 08:54+0000\n"
+"PO-Revision-Date: 2026-06-25 09:00+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -31,12 +31,12 @@ msgstr "Dejanja, ki se zaženejo z zaslona za hitri začetek"
 #: model:ir.model.fields,field_description:mrp_weighing.field_stock_picking__close_production
 #: model:ir.model.fields,field_description:mrp_weighing.field_stock_picking_type__close_production
 msgid "Close Production"
-msgstr ""
+msgstr "Zaključi proizvodnjo"
 
 #. module: mrp_weighing
 #: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__component_available_stock_quant_ids
 msgid "Component Available Stock Quant"
-msgstr ""
+msgstr "Razpoložljivi kvant zaloge komponente"
 
 #. module: mrp_weighing
 #: model:ir.model.fields,field_description:mrp_weighing.field_mrp_production__has_weighing_operations
@@ -46,12 +46,12 @@ msgstr "Ima tehtalne operacije"
 #. module: mrp_weighing
 #: model:ir.model.fields,field_description:mrp_weighing.field_stock_move__is_has_production
 msgid "Is Has Production"
-msgstr ""
+msgstr "Ima proizvodnjo"
 
 #. module: mrp_weighing
 #: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__is_production
 msgid "Is Production"
-msgstr ""
+msgstr "Je proizvodnja"
 
 #. module: mrp_weighing
 #: model:ir.model.fields,field_description:mrp_weighing.field_weighing_wizard__lot_id
@@ -76,7 +76,7 @@ msgstr "Premiki proizvoda (postavka premika zaloge)"
 #. module: mrp_weighing
 #: model:quick.start.screen.action,name:mrp_weighing.quick_start_screen_action_productions_orders
 msgid "Production Orders"
-msgstr ""
+msgstr "Proizvodni nalogi"
 
 #. module: mrp_weighing
 #: model:ir.model,name:mrp_weighing.model_stock_quant
@@ -126,7 +126,7 @@ msgstr "Tehtalne operacije"
 #. module: mrp_weighing
 #: model_terms:quick.start.screen.action,description:mrp_weighing.quick_start_screen_action_productions_orders
 msgid "Weighing Production Orders"
-msgstr ""
+msgstr "Tehtanje proizvodnih nalog"
 
 #. module: mrp_weighing
 #. odoo-python
@@ -137,7 +137,7 @@ msgstr "Tehtalne operacije za %(name)s"
 #. module: mrp_weighing
 #: model_terms:ir.ui.view,arch_db:mrp_weighing.mrp_production_kanban
 msgid "Weighings"
-msgstr ""
+msgstr "Tehtanja"
 
 #. module: mrp_weighing
 #: model_terms:ir.ui.view,arch_db:mrp_weighing.mrp_production_form_view
@@ -148,4 +148,4 @@ msgstr "Masa"
 #. odoo-python
 #: code:addons/mrp_weighing/models/stock_move.py:0
 msgid "You can not add weight, the MO is done."
-msgstr ""
+msgstr "Mase ni mogoče dodati, proizvodni nalog je zaključen."
