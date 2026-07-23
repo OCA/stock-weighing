@@ -27,7 +27,11 @@ class StockMoveWeightWizard(models.TransientModel):
         comodel_name="stock.lot", compute="_compute_available_lot_ids"
     )
     lot_id = fields.Many2one(
-        comodel_name="stock.lot", domain="[('id', 'in', available_lot_ids)]"
+        comodel_name="stock.lot",
+        domain="[('id', 'in', available_lot_ids)]",
+        compute="_compute_lot_id",
+        store=True,
+        readonly=False,
     )
     available_result_package_ids = fields.Many2many(
         comodel_name="stock.quant.package",
@@ -47,15 +51,35 @@ class StockMoveWeightWizard(models.TransientModel):
     print_label = fields.Boolean(help="Print label after the weight record")
     label_report_id = fields.Many2one(comodel_name="ir.actions.report")
     has_weight = fields.Boolean(compute="_compute_has_weight", readonly=False)
+    # Dummy fields for use quant_id fiel to get info from quants
+    quant_id = fields.Many2one("stock.quant", "Pick From")
+    location_id = fields.Many2one(
+        comodel_name="stock.location", related="move_id.location_id"
+    )
+    location_dest_id = fields.Many2one(
+        comodel_name="stock.location", related="move_id.location_dest_id"
+    )
+    package_id = fields.Many2one(
+        comodel_name="stock.quant.package", related="selected_move_line_id.package_id"
+    )
+    owner_id = fields.Many2one(
+        comodel_name="res.partner", related="selected_move_line_id.owner_id"
+    )
+    show_quant = fields.Boolean(related="move_id.show_quant")
+
+    @api.depends("quant_id")
+    def _compute_lot_id(self):
+        for wiz in self.filtered(lambda w: w.quant_id.lot_id):
+            wiz.lot_id = wiz.quant_id.lot_id
 
     @api.depends("product_id")
     def _compute_available_lot_ids(self):
         self.available_lot_ids = False
         for wiz in self.filtered(lambda x: x.product_id.tracking != "none"):
             wiz.available_lot_ids = self.env["stock.lot"].search(
-                [("product_id", "=", wiz.product_id.id)],
+                self._available_lot_domain(),
                 order="create_date desc",
-                limit=5,
+                limit=8,
             )
             # Add to available lots any lot coming in context as default key
             default_lot_id = self.env.context.get("default_lot_id", False)
@@ -80,6 +104,9 @@ class StockMoveWeightWizard(models.TransientModel):
                 wiz.move_id.has_weight or wiz.selected_move_line_id.has_weight
             )
 
+    def _available_lot_domain(self):
+        return [("product_id", "=", self.product_id.id)]
+
     def _lot_creation_constraints(self):
         """To be hooked by stock_picking_auto_create_lot or others"""
         return [self.product_tracking != "none", not self.lot_id]
@@ -102,7 +129,11 @@ class StockMoveWeightWizard(models.TransientModel):
         vals.pop("product_uom_qty", None)
         vals.pop("quantity", None)
         vals.update({"qty_picked": self.weight})
-        if self.lot_id:
+        if self.quant_id:
+            vals["quant_id"] = self.quant_id.id
+            # Maintains lot selection wizard
+            self.lot_id = self.quant_id.lot_id
+        elif self.lot_id:
             vals["lot_id"] = self.lot_id.id
         self._check_lot_creation()
         self.selected_move_line_id = (

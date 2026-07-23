@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ==================
 Weighing assistant
 ==================
@@ -17,7 +13,7 @@ Weighing assistant
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fstock--weighing-lightgray.png?logo=github
@@ -162,6 +158,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-chienandalu| image:: https://github.com/chienandalu.png?size=40px
+    :target: https://github.com/chienandalu
+    :alt: chienandalu
+.. |maintainer-sergio-teruel| image:: https://github.com/sergio-teruel.png?size=40px
+    :target: https://github.com/sergio-teruel
+    :alt: sergio-teruel
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-chienandalu| |maintainer-sergio-teruel| 
 
 This module is part of the `OCA/stock-weighing <https://github.com/OCA/stock-weighing/tree/18.0/stock_weighing>`_ project on GitHub.
 
