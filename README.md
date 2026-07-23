@@ -22,7 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[mrp_weighing](mrp_weighing/) | 18.0.1.0.0 |  | Launch the weighing assistant from batch pickings
+[mrp_weighing](mrp_weighing/) | 18.0.1.0.1 |  | Launch the weighing assistant from batch pickings
 [partner_delivery_zone_weighing](partner_delivery_zone_weighing/) | 18.0.1.0.0 |  | Show delivery zones info in weighings
 [sale_elaboration_weighing](sale_elaboration_weighing/) | 18.0.1.0.0 |  | Weighing assistant extension for elaborations
 [sale_stock_weighing](sale_stock_weighing/) | 18.0.1.0.0 |  | Weight assistant extension sales
