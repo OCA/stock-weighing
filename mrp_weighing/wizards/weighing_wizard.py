@@ -17,10 +17,11 @@ class StockMoveWeightWizard(models.TransientModel):
         compute="_compute_component_available_stock_quant_ids",
     )
     is_production = fields.Boolean(compute="_compute_is_production", store=True)
-    lot_id = fields.Many2one(compute="_compute_lot_id", store=True, readonly=False)
+    lot_id = fields.Many2one(compute="_compute_lot_id")
 
     @api.depends("component_quant_id")
     def _compute_lot_id(self):
+        res = super()._compute_lot_id()
         for wiz in self:
             if wiz.is_production and wiz.component_quant_id and not wiz.lot_id:
                 existed_lot = self.env["stock.lot"].search(
@@ -41,6 +42,7 @@ class StockMoveWeightWizard(models.TransientModel):
                             "name": wiz.component_quant_id.lot_id.name,
                         }
                     )
+        return res
 
     @api.depends("move_id")
     def _compute_is_production(self):
