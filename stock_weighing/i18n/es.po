@@ -122,6 +122,12 @@ msgstr ""
 "operación"
 
 #. module: stock_weighing
+#. odoo-javascript
+#: code:addons/stock_weighing/static/src/clear_quant_button/clear_quant_button.xml:0
+msgid "Clear source stock"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__create_uid
 msgid "Created by"
 msgstr "Creado por"
@@ -175,6 +181,11 @@ msgid "Force weighed"
 msgstr "Forzar pesado"
 
 #. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__owner_id
+msgid "From Owner"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__has_recorded_weight
 msgid "Has Recorded Weight"
 msgstr "Tiene peso registrado"
@@ -211,6 +222,11 @@ msgstr "Entrante (pesaje)"
 #: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_incoming_any_operations
 msgid "Incoming weighing operations"
 msgstr "Operaciones de pesaje entrantes"
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__location_dest_id
+msgid "Intermediate Location"
+msgstr ""
 
 #. module: stock_weighing
 #: model:quick.start.screen.action,name:stock_weighing.quick_start_screen_action_interwarehouse_any_operations
@@ -306,6 +322,11 @@ msgstr "Saliente (pesaje)"
 #: model_terms:quick.start.screen.action,description:stock_weighing.quick_start_screen_action_outgoing_any_operations
 msgid "Outgoing weighing operations"
 msgstr "Operaciones salientes de pesaje"
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__quant_id
+msgid "Pick From"
+msgstr ""
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_picking_type
@@ -406,6 +427,11 @@ msgid "Select lot..."
 msgstr "Escoja un lote..."
 
 #. module: stock_weighing
+#: model_terms:ir.ui.view,arch_db:stock_weighing.weighing_wizard_form_view
+msgid "Select source stock..."
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__selected_move_line_id
 msgid "Selected Move Line"
 msgstr "Operación detallada seleccionada"
@@ -421,14 +447,39 @@ msgid "Set reserved to done"
 msgstr ""
 
 #. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__show_quant
+msgid "Show Quant"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_stock_move__show_weighing_print_button
 msgid "Show Weighing Print Button"
 msgstr "Mostrar botón de impresión de pesaje"
 
 #. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__location_id
+msgid "Source Location"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__package_id
+msgid "Source Package"
+msgstr ""
+
+#. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_move
 msgid "Stock Move"
 msgstr "Movimiento de stock"
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__location_id
+msgid "The operation takes and suggests products from this location."
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__location_dest_id
+msgid "The operations brings product to this location"
+msgstr ""
 
 #. module: stock_weighing
 #. odoo-python
@@ -589,6 +640,12 @@ msgstr "Operación de pesaje"
 #. module: stock_weighing
 #: model:ir.actions.report,name:stock_weighing.label_weight_record
 msgid "Weight Record Label"
+msgstr ""
+
+#. module: stock_weighing
+#: model:ir.model.fields,help:stock_weighing.field_weighing_wizard__owner_id
+msgid ""
+"When validating the transfer, the products will be taken from this owner."
 msgstr ""
 
 #. module: stock_weighing
