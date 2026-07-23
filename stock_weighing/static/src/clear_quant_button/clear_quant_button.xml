@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t
+        t-name="stock_weighing.ClearQuantButton"
+        t-inherit="web.Many2OneField"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//div[contains(@class, 'o_field_many2one_selection')]//t[@t-if='hasExternalButton']"
+            position="after"
+        >
+            <button
+                t-if="!props.readonly &amp;&amp; props.record.resModel === 'weighing.wizard' &amp;&amp; props.name === 'quant_id' &amp;&amp; props.record.data.quant_id"
+                type="button"
+                class="btn btn-primary ms-1 fa fa-trash o_weighing_clear_quant_btn"
+                t-on-click="onClickClearQuant"
+                title="Clear source stock"
+                aria-label="Clear source stock"
+            />
+        </xpath>
+    </t>
+</templates>

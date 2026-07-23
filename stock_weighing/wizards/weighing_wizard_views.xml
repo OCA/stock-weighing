@@ -12,7 +12,29 @@
                 <field name="available_result_package_ids" invisible="1" />
                 <field name="has_weight" invisible="1" />
                 <sheet>
-                    <group groups="stock.group_production_lot" col="1">
+                    <group>
+                        <field
+                            name="quant_id"
+                            class="form-control-lg ps-0"
+                            placeholder="Select source stock..."
+                            invisible="not show_quant or wizard_state == 'weight'"
+                            domain="[('product_id', '=', product_id), ('location_id', 'child_of', location_id)]"
+                            context="{
+                                'default_product_id': product_id,
+                                'search_view_ref': 'stock.quant_search_view',
+                                'list_view_ref': 'stock.view_stock_quant_tree_simple',
+                                'form_view_ref': 'stock.view_stock_quant_form',
+                                'readonly_form': True
+                            }"
+                            options="{'no_create': True, 'no_open': True}"
+                            nolabel="1"
+                        />
+                    </group>
+                    <group
+                        groups="stock.group_production_lot"
+                        col="1"
+                        invisible="quant_id != False"
+                    >
                         <field
                             name="lot_id"
                             class="form-control-lg pl-0"
