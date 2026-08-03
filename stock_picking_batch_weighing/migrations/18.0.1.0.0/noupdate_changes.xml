@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <data>
+        <record
+            id="stock_weighing.quick_start_screen_weighing"
+            model="quick.start.screen"
+        >
+            <field
+                name="action_ids"
+                eval="[
+                (4, ref('stock_picking_batch_weighing.quick_start_screen_action_batch_picking_any_operations'))
+            ]"
+            />
+        </record>
+    </data>
+</odoo>
