@@ -1,11 +1,12 @@
 [project]
 name = "odoo-addons-oca-stock-weighing"
-version = "18.0.20260621.0"
+version = "18.0.20260803.0"
 dependencies = [
     "odoo-addon-mrp_weighing==18.0.*",
     "odoo-addon-partner_delivery_zone_weighing==18.0.*",
     "odoo-addon-sale_elaboration_weighing==18.0.*",
     "odoo-addon-sale_stock_weighing==18.0.*",
+    "odoo-addon-stock_picking_batch_weighing==18.0.*",
     "odoo-addon-stock_remote_measure==18.0.*",
     "odoo-addon-stock_weighing==18.0.*",
     "odoo-addon-stock_weighing_auto_create_lot==18.0.*",
