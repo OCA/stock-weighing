@@ -3,28 +3,24 @@
 
 from openupgradelib import openupgrade
 
+from odoo.addons.stock_move_line_qty_picked.hooks import initialize_picked_quantities
+
 
 def _update_qty_picked(env):
     """
-    It needs to sync the new qty_picked field with the quantity when the
-    state is done or when a weight is recorded on stock.move / stock.move.line
+    The recorded weights are the picked quantities of the move lines, so pick
+    them before filling the shared picked quantities. The picked quantity of
+    the moves is computed from their lines.
     """
-    openupgrade.logged_query(
-        env.cr,
-        """
-            UPDATE stock_move
-            SET qty_picked=quantity
-            WHERE weighing_state='weighed' OR state='done'
-        """,
-    )
     openupgrade.logged_query(
         env.cr,
         """
             UPDATE stock_move_line
-            SET qty_picked=quantity
-            WHERE has_recorded_weight=true OR state='done'
+            SET picked = TRUE
+            WHERE has_recorded_weight AND state NOT IN ('done', 'cancel')
         """,
     )
+    initialize_picked_quantities(env.cr)
 
 
 @openupgrade.migrate()

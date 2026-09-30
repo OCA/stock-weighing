@@ -128,27 +128,6 @@
             </kanban>
         </field>
     </record>
-    <record id="view_stock_move_line_operation_tree" model="ir.ui.view">
-        <field name="model">stock.move.line</field>
-        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree" />
-        <field name="arch" type="xml">
-            <field name="quantity" position="before">
-                <field name="qty_picked" optional="hide" />
-            </field>
-        </field>
-    </record>
-    <record id="view_stock_move_line_detailed_operation_tree" model="ir.ui.view">
-        <field name="model">stock.move.line</field>
-        <field
-            name="inherit_id"
-            ref="stock.view_stock_move_line_detailed_operation_tree"
-        />
-        <field name="arch" type="xml">
-            <field name="quantity" position="before">
-                <field name="qty_picked" optional="hide" />
-            </field>
-        </field>
-    </record>
     <record id="view_move_line_tree_detailed" model="ir.ui.view">
         <field name="model">stock.move.line</field>
         <field name="inherit_id" ref="stock.view_move_line_tree_detailed" />

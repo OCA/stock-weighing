@@ -24,3 +24,18 @@ You'll be presented with a list of operations to weigh. To weigh them, just pres
 You can reset your weighing using the cross button.
 You can print the label on demand using the printer button.
 You can add a new detailed operation using the plus button.
+
+Validating the operations
+-------------------------
+Each recorded weight is the picked quantity of its detailed operation, which
+is flagged as picked. When the transfer is validated:
+
+  - If nothing has been weighed or picked, the reserved quantities are validated as usual.
+  - Once any operation has been weighed, only the picked detailed operations are validated,
+    with their weights. The rest follow the backorder policy of the operation type.
+  - Operations of products that aren't weighed are picked with the *Set reserved to done* button.
+  - The detailed operations without weight of a weighed operation are left out.
+  - Resetting a weight unpicks its detailed operation.
+
+The picked quantities come from the *Stock Move Line Qty Picked* module, so they are shared
+with other modules preparing operations, such as the barcode reader.
