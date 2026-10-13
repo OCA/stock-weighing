@@ -369,12 +369,6 @@ msgid "Product Moves (Stock Move Line)"
 msgstr "Premiki proizvoda (postavka premika zaloge)"
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__qty_picked
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__qty_picked
-msgid "Qty Picked"
-msgstr "Izbrana kol"
-
-#. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Qty. done"
 msgstr "Opravljena kol"
@@ -652,3 +646,6 @@ msgstr "Stanje čarovnika"
 #: code:addons/stock_weighing/wizards/weighing_wizard.py:0
 msgid "You need to supply a Lot/Serial Number"
 msgstr "Vnesti morate lot/serijsko številko"
+
+#~ msgid "Qty Picked"
+#~ msgstr "Izbrana kol"

@@ -363,12 +363,6 @@ msgid "Product Moves (Stock Move Line)"
 msgstr ""
 
 #. module: stock_weighing
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move__qty_picked
-#: model:ir.model.fields,field_description:stock_weighing.field_stock_move_line__qty_picked
-msgid "Qty Picked"
-msgstr ""
-
-#. module: stock_weighing
 #: model_terms:ir.ui.view,arch_db:stock_weighing.view_move_weight_kanban_view
 msgid "Qty. done"
 msgstr ""
