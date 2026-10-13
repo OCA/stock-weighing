@@ -11,11 +11,6 @@ class StockMoveLine(models.Model):
     recorded_weight = fields.Float(digits="Product Unit of Measure")
     weighing_user_id = fields.Many2one(comodel_name="res.users")
     weighing_date = fields.Datetime()
-    qty_picked = fields.Float(
-        digits="Product Unit of Measure",
-        store=True,
-        readonly=False,
-    )
 
     def _get_action_weighing_name(self):
         """Custom name to show in the wizard"""

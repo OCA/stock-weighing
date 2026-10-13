@@ -45,17 +45,6 @@ class StockMove(models.Model):
         comodel_name="stock.move", compute="_compute_self_move_ids"
     )
     weighing_state_color = fields.Integer(compute="_compute_weighing_state_color")
-    qty_picked = fields.Float(
-        compute="_compute_qty_picked",
-        digits="Product Unit of Measure",
-        store=True,
-        readonly=False,
-    )
-
-    @api.depends("move_line_ids.qty_picked")
-    def _compute_qty_picked(self):
-        for move in self:
-            move.qty_picked = sum(move.move_line_ids.mapped("qty_picked"))
 
     @api.depends()
     @api.depends_context("weight_operation_details")

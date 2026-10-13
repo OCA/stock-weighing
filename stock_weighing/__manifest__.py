@@ -10,6 +10,7 @@
     "category": "Inventory",
     "depends": [
         "stock",
+        "stock_move_line_qty_picked",
         "web_quick_start_screen",
         "web_filter_header_button",
         "web_widget_numeric_step",
