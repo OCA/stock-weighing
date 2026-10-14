@@ -118,7 +118,12 @@ class StockMoveWeightWizard(models.TransientModel):
         sm = self.selected_move_line_id.move_id
         production_id = self.move_id.move_orig_ids.production_id
         if sm.product_id == sm.production_id.product_id:
-            sm.production_id.qty_producing = sm.quantity
+            # The production picks its finished moves when it is done, as a
+            # picked finished move is taken as already produced
+            self.selected_move_line_id.with_context(
+                move_line_pick_qty=True
+            ).picked = False
+            sm.production_id._set_weighed_qty_producing(clear_if_unweighed=True)
             return action
         if production_id:
             production_id.qty_producing = sm.qty_picked

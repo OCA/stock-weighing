@@ -14,10 +14,9 @@ class StockMoveLine(models.Model):
 
     def action_reset_weights(self):
         res = super().action_reset_weights()
-        for move in self.move_id.filtered(
+        self.move_id.filtered(
             lambda sm: sm.product_id == sm.production_id.product_id
-        ):
-            move.production_id.qty_producing = move.quantity
+        ).production_id._set_weighed_qty_producing(clear_if_unweighed=True)
         for move in self.move_id.filtered(
             lambda sm: sm.move_orig_ids.production_id
             and sm.product_id == sm.move_orig_ids.production_id.product_id
