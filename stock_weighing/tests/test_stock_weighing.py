@@ -77,10 +77,18 @@ class TestStockWeighing(TransactionCase):
         self._record_weight(picking.move_line_ids, 8.5)
         self.assertTrue(picking.move_line_ids.picked)
         self.assertEqual(picking.move_ids.qty_picked, 8.5)
-        self.assertEqual(picking.move_ids.weighing_state, "weighed")
         backorder = self._validate_with_backorder(picking)
         self.assertEqual(picking.move_ids.quantity, 8.5)
         self.assertEqual(backorder.move_ids.product_uom_qty, 1.5)
+
+    def test_weighing_state(self):
+        picking = self._create_delivery(self.product_kg)
+        move = picking.move_ids
+        if not move.has_weight:
+            self.skipTest("An installed module excludes this product from weighing")
+        self.assertEqual(move.weighing_state, "to_weigh")
+        self._record_weight(move.move_line_ids, 8.5)
+        self.assertEqual(move.weighing_state, "weighed")
 
     def test_weigh_more_than_demand(self):
         picking = self._create_delivery(self.product_kg)
