@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =================================
 Weighing assistant remote measure
 =================================
@@ -17,7 +13,7 @@ Weighing assistant remote measure
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fstock--weighing-lightgray.png?logo=github
@@ -38,6 +34,22 @@ Meausure the weight remotely from the weighing assistant.
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+To configure the tares available in the weighing screen:
+
+1. Go to *Weighing > Configuration > Tares*.
+2. Create a tare for every value you want to have at hand, setting:
+
+   - The text displayed in the button.
+   - The tare value and its unit of measure. It will be converted to the
+     unit of measure of the weighed product.
+   - The button color.
+
+3. Reorder them with the handle or archive the ones you don't need
+   anymore.
 
 Bug Tracker
 ===========

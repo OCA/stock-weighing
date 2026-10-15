@@ -6,7 +6,7 @@
                 <div class="col-12 border-dark p-2 rounded border ms-0" name="display">
                     <div
                         name="tare_infos"
-                        t-if="props.tares.length"
+                        t-if="this.state.tares.length"
                         class="text-start ms-1 text-info me-1 w-100"
                     >
                         <i class="fa fa-level-down" /> TARE:
@@ -77,20 +77,28 @@
                 />
                 <div class="pt-2 col-12 ps-0 pe-0" name="buttons">
                     <div
-                        t-foreach="props.tares"
+                        t-foreach="this.state.tares"
                         t-as="tare"
                         class="btn-group mb-2 float-start me-2 btn-group-lg"
                         t-key="tare_index"
                     >
                         <t t-set="color" t-value="colors[tare_index % colors.length]" />
+                        <t
+                            t-set="tare_style"
+                            t-value="tare.color ? '--tare-color: ' + tare.color + '; --tare-text-color: ' + (tare.text_color || '#FFFFFF') : undefined"
+                        />
                         <btn
-                            t-attf-class="btn btn-outline-{{color}}"
+                            t-attf-class="btn {{tare.color ? 'btn-tare-outline' : 'btn-outline-' + color}}"
+                            t-att-style="tare_style"
                             t-att-data-tare="tare.tare"
                             t-on-click.prevent="onClickTare"
                         >
                             -
                         </btn>
-                        <btn t-attf-class="btn btn-{{color}} disabled">
+                        <btn
+                            t-attf-class="btn {{tare.color ? 'btn-tare' : 'btn-' + color}} disabled"
+                            t-att-style="tare_style"
+                        >
                             <t t-if="tare.name" t-out="tare.name" />
                             <t t-else="">
                                 <t t-out="tare.tare" />
@@ -98,13 +106,23 @@
                             </t>
                         </btn>
                         <btn
-                            t-attf-class="btn btn-outline-{{color}}"
+                            t-attf-class="btn {{tare.color ? 'btn-tare-outline' : 'btn-outline-' + color}}"
+                            t-att-style="tare_style"
                             t-attf-data-tare="-{{tare.tare}}"
                             t-on-click.prevent="onClickTare"
                         >
                             +
                         </btn>
                     </div>
+                    <button
+                        t-if="this.state.can_configure_tares"
+                        name="configure_tares"
+                        type="button"
+                        class="btn btn-lg btn-outline-dark fa fa-cog float-end mb-2"
+                        title="Configure tares"
+                        aria-label="Configure tares"
+                        t-on-click.prevent="onConfigureTares"
+                    />
                 </div>
                 <div class="pt-2 col-12 ps-0">
                     <div name="manual_tare" class="input-group input-group-lg">

@@ -2,12 +2,14 @@ import {
     RemoteMeasureField,
     remoteMeasureField,
 } from "@web_widget_remote_measure/remote_measure_field/remote_measure_field.esm";
+import {onWillStart, useState} from "@odoo/owl";
 import {DeviceDialog} from "../device_dialog/device_dialog.esm";
+import {FormViewDialog} from "@web/views/view_dialogs/form_view_dialog";
 import {_t} from "@web/core/l10n/translation";
 import {formatFloat} from "@web/views/fields/formatters";
 import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
-import {useState} from "@odoo/owl";
+import {user} from "@web/core/user";
 
 export class RemoteMeasureForm extends RemoteMeasureField {
     static props = {
@@ -21,16 +23,42 @@ export class RemoteMeasureForm extends RemoteMeasureField {
         this.state = useState({
             ...this.state,
             tare: 0,
+            tares: this.props.tares || [],
+            can_configure_tares: false,
         });
         this.manualTare = 0;
         this.formatFloat = (val) =>
             formatFloat(val, {
                 digits: this.env.model.config.fields[this.props.name].digits,
             });
+        // Load the configured tares unless they're forced from the view options
+        onWillStart(async () => {
+            if (this.props.tares || !this.uomId) {
+                return;
+            }
+            this.state.can_configure_tares = await user.hasGroup(
+                "stock.group_stock_manager"
+            );
+            await this._loadTares();
+        });
+    }
+    get uomId() {
+        return this.props.uom_field
+            ? this.props.record.data[this.props.uom_field]?.[0]
+            : false;
+    }
+    /**
+     * Fetch the configured tares for the widget UoM
+     */
+    async _loadTares() {
+        this.state.tares = await this.orm.call("weighing.tare", "get_widget_tares", [
+            this.uomId,
+        ]);
     }
     get extraMeasures() {
         const extraMeasures = super.extraMeasures;
-        return extraMeasures + this.state.tare;
+        // The tare is subtracted from the measured weight
+        return extraMeasures - this.state.tare;
     }
     _set_tare(tare) {
         let value = tare;
@@ -65,6 +93,22 @@ export class RemoteMeasureForm extends RemoteMeasureField {
     }
     onDeviceSelector() {
         this.dialog.add(DeviceDialog, {device_field: this});
+    }
+    /**
+     * Open the tares configuration wizard and refresh the widget once saved
+     */
+    onConfigureTares() {
+        this.measure_stop();
+        this.dialog.add(FormViewDialog, {
+            resModel: "weighing.tare.wizard",
+            title: _t("Configure tares"),
+            onRecordSaved: async (record) => {
+                await this.orm.call("weighing.tare.wizard", "action_apply", [
+                    [record.resId],
+                ]);
+                await this._loadTares();
+            },
+        });
     }
 }
 
