@@ -48,6 +48,20 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
         return weight.toLocaleString(this.locale_code, this.number_format_options);
     },
     /**
+     * The widget is rendered again whenever any field changes, and rendering sets
+     * the last measure as the field value. Keep that measure in sync with the
+     * record value when it changes from outside the widget (typed and committed,
+     * set from another field or by an onchange), so rendering doesn't restore an
+     * old measure.
+     * @override
+     */
+    _reset(record, event) {
+        this._super(...arguments);
+        if (!event || event.target !== this) {
+            this.input_val = this.value + this.tare;
+        }
+    },
+    /**
      * Render tare options and infos and set special layout
      * @override
      */
