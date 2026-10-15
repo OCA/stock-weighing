@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [sale_stock_weighing](sale_stock_weighing/) | 18.0.1.0.0 |  | Weight assistant extension sales
 [stock_picking_batch_weighing](stock_picking_batch_weighing/) | 18.0.1.0.0 |  | Launch the weighing assistant from batch pickings
 [stock_remote_measure](stock_remote_measure/) | 18.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to connect to remote devices to record measures in stock fields
-[stock_weighing](stock_weighing/) | 18.0.1.3.1 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Weighing assistant for stock operations
+[stock_weighing](stock_weighing/) | 18.0.1.3.2 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> <a href='https://github.com/sergio-teruel'><img src='https://github.com/sergio-teruel.png' width='32' height='32' style='border-radius:50%;' alt='sergio-teruel'/></a> | Weighing assistant for stock operations
 [stock_weighing_auto_create_lot](stock_weighing_auto_create_lot/) | 18.0.1.0.0 |  | Allow to create lots from the weighing kanban cards
 [stock_weighing_auto_package](stock_weighing_auto_package/) | 18.0.1.0.0 |  | Auto create package for every weighing operation
 [stock_weighing_brand](stock_weighing_brand/) | 18.0.1.0.0 |  | Show product logo in Weighing assistant
