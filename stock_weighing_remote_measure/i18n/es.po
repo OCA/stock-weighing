@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 09:39+0000\n"
+"POT-Creation-Date: 2026-10-15 14:52+0000\n"
 "PO-Revision-Date: 2024-07-17 11:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,15 +18,60 @@ msgstr ""
 "X-Generator: Poedit 3.4.4\n"
 
 #. module: stock_weighing_remote_measure
+#: model:weighing.tare,name:stock_weighing_remote_measure.weighing_tare_100
+msgid "100 gr."
+msgstr "100 gr."
+
+#. module: stock_weighing_remote_measure
+#: model:weighing.tare,name:stock_weighing_remote_measure.weighing_tare_200
+msgid "200 gr."
+msgstr "200 gr."
+
+#. module: stock_weighing_remote_measure
+#: model:weighing.tare,name:stock_weighing_remote_measure.weighing_tare_50
+msgid "50 gr."
+msgstr "50 gr."
+
+#. module: stock_weighing_remote_measure
+#: model:weighing.tare,name:stock_weighing_remote_measure.weighing_tare_500
+msgid "500 gr."
+msgstr "500 gr."
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "<i class=\"fa fa-arrows o_weighing_tare_card_drag\" title=\"Drag to sort\"/>"
+msgstr "<i class=\"fa fa-arrows o_weighing_tare_card_drag\" title=\"Arrastrar para ordenar\"/>"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "<i class=\"fa fa-balance-scale\" title=\"Tare\"/>"
+msgstr "<i class=\"fa fa-balance-scale\" title=\"Tara\"/>"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "<span class=\"text-muted\">Preview</span>"
+msgstr "<span class=\"text-muted\">Vista previa</span>"
+
+#. module: stock_weighing_remote_measure
 #: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_wizard_form_view
-msgid ""
-"<span><i class=\"fa fa-info-circle\" role=\"image\"/> You need to configure "
-"a default remote device in your user preferences to be able to start "
-"measuring remotely</span>"
-msgstr ""
-"<span><i class=\"fa fa-info-circle\" role=\"image\"/> Necesita configurar un "
-"dispositivo remoto por defecto en sus preferencias de usuario para poder "
-"comenzar a pesar de forma remota</span>"
+msgid "<span><i class=\"fa fa-info-circle\" role=\"image\"/> You need to configure a default remote device in your user preferences to be able to start measuring remotely</span>"
+msgstr "<span><i class=\"fa fa-info-circle\" role=\"image\"/> Necesita configurar un dispositivo remoto por defecto en sus preferencias de usuario para poder comenzar a pesar de forma remota</span>"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "Appearance"
+msgstr "Apariencia"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_search_view
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "Archived"
+msgstr "Archivado"
 
 #. module: stock_weighing_remote_measure
 #. openerp-web
@@ -34,6 +79,36 @@ msgstr ""
 #, python-format
 msgid "Choose a device:"
 msgstr "Escoja un dispositivo:"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__color
+msgid "Color"
+msgstr "Color"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.ui.menu,name:stock_weighing_remote_measure.menu_weighing_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: stock_weighing_remote_measure
+#. openerp-web
+#: code:addons/stock_weighing_remote_measure/static/src/js/weight_record_form_widget.esm.js:0
+#: code:addons/stock_weighing_remote_measure/static/src/xml/weight_record_form_widget.xml:0
+#, python-format
+msgid "Configure tares"
+msgstr "Configurar taras"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__create_uid
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__create_date
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
 
 #. module: stock_weighing_remote_measure
 #. openerp-web
@@ -48,6 +123,46 @@ msgstr "Información del dispositivo"
 #, python-format
 msgid "Discard"
 msgstr "Descartar"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__display_name
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__name
+msgid "Display text"
+msgstr "Texto a mostrar"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "Drag the tares to sort them as they will be shown in the weighing assistant."
+msgstr "Arrastre las taras para ordenarlas tal y como se mostrarán en el asistente de pesaje."
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__id
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare____last_update
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__write_uid
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__write_date
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
 
 #. module: stock_weighing_remote_measure
 #. openerp-web
@@ -69,11 +184,21 @@ msgid "Minus"
 msgstr "Menos"
 
 #. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__origin_tare_ids
+msgid "Origin Tare"
+msgstr "Tara origen"
+
+#. module: stock_weighing_remote_measure
 #. openerp-web
 #: code:addons/stock_weighing_remote_measure/static/src/xml/weight_record_form_widget.xml:0
 #, python-format
 msgid "Plus"
 msgstr "Más"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__preview
+msgid "Preview"
+msgstr "Vista previa"
 
 #. module: stock_weighing_remote_measure
 #. openerp-web
@@ -88,6 +213,16 @@ msgid "Record weights over detailed operations"
 msgstr "Grabar pesos en operaciones detalladas"
 
 #. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "Remove"
+msgstr "Eliminar"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: stock_weighing_remote_measure
 #. openerp-web
 #: code:addons/stock_weighing_remote_measure/static/src/xml/weight_record_form_widget.xml:0
 #, python-format
@@ -95,11 +230,64 @@ msgid "TARE:"
 msgstr "TARA:"
 
 #. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare_wizard__tare_ids
+msgid "Tare"
+msgstr "Tara"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.actions.act_window,name:stock_weighing_remote_measure.weighing_tare_action
+#: model:ir.ui.menu,name:stock_weighing_remote_measure.menu_weighing_tare
+msgid "Tares"
+msgstr "Taras"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__text_color
+msgid "Text Color"
+msgstr "Color del texto"
+
+#. module: stock_weighing_remote_measure
+#: code:addons/stock_weighing_remote_measure/models/weighing_tare.py:0
+#, python-format
+msgid "The color must be an hexadecimal value like #00A09D."
+msgstr "El color debe ser un valor hexadecimal como #00A09D."
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.constraint,message:stock_weighing_remote_measure.constraint_weighing_tare_value_positive
+msgid "The tare value must be positive."
+msgstr "El valor de la tara debe ser positivo."
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__uom_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: stock_weighing_remote_measure
 #: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_wizard__uom_id
 msgid "Uom"
 msgstr "UdM"
 
 #. module: stock_weighing_remote_measure
+#: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_tare__value
+msgid "Value"
+msgstr "Valor"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model,name:stock_weighing_remote_measure.model_weighing_tare
+msgid "Weighing tare"
+msgstr "Tara de pesaje"
+
+#. module: stock_weighing_remote_measure
+#: model:ir.model,name:stock_weighing_remote_measure.model_weighing_tare_wizard
+msgid "Weighing tares configuration wizard"
+msgstr "Asistente de configuración de taras de pesaje"
+
+#. module: stock_weighing_remote_measure
 #: model:ir.model.fields,field_description:stock_weighing_remote_measure.field_weighing_wizard__weight_with_widget
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
 msgid "Weight"
 msgstr "Peso"
+
+#. module: stock_weighing_remote_measure
+#: model_terms:ir.ui.view,arch_db:stock_weighing_remote_measure.weighing_tare_wizard_form_view
+msgid "e.g. 50 gr."
+msgstr "p. ej. 50 gr."

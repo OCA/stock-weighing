@@ -23,3 +23,63 @@
         @include font-size($input-font-size-sm !important);
     }
 }
+.weight_wizard,
+.o_weighing_tare_preview {
+    .btn-tare,
+    .btn-tare-outline:hover,
+    .btn-tare-outline:active {
+        color: var(--tare-text-color);
+        background-color: var(--tare-color);
+        border-color: var(--tare-color);
+    }
+    .btn-tare-outline {
+        color: var(--tare-color);
+        background-color: transparent;
+        border-color: var(--tare-color);
+    }
+}
+.o_weighing_tare_preview .btn {
+    cursor: default;
+}
+// Not nested in the kanban view as the dragged card is a copy attached to the body
+.o_kanban_record.o_weighing_tare_card {
+    padding: 0;
+    overflow: hidden;
+    cursor: move;
+    border-radius: $border-radius-lg;
+    &.ui-sortable-helper {
+        background-color: $white;
+        border: $border-width solid $border-color;
+        box-shadow: $box-shadow;
+    }
+    .o_weighing_tare_card_badge {
+        display: flex;
+        align-items: center;
+        padding: map-get($spacers, 3);
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        .o_weighing_tare_card_drag {
+            margin-right: map-get($spacers, 2);
+            opacity: 0.6;
+        }
+    }
+    .o_weighing_tare_card_info {
+        display: flex;
+        align-items: center;
+        gap: map-get($spacers, 2);
+        padding: map-get($spacers, 2) map-get($spacers, 3);
+    }
+    &.o_weighing_tare_card_archived .o_weighing_tare_card_badge {
+        opacity: 0.4;
+    }
+}
+.o_weighing_tare_form_preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map-get($spacers, 2);
+    margin-top: map-get($spacers, 3);
+    padding: map-get($spacers, 3);
+    border: 1px dashed $border-color;
+    border-radius: $border-radius-lg;
+}
