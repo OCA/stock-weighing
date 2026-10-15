@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_tare_wizard_form_view" model="ir.ui.view">
+        <field name="model">weighing.tare.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <p class="text-muted">
+                    Drag the tares to sort them as they will be shown in the weighing assistant.
+                </p>
+                <field name="origin_tare_ids" invisible="1" />
+                <field
+                    name="tare_ids"
+                    mode="kanban"
+                    nolabel="1"
+                    class="o_weighing_tare_kanban"
+                >
+                    <kanban>
+                        <field name="sequence" widget="handle" />
+                        <field name="color" />
+                        <field name="text_color" />
+                        <field name="active" />
+                        <templates>
+                            <t t-name="card" class="o_weighing_tare_card">
+                                <div
+                                    t-att-class="record.active.raw_value ? '' : 'o_weighing_tare_card_archived'"
+                                >
+                                    <div
+                                        class="o_weighing_tare_card_badge"
+                                        t-attf-style="background-color: {{record.color.raw_value}}; color: {{record.text_color.raw_value}};"
+                                    >
+                                        <i
+                                            class="fa fa-arrows o_weighing_tare_card_drag"
+                                            title="Drag to sort"
+                                        />
+                                        <field name="name" />
+                                    </div>
+                                    <div class="o_weighing_tare_card_info">
+                                        <span>
+                                            <i
+                                                class="fa fa-balance-scale me-1"
+                                                title="Tare"
+                                            />
+                                            <field name="value" />
+                                            <field name="uom_id" class="ms-1" />
+                                        </span>
+                                        <span
+                                            t-if="!record.active.raw_value"
+                                            class="badge rounded-pill text-bg-secondary"
+                                        >Archived</span>
+                                        <a
+                                            type="delete"
+                                            class="fa fa-trash text-danger ms-auto"
+                                            title="Remove"
+                                            aria-label="Remove"
+                                        />
+                                    </div>
+                                </div>
+                            </t>
+                        </templates>
+                    </kanban>
+                    <form>
+                        <sheet>
+                            <widget
+                                name="web_ribbon"
+                                title="Archived"
+                                bg_color="text-bg-danger"
+                                invisible="active"
+                            />
+                            <field name="sequence" invisible="1" />
+                            <field name="text_color" invisible="1" />
+                            <div class="oe_title">
+                                <label for="name" />
+                                <h1>
+                                    <field name="name" placeholder="e.g. 50 gr." />
+                                </h1>
+                            </div>
+                            <group>
+                                <group string="Weight">
+                                    <label for="value" />
+                                    <div class="o_row">
+                                        <field name="value" />
+                                        <field
+                                            name="uom_id"
+                                            options="{'no_create': True, 'no_open': True}"
+                                        />
+                                    </div>
+                                </group>
+                                <group string="Appearance">
+                                    <field name="color" widget="color" />
+                                    <field name="active" widget="boolean_toggle" />
+                                </group>
+                            </group>
+                            <div class="o_weighing_tare_form_preview">
+                                <span class="text-muted">Preview</span>
+                                <field name="preview" nolabel="1" />
+                            </div>
+                        </sheet>
+                    </form>
+                </field>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="weighing_tare_50" model="weighing.tare">
+        <field name="name">50 gr.</field>
+        <field name="sequence">10</field>
+        <field name="value">50</field>
+        <field name="uom_id" ref="uom.product_uom_gram" />
+        <field name="color">#28A745</field>
+    </record>
+    <record id="weighing_tare_100" model="weighing.tare">
+        <field name="name">100 gr.</field>
+        <field name="sequence">20</field>
+        <field name="value">100</field>
+        <field name="uom_id" ref="uom.product_uom_gram" />
+        <field name="color">#17A2B8</field>
+    </record>
+    <record id="weighing_tare_200" model="weighing.tare">
+        <field name="name">200 gr.</field>
+        <field name="sequence">30</field>
+        <field name="value">200</field>
+        <field name="uom_id" ref="uom.product_uom_gram" />
+        <field name="color">#FFC107</field>
+    </record>
+    <record id="weighing_tare_500" model="weighing.tare">
+        <field name="name">500 gr.</field>
+        <field name="sequence">40</field>
+        <field name="value">500</field>
+        <field name="uom_id" ref="uom.product_uom_gram" />
+        <field name="color">#DC3545</field>
+    </record>
+</odoo>
