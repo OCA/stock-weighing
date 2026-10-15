@@ -57,7 +57,8 @@ export class RemoteMeasureForm extends RemoteMeasureField {
     }
     get extraMeasures() {
         const extraMeasures = super.extraMeasures;
-        return extraMeasures + this.state.tare;
+        // The tare is subtracted from the measured weight
+        return extraMeasures - this.state.tare;
     }
     _set_tare(tare) {
         let value = tare;
