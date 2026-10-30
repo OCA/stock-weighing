@@ -2,6 +2,6 @@
 <odoo>
     <record id="remote_device_button_group" model="res.groups">
         <field name="name">Show remote device button on navbar</field>
-        <field name="users" eval="[Command.link(ref('base.user_admin'))]" />
+        <field name="user_ids" eval="[Command.link(ref('base.user_admin'))]" />
     </record>
 </odoo>

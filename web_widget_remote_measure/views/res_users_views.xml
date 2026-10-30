@@ -4,27 +4,23 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form" />
         <field name="arch" type="xml">
-            <page name="preferences" position="inside">
-                <group name="devices" string="Devices">
-                    <field
-                        name="remote_measure_device_id"
-                        string="Preferred remote device"
-                    />
-                </group>
-            </page>
+            <group name="other_preferences" position="inside">
+                <field
+                    name="remote_measure_device_id"
+                    string="Preferred remote device"
+                />
+            </group>
         </field>
     </record>
     <record id="res_users_form_view" model="ir.ui.view">
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form_simple_modif" />
         <field name="arch" type="xml">
-            <group name="preferences" position="inside">
-                <group name="devices" string="Devices">
-                    <field
-                        name="remote_measure_device_id"
-                        string="Preferred remote device"
-                    />
-                </group>
+            <group name="other_preferences" position="inside">
+                <field
+                    name="remote_measure_device_id"
+                    string="Preferred remote device"
+                />
             </group>
         </field>
     </record>
@@ -33,7 +29,7 @@
         <field name="model">res.users</field>
         <field name="arch" type="xml">
             <form>
-                <field name="remote_measure_device_id" widget="selection_badge" />
+                <field name="remote_measure_device_id" widget="badges_many2one" />
                 <footer>
                     <button
                         type="object"

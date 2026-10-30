@@ -1,5 +1,6 @@
 # Copyright 2026 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import Command
 from odoo.tests import TransactionCase
 
 
@@ -20,7 +21,7 @@ class TestWebWidgetRemoteMeasure(TransactionCase):
             {
                 "name": "Plain warehouse user",
                 "login": "plain_warehouse_user",
-                "groups_id": [(6, 0, [cls.env.ref("base.group_user").id])],
+                "group_ids": [Command.set([cls.env.ref("base.group_user").id])],
             }
         )
 

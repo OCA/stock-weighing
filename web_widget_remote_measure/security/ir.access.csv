@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_remote_measure_device_user,access_remote_measure_device users,remote.measure.device,base.group_user,r,
+access_remote_measure_device_admin,access_remote_measure_device admin,remote.measure.device,base.group_system,crud,

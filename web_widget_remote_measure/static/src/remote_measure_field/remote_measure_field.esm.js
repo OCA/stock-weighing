@@ -1,107 +1,130 @@
-/* global WebSocket, setTimeout */
-import {FloatField, floatField} from "@web/views/fields/float/float_field";
+import {
+    FloatField,
+    floatField,
+    floatFieldProps,
+} from "@web/views/fields/float/float_field";
 import {
     onMounted,
     onWillDestroy,
     onWillStart,
     onWillUnmount,
-    useEffect,
-    useState,
+    proxy,
+    t,
+    useOnChange,
+    useProps,
 } from "@odoo/owl";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
 import {rpc} from "@web/core/network/rpc";
-import {user} from "@web/core/user";
 import {useService} from "@web/core/utils/hooks";
+import {user} from "@web/core/user";
 
 // Animate the measure steps for each measure received.
 export const nextState = {
-    "fa-thermometer-empty": "fa-thermometer-quarter",
-    "fa-thermometer-quarter": "fa-thermometer-half",
-    "fa-thermometer-half": "fa-thermometer-three-quarters",
-    "fa-thermometer-three-quarters": "fa-thermometer-full",
-    "fa-thermometer-full": "fa-thermometer-empty",
+    hourglass_empty: "hourglass_top",
+    hourglass_top: "hourglass_bottom",
+    hourglass_bottom: "hourglass_empty",
 };
 
+/**
+ * Get the id of a many2one value, whatever its shape: record data gives
+ * `{id, display_name}`, while orm reads and user settings give `[id, name]`.
+ *
+ * @param {Object|Array|Number|false} value
+ * @returns {Number|undefined}
+ */
+export function m2oId(value) {
+    if (!value) {
+        return undefined;
+    }
+    if (Array.isArray(value)) {
+        return value[0];
+    }
+    if (typeof value === "object") {
+        return value.id;
+    }
+    return value;
+}
+
 export class RemoteMeasureField extends FloatField {
-    static props = {
-        ...FloatField.props,
-        remote_device_field: {type: String, optional: true},
-        uom_field: {type: String, optional: true},
-        default_user_device: {type: Boolean, optional: true},
-        allow_additive_measure: {type: Boolean, optional: true},
-    };
     static template = "web_widget_remote_measure.RemoteMeasureField";
+    props = useProps({
+        ...floatFieldProps,
+        remote_device_field: t.string().optional(),
+        uom_field: t.string().optional(),
+        default_user_device: t.boolean().optional(),
+        allow_additive_measure: t.boolean().optional(),
+    });
 
     setup() {
         super.setup();
         this.orm = useService("orm");
         this.amount = 0;
         this.remote_device_data = {};
-        [this.default_user_device] =
-            (this.props.default_user_device &&
-                user.settings.remote_measure_device_id) ||
-            [];
+        const record = this.props.record;
         // When we're in the own device, we already have the data
-        if (
-            this.props.record.resModel === "remote.measure.device" &&
-            this.props.record.resId
-        ) {
-            this.remote_device_data.id = this.props.record.resId;
-            [this.uom] = this.props.record.data.uom_id;
+        if (record.resModel === "remote.measure.device" && record.resId) {
+            this.remote_device_data.id = record.resId;
+            this.uom = m2oId(record.data.uom_id);
         } else if (this.props.remote_device_field) {
-            [this.remote_device_data.id] =
-                this.props.record.data[this.props.remote_device_field] || [];
-        } else if (this.default_user_device) {
-            [this.remote_device_data.id] = this.default_user_device;
+            this.remote_device_data.id = m2oId(
+                record.data[this.props.remote_device_field]
+            );
+        } else if (this.props.default_user_device) {
+            this.remote_device_data.id = m2oId(user.settings.remote_measure_device_id);
         }
         if (!this.uom && this.props.uom_field) {
-            [this.uom] = this.props.record.data[this.props.uom_field] || [];
+            this.uom = m2oId(record.data[this.props.uom_field]);
         }
         this.default_ui_state = {
             stop: true,
             measuring: false,
-            icon: "fa-thermometer-half",
+            icon: "device_thermostat",
             // Additional class for colors and others
             class: "btn-secondary",
             input_val: this.value,
             start_add: false,
         };
-        this.state = useState({
+        this.state = proxy({
             ...this.state,
             ...this.default_ui_state,
-            additive_measure: false,
             device_name: false,
+        });
+        onWillStart(async () => {
+            await this._assignDevice();
         });
         onMounted(() => {
             if (this.remote_device_data?.instant_read) {
                 this.measure();
             }
         });
-        onWillStart(async () => {
-            await this._assignDevice();
-        });
         // Reset states when we leave the button
-        // TODO: Also halt any reading!
-        useEffect(
+        useOnChange(
+            () => [this.props.readonly],
             (readonly) => {
                 if (readonly) {
                     this.state.stop = true;
                     this.state.measuring = false;
                 }
-            },
-            () => [this.props.readonly]
-        );
-        useEffect(
-            (value) => {
-                if (value > 0 && this.props.allow_additive_measure) {
-                    this.state.additive_measure = true;
-                }
-            },
-            () => [this.value]
+            }
         );
         onWillDestroy(() => this._closeSocket());
         onWillUnmount(() => this._closeSocket());
+    }
+
+    /**
+     * Whether the device is ready to be used: both the device and the UoM to
+     * measure in have been loaded.
+     */
+    get hasDevice() {
+        return Boolean(this.remote_device_data && this.connection_mode);
+    }
+
+    /**
+     * Show the button to add a new measure to the current value.
+     */
+    get showAdditiveMeasure() {
+        return Boolean(this.props.allow_additive_measure && this.value > 0);
     }
 
     /**
@@ -114,15 +137,13 @@ export class RemoteMeasureField extends FloatField {
     // Private methods
 
     async _assignDevice() {
-        if (!this.remote_device_data || !this.uom) {
+        if (!this.remote_device_data?.id || !this.uom) {
             return;
         }
-        [this.uom] = await this.orm.call("uom.uom", "read", [this.uom]);
-        [this.remote_device_data] = await this.orm.call(
-            "remote.measure.device",
-            "read",
-            [this.remote_device_data.id]
-        );
+        [this.uom] = await this.orm.read("uom.uom", [this.uom], ["factor"]);
+        [this.remote_device_data] = await this.orm.read("remote.measure.device", [
+            this.remote_device_data.id,
+        ]);
         this._assigDeviceData();
     }
 
@@ -137,9 +158,7 @@ export class RemoteMeasureField extends FloatField {
             host: this.remote_device_data.host,
             protocol: this.remote_device_data.protocol,
             connection_mode: this.remote_device_data.connection_mode,
-            uom_category: this.uom.category_id[0],
-            device_uom: this.remote_device_data.uom_id[0],
-            device_uom_category: this.remote_device_data.uom_category_id[0],
+            device_uom: m2oId(this.remote_device_data.uom_id),
         });
         this.state.device_name = this.remote_device_data.name;
     }
@@ -183,7 +202,7 @@ export class RemoteMeasureField extends FloatField {
      * Start requesting measures from the remote device
      */
     onMeasure() {
-        this.state.icon = "fa-thermometer-empty";
+        this.state.icon = "hourglass_empty";
         this.measure();
     }
     onMeasureAdd() {
@@ -223,17 +242,17 @@ export class RemoteMeasureField extends FloatField {
         this.state.input_val = this.amount;
     }
     /**
-     * Convert the measured units to the units expecte by the record if different
+     * Convert the measured units to the units expected by the record if different.
+     * The UoM factor is the absolute quantity of the reference unit, e.g.: for a
+     * kg reference, 1 g has a factor of 0.001.
      * @param {Number} amount
      * @returns {Number} converted amount
      */
     _compute_quantity(amount) {
-        if (this.uom.id === this.device_uom.id) {
+        if (this.uom.id === this.device_uom) {
             return amount;
         }
-        let converted_amount = amount / this.remote_device_data.uom_factor;
-        converted_amount *= this.uom.factor;
-        return converted_amount;
+        return (amount * this.remote_device_data.uom_factor) / this.uom.factor;
     }
     /**
      * Set value
@@ -249,7 +268,7 @@ export class RemoteMeasureField extends FloatField {
         this.props.record.update({[this.props.name]: this.amount + this.extraMeasures});
     }
     nextStateIcon() {
-        this.state.icon = nextState[this.state.icon];
+        this.state.icon = nextState[this.state.icon] || "hourglass_empty";
     }
 
     // Connection methods
@@ -439,8 +458,8 @@ export const remoteMeasureField = {
         const props = floatField.extractProps(...arguments);
         props.remote_device_field = options.remote_device_field;
         props.uom_field = options.uom_field;
-        props.default_user_device = options.default_user_device;
-        props.allow_additive_measure = options.allow_additive_measure;
+        props.default_user_device = Boolean(options.default_user_device);
+        props.allow_additive_measure = Boolean(options.allow_additive_measure);
         return props;
     },
 };

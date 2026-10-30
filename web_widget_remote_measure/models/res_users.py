@@ -10,6 +10,9 @@ class ResUsers(models.Model):
         comodel_name="remote.measure.device",
         related="res_users_settings_id.remote_measure_device_id",
         readonly=False,
+        # Allow users without the settings group to set their own device
+        # through the systray self-service selector.
+        user_writeable=True,
         help="Default remote measure device for this user",
     )
 
@@ -17,15 +20,3 @@ class ResUsers(models.Model):
         return {
             "type": "ir.actions.act_window_close",
         }
-
-    # Allow users without the settings group to read and write their own
-    # device through the systray self-service selector.
-    @property
-    def SELF_READABLE_FIELDS(self):
-        return super().SELF_READABLE_FIELDS + ["remote_measure_device_id"]
-
-    @property
-    def SELF_WRITEABLE_FIELDS(self):
-        return super().SELF_WRITEABLE_FIELDS + [
-            "remote_measure_device_id",
-        ]

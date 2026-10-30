@@ -7,11 +7,12 @@
                 class="btn btn-link"
                 title="Select user remote device"
                 href="#"
-                t-on-click="onClickSelectRemoteDevice"
-                t-if="isRemoteDeviceUser"
+                t-on-click="this.onClickSelectRemoteDevice"
+                t-if="this.isRemoteDeviceUser"
             >
                 <i
-                    class="fa fa-lg fa-balance-scale"
+                    class="oi oi-lg"
+                    data-icon="balance"
                     role="img"
                     aria-label="Select user remote device"
                 />

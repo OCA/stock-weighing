@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
     <t t-name="web_widget_remote_measure.RemoteMeasureField">
-        <span t-if="props.readonly" t-esc="formattedValue" />
+        <span t-if="this.props.readonly" t-out="this.formattedValue" />
         <t t-else="">
-            <t t-if="this.remote_device_data">
+            <t t-if="this.hasDevice">
                 <span
                     t-if="this.state.stop"
                     class="o_field_remote_device_start btn btn-primary btn-sm"
-                    t-on-click.prevent="onMeasure"
+                    t-att-title="this.state.device_name"
+                    t-on-click.prevent="this.onMeasure"
                 >
-                    <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                    <i class="oi" t-att-data-icon="this.state.icon" role="img" />
                 </span>
                 <span
-                    t-elif="!this.state.stop"
+                    t-else=""
                     t-attf-class="o_field_remote_device_stop btn btn-sm {{ this.state.class }}"
-                    t-on-click.prevent="onValidateMeasure"
+                    t-on-click.prevent="this.onValidateMeasure"
                 >
-                    <i t-attf-class="fa {{this.state.icon}}" role="img" />
+                    <i class="oi" t-att-data-icon="this.state.icon" role="img" />
                 </span>
                 <span
-                    t-if="this.state.additive_measure"
+                    t-if="this.showAdditiveMeasure"
                     class="o_field_remote_device_start btn btn-link btn-sm"
-                    t-on-click.prevent="onMeasureAdd"
+                    t-on-click.prevent="this.onMeasureAdd"
                 >
-                    <i t-attf-class="fa fa-plus" role="img" />
+                    <i class="oi" data-icon="add" role="img" />
                 </span>
             </t>
             <input
-                t-on-focusin="onFocusIn"
-                t-on-focusout="onFocusOut"
-                t-att-id="props.id"
-                t-ref="numpadDecimal"
-                t-att-placeholder="props.placeholder"
-                t-att-type="props.inputType"
+                t-on-focusin="this.onFocusIn"
+                t-on-focusout="this.onFocusOut"
+                t-att-id="this.props.id"
+                t-ref="this.numpadDecimalRef"
+                t-att-type="this.props.inputType"
                 inputmode="decimal"
                 class="o_input"
                 autocomplete="off"
-                t-att-step="props.step"
+                t-att-step="this.props.step"
             />
         </t>
     </t>

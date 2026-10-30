@@ -5,7 +5,7 @@ import socket
 from contextlib import closing
 from urllib.parse import urlparse
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class RemoteMeasureDevice(models.Model):
@@ -19,7 +19,6 @@ class RemoteMeasureDevice(models.Model):
         comodel_name="uom.uom",
         required=True,
     )
-    uom_category_id = fields.Many2one(related="uom_id.category_id")
     uom_factor = fields.Float(related="uom_id.factor")
     protocol = fields.Selection(
         selection=[("f501", "Scale F501")],
@@ -60,16 +59,18 @@ class RemoteMeasureDevice(models.Model):
 
     def test_connection_notification(self, notification_type, host, port):
         if notification_type == "success":
-            message = _(
+            message = self.env._(
                 "Successfully connected to %(host)s:%(port)s", host=host, port=port
             )
         else:
-            message = _("Connection failure to %(host)s:%(port)s", host=host, port=port)
+            message = self.env._(
+                "Connection failure to %(host)s:%(port)s", host=host, port=port
+            )
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
             "params": {
-                "title": _("Test connection"),
+                "title": self.env._("Test connection"),
                 "message": message,
                 "sticky": False,
                 "type": notification_type,
