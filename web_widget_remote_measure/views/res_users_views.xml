@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="view_users_form" model="ir.ui.view">
         <field name="model">res.users</field>
@@ -46,7 +46,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="action_user_remote_device_selector">
+    <record id="action_user_remote_device_selector" model="ir.actions.act_window">
         <field name="name">Select remote measure device</field>
         <field name="res_model">res.users</field>
         <field name="view_mode">form</field>
