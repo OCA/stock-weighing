@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-11-02 12:46+0000\n"
+"PO-Revision-Date: 2026-11-02 17:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -255,7 +255,7 @@ msgstr "Resoconto etichetta"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Ultima modifica di"
+msgstr "Ultimo aggiornamento di"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__write_date
