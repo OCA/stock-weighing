@@ -1,4 +1,5 @@
 /* Copyright 2024 Tecnativa - David Vidal
+ * Copyright 2026 Tecnativa - Sergio Teruel
  * License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). */
 import {KanbanHeader} from "@web/views/kanban/kanban_header";
 import {KanbanRenderer} from "@web/views/kanban/kanban_renderer";
@@ -54,8 +55,15 @@ export class WeightRecordingKanbanRenderer extends KanbanRenderer {
     };
 }
 
+export class WeightRecordingKanbanModel extends kanbanView.Model {
+    // Core only opens the first groups and folds the open ones beyond this limit
+    // on every reload. Show all the operations to weigh unfolded instead.
+    static MAX_NUMBER_OPENED_GROUPS = Number.MAX_SAFE_INTEGER;
+}
+
 export const WeightRecordingKanbanView = {
     ...kanbanView,
+    Model: WeightRecordingKanbanModel,
     Renderer: WeightRecordingKanbanRenderer,
 };
 
