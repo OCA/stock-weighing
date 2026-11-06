@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-11-02 17:46+0000\n"
+"PO-Revision-Date: 2026-11-06 15:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -452,7 +452,7 @@ msgstr "Mostra il pulsante di stampa della pesatura"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__location_id
 msgid "Source Location"
-msgstr "Ubicazione origine"
+msgstr "Ubicazione di origine"
 
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__package_id
@@ -522,7 +522,7 @@ msgstr "Oggi"
 #. module: stock_weighing
 #: model:ir.model.fields,field_description:stock_weighing.field_weighing_wizard__product_tracking
 msgid "Tracking"
-msgstr "Tracciabilità"
+msgstr "Tracciamento"
 
 #. module: stock_weighing
 #: model:ir.model,name:stock_weighing.model_stock_picking
