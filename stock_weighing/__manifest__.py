@@ -35,6 +35,9 @@
             "stock_weighing/static/src/base_weight_record_kanban/**/*",
             "stock_weighing/static/src/clear_quant_button/*",
         ],
+        "web.assets_unit_tests": [
+            "stock_weighing/static/tests/*",
+        ],
     },
     "post_init_hook": "post_init_hook",
     "pre_init_hook": "pre_init_hook",
