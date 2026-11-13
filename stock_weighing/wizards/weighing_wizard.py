@@ -98,10 +98,14 @@ class StockMoveWeightWizard(models.TransientModel):
 
     @api.depends("move_id", "selected_move_line_id")
     def _compute_has_weight(self):
+        """A move is weighed even without demand, but keeping any other condition
+        of the moves weighing domain"""
         self.has_weight = False
         for wiz in self:
-            wiz.has_weight = (
-                wiz.move_id.has_weight or wiz.selected_move_line_id.has_weight
+            move = wiz.move_id.with_context(weighing_ignore_demand=True)
+            wiz.has_weight = bool(
+                move.filtered_domain(move._has_weigh_domain())
+                or wiz.selected_move_line_id.has_weight
             )
 
     def _available_lot_domain(self):
