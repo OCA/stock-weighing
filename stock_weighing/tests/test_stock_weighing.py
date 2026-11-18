@@ -148,3 +148,38 @@ class TestStockWeighing(TransactionCase):
         picking.button_validate()
         self.assertEqual(picking.state, "done")
         self.assertEqual(picking.move_ids.quantity, 10)
+
+    def _weighing_wizard_form(self, move):
+        """Open the wizard of the new operation button of the weighing kanban"""
+        action = move.action_add_move_line()
+        return Form(
+            self.env[action["res_model"]].with_context(**action["context"]),
+            view="stock_weighing.weighing_wizard_form_view",
+        )
+
+    def test_weigh_move_without_demand(self):
+        picking = self._create_delivery(self.product_kg)
+        product = self.env["product.product"].create(
+            {
+                "name": "Extra product by weight",
+                "is_storable": True,
+                "uom_id": self.kg.id,
+            }
+        )
+        # A product without demand is added to the delivery to weigh it
+        with Form(picking) as picking_form:
+            with picking_form.move_ids_without_package.new() as move_form:
+                move_form.product_id = product
+        move = picking.move_ids.filtered(lambda sm: sm.product_id == product)
+        self.assertFalse(move.product_uom_qty)
+        # The wizard weighs it as a move with demand of the same kind
+        self.assertEqual(
+            self._weighing_wizard_form(move).has_weight,
+            self._weighing_wizard_form(picking.move_ids - move).has_weight,
+        )
+        wizard_form = self._weighing_wizard_form(move)
+        wizard_form.weight = 4.2
+        wizard_form.print_label = False
+        wizard_form.save().add_operation_and_record()
+        self.assertEqual(move.move_line_ids.qty_picked, 4.2)
+        self.assertEqual(move.move_line_ids.recorded_weight, 4.2)

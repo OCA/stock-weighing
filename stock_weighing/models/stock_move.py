@@ -133,8 +133,13 @@ class StockMove(models.Model):
             move.weighing_state_color = state_map.get(move.weighing_state)
 
     def _has_weigh_domain(self):
-        """Show variable weight types only"""
+        """Show variable weight types only. The weighing wizard can ignore the
+        demand, as moves without demand (e.g. a byproduct added to a production
+        order) are weighed as well.
+        """
         domain = super()._has_weigh_domain()
+        if self.env.context.get("weighing_ignore_demand"):
+            return domain
         domain = expression.AND([domain, [("product_uom_qty", ">", 0)]])
         return domain
 
