@@ -1,0 +1,1 @@
+odoo-addon-mrp_weighing @ git+https://github.com/OCA/stock-weighing.git@refs/pull/53/head#subdirectory=setup/mrp_weighing
