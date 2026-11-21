@@ -23,3 +23,65 @@
         @include font-size($input-font-size-sm !important);
     }
 }
+// Same approach as Bootstrap button variants, but with the tare configured colors
+.btn-tare {
+    --btn-color: var(--tare-text-color);
+    --btn-bg: var(--tare-color);
+    --btn-border-color: var(--tare-color);
+    --btn-disabled-color: var(--tare-text-color);
+    --btn-disabled-bg: var(--tare-color);
+    --btn-disabled-border-color: var(--tare-color);
+}
+.btn-tare-outline {
+    --btn-color: var(--tare-color);
+    --btn-bg: transparent;
+    --btn-border-color: var(--tare-color);
+    --btn-hover-color: var(--tare-text-color);
+    --btn-hover-bg: var(--tare-color);
+    --btn-hover-border-color: var(--tare-color);
+    --btn-active-color: var(--tare-text-color);
+    --btn-active-bg: var(--tare-color);
+    --btn-active-border-color: var(--tare-color);
+}
+.o_weighing_tare_preview .btn {
+    cursor: default;
+}
+.o_kanban_record.o_weighing_tare_card {
+    padding: 0;
+    overflow: hidden;
+    cursor: move;
+    border-radius: $border-radius-lg;
+    > div {
+        width: 100%;
+    }
+    .o_weighing_tare_card_badge {
+        display: flex;
+        align-items: center;
+        padding: map-get($spacers, 3);
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        .o_weighing_tare_card_drag {
+            margin-right: map-get($spacers, 2);
+            opacity: 0.6;
+        }
+    }
+    .o_weighing_tare_card_info {
+        display: flex;
+        align-items: center;
+        gap: map-get($spacers, 2);
+        padding: map-get($spacers, 2) map-get($spacers, 3);
+    }
+    .o_weighing_tare_card_archived .o_weighing_tare_card_badge {
+        opacity: 0.4;
+    }
+}
+.o_weighing_tare_form_preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map-get($spacers, 2);
+    margin-top: map-get($spacers, 3);
+    padding: map-get($spacers, 3);
+    border: 1px dashed $border-color;
+    border-radius: $border-radius-lg;
+}
