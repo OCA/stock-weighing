@@ -6,7 +6,7 @@
     "version": "20.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
-    "maintainers": ["chienandalu"],
+    "maintainers": ["chienandalu", "carlosdauden"],
     "license": "AGPL-3",
     "category": "Stock",
     "depends": ["web", "uom"],

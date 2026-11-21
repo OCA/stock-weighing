@@ -123,6 +123,7 @@ Contributors
   - David Vidal
   - Sergio Teruel
   - Carlos Roca
+  - Carlos Dauden
 
 Maintainers
 -----------
@@ -140,10 +141,13 @@ promote its widespread use.
 .. |maintainer-chienandalu| image:: https://github.com/chienandalu.png?size=40px
     :target: https://github.com/chienandalu
     :alt: chienandalu
+.. |maintainer-carlosdauden| image:: https://github.com/carlosdauden.png?size=40px
+    :target: https://github.com/carlosdauden
+    :alt: carlosdauden
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-chienandalu| 
+|maintainer-chienandalu| |maintainer-carlosdauden| 
 
 This module is part of the `OCA/stock-weighing <https://github.com/OCA/stock-weighing/tree/20.0/web_widget_remote_measure>`_ project on GitHub.
 

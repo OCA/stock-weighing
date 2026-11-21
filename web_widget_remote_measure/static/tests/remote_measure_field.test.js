@@ -7,7 +7,7 @@ import {
     onRpc,
 } from "@web/../tests/web_test_helpers";
 import {expect, test} from "@odoo/hoot";
-import {queryAll, waitUntil} from "@odoo/hoot-dom";
+import {queryAll, waitFor, waitUntil} from "@odoo/hoot-dom";
 
 class UomUom extends models.Model {
     _name = "uom.uom";
@@ -109,4 +109,22 @@ test("additive measure adds to the current value", async () => {
     await contains(`${START}.btn-link`).click();
     await waitUntil(() => queryAll(START).length === 2);
     expect(INPUT).toHaveValue("2.50");
+});
+
+test("stop measuring and notify when the device can't be reached", async () => {
+    onRpc("/remote_measure_device/1", () => {
+        expect.step("read");
+        return {error: "[Errno 111] Connection refused"};
+    });
+    await mountLine(1);
+    await contains(START).click();
+    await waitFor(".o_notification");
+    // The button is ready for a new measure and the device isn't read again
+    expect(START).toHaveCount(1);
+    expect(".o_field_remote_device_stop").toHaveCount(0);
+    expect.verifySteps(["read"]);
+    expect(".o_notification_content").toHaveText(
+        "Could not connect to Scale in grams: [Errno 111] Connection refused"
+    );
+    expect(".o_notification_bar").toHaveClass("bg-danger");
 });

@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import socket
 import threading
+import time
 
 from odoo.tests import HttpCase, tagged
 
@@ -12,8 +13,9 @@ F501_STABLE_FRAME = b"\x02 +001.250\x03"
 class FakeScale:
     """Minimal TCP server answering every connection with a fixed frame."""
 
-    def __init__(self, frame):
+    def __init__(self, frame, delay=0):
         self.frame = frame
+        self.delay = delay
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(("127.0.0.1", 0))
         self.server.listen()
@@ -27,6 +29,7 @@ class FakeScale:
         except OSError:
             return
         with conn:
+            time.sleep(self.delay)
             conn.sendall(self.frame)
 
     def __enter__(self):
@@ -79,3 +82,35 @@ class TestRemoteMeasureTcp(HttpCase):
                 f"/remote_measure_device/{self.device.id}", {"command": False}
             )
         self.assertEqual(response, F501_STABLE_FRAME.decode())
+
+    def test_request_weight_route_non_utf8_frame(self):
+        """A byte that isn't valid UTF-8 (line noise) must not break the reply"""
+        self.authenticate("admin", "admin")
+        frame = b"\x02 +001.250\xb0\x03"
+        with FakeScale(frame) as scale:
+            self.device.host = f"127.0.0.1:{scale.port}"
+            response = self.make_jsonrpc_request(
+                f"/remote_measure_device/{self.device.id}", {"command": False}
+            )
+        self.assertEqual(response, frame.decode("latin-1"))
+
+    def test_request_weight_route_timeout(self):
+        """The timeout requested by the widget is the one used to read"""
+        self.authenticate("admin", "admin")
+        with FakeScale(F501_STABLE_FRAME, delay=1.5) as scale:
+            self.device.host = f"127.0.0.1:{scale.port}"
+            response = self.make_jsonrpc_request(
+                f"/remote_measure_device/{self.device.id}",
+                {"command": False, "timeout": 3},
+            )
+        self.assertEqual(response, F501_STABLE_FRAME.decode())
+
+    def test_request_weight_route_unreachable_device(self):
+        """A refused connection is reported to the widget instead of raising"""
+        self.authenticate("admin", "admin")
+        self.device.host = f"127.0.0.1:{_free_port()}"
+        response = self.make_jsonrpc_request(
+            f"/remote_measure_device/{self.device.id}", {"command": False}
+        )
+        self.assertIsInstance(response, dict)
+        self.assertTrue(response.get("error"))

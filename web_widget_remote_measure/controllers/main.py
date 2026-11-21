@@ -1,8 +1,11 @@
 # Copyright 2023 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+import logging
 import socket
 
 from odoo.http import Controller, request, route
+
+_logger = logging.getLogger(__name__)
 
 
 class RemoteDeviceTcpConnection(Controller):
@@ -32,11 +35,19 @@ class RemoteDeviceTcpConnection(Controller):
         """Meant be called from the remote scale widget js code"""
         device = request.env["remote.measure.device"].browse(device)
         command = command or b""
-        kw.get("timeout", 1)
-        response = b""
+        timeout = kw.get("timeout", 1)
         host, port = device.host.split(":")
         try:
-            response = self._get_weight(command, host, int(port))
+            response = self._get_weight(command, host, int(port), time_out=timeout)
         except TimeoutError:
             response = b"timeout"
-        return response
+        except OSError as error:
+            # Refused connection, unreachable host...: let the widget stop
+            # reading and tell the user instead of failing on every read
+            _logger.info(
+                "Remote measure device %s unreachable: %s", device.display_name, error
+            )
+            return {"error": str(error)}
+        # The frames are ASCII, but a noisy line can bring any byte: latin-1
+        # decodes all of them, so the JSON reply never fails
+        return response.decode("latin-1")

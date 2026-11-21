@@ -59,6 +59,7 @@ export class RemoteMeasureField extends FloatField {
     setup() {
         super.setup();
         this.orm = useService("orm");
+        this.notification = useService("notification");
         this.amount = 0;
         this.remote_device_data = {};
         const record = this.props.record;
@@ -353,6 +354,9 @@ export class RemoteMeasureField extends FloatField {
         if (!data) {
             return null;
         }
+        if (data.error) {
+            return {error: data.error};
+        }
         const processed_data = this[`_proccess_msg_${this.protocol}`](data);
         if (isNaN(processed_data.value)) {
             processed_data.value = 0;
@@ -382,6 +386,10 @@ export class RemoteMeasureField extends FloatField {
             if (!processed_data) {
                 continue;
             }
+            if (processed_data.error) {
+                this._connectionError(processed_data.error);
+                break;
+            }
             if (processed_data.stable) {
                 this._stableMeasure();
             } else {
@@ -408,6 +416,20 @@ export class RemoteMeasureField extends FloatField {
                 await timer(this.remote_device_data.read_interval);
             }
         }
+    }
+    /**
+     * The device can't be reached: stop measuring and tell the user why
+     * @param {String} error
+     */
+    _connectionError(error) {
+        this._awaitingMeasure();
+        this.notification.add(
+            _t("Could not connect to %(device)s: %(error)s", {
+                device: this.state.device_name,
+                error,
+            }),
+            {type: "danger"}
+        );
     }
     /**
      * Implement for your device protocol service
