@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="weighing_tare_tree_view" model="ir.ui.view">
+        <field name="model">weighing.tare</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="value" />
+                <field name="uom_id" options="{'no_create': True}" />
+                <field name="color" widget="color" />
+                <field name="active" widget="boolean_toggle" />
+            </tree>
+        </field>
+    </record>
+    <record id="weighing_tare_search_view" model="ir.ui.view">
+        <field name="model">weighing.tare</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+            </search>
+        </field>
+    </record>
+    <record id="weighing_tare_action" model="ir.actions.act_window">
+        <field name="name">Tares</field>
+        <field name="res_model">weighing.tare</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <menuitem
+        id="menu_weighing_config"
+        name="Configuration"
+        parent="stock_weighing.menu_weighing"
+        groups="stock.group_stock_manager"
+        sequence="100"
+    />
+    <menuitem
+        id="menu_weighing_tare"
+        parent="menu_weighing_config"
+        action="weighing_tare_action"
+        sequence="10"
+    />
+</odoo>

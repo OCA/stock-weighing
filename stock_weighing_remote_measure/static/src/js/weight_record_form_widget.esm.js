@@ -1,6 +1,7 @@
 /** @odoo-module **/
 import {_t, qweb} from "web.core";
 import Dialog from "web.Dialog";
+import {FormViewDialog} from "web.view_dialogs";
 import {RemoteMeasure} from "@web_widget_remote_measure/js/remote_measure_widget.esm";
 import fieldRegistry from "web.field_registry";
 import session from "web.session";
@@ -24,6 +25,7 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
             "change div[name='manual_tare'] input": "_onChangeInputTare",
             "click div[name='manual_tare'] button": "_onStepTare",
             "click div[name='device_selector']": "_onDeviceSelector",
+            "click button[name='configure_tares']": "_onConfigureTares",
         }
     ),
     /**
@@ -38,6 +40,30 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
             minimumFractionDigits: 3,
             useGrouping: false,
         };
+    },
+    /**
+     * Load the configured tares unless they're forced from the view options
+     * @override
+     */
+    async willStart() {
+        await this._super(...arguments);
+        if (this.tares || !this.uom || !this.uom.id) {
+            return;
+        }
+        this.can_configure_tares = await session.user_has_group(
+            "stock.group_stock_manager"
+        );
+        await this._loadTares();
+    },
+    /**
+     * Fetch the configured tares for the widget UoM
+     */
+    async _loadTares() {
+        this.tares = await this._rpc({
+            model: "weighing.tare",
+            method: "get_widget_tares",
+            args: [this.uom.id],
+        });
     },
     /**
      * Number formatting helper
@@ -63,6 +89,7 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
         this.$el.prepend(
             qweb.render(this._template, {
                 tares: this.tares || [],
+                can_configure_tares: this.can_configure_tares,
                 uom_name: (this.uom && this.uom.name) || "",
                 amount: this.input_val,
                 device_name:
@@ -174,6 +201,28 @@ export const RemoteMeasureForm = RemoteMeasure.extend({
                 renderHeader: false,
             }).open();
         });
+    },
+    /**
+     * Open the tares configuration wizard and refresh the widget once saved
+     * @param {Event} ev
+     */
+    _onConfigureTares(ev) {
+        ev.preventDefault();
+        this.measure_stop();
+        new FormViewDialog(this, {
+            res_model: "weighing.tare.wizard",
+            title: _t("Configure tares"),
+            disable_multiple_selection: true,
+            on_saved: async (record) => {
+                await this._rpc({
+                    model: "weighing.tare.wizard",
+                    method: "action_apply",
+                    args: [[record.res_id]],
+                });
+                await this._loadTares();
+                this._render();
+            },
+        }).open();
     },
     /**
      * Upgrade the measure counter
