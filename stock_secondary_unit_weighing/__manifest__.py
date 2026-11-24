@@ -7,6 +7,7 @@
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/stock-weighing",
     "license": "AGPL-3",
+    "maintainers": ["sergio-teruel", "carlosdauden"],
     "category": "Inventory",
     "depends": [
         "stock_weighing",
